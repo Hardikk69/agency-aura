@@ -37,7 +37,7 @@ export function Navbar() {
     <header className="sticky top-0 z-40 w-full animate-slide-down">
       <nav
         aria-label="Primary"
-        className="liquid-glass relative w-full flex items-center justify-between border-b border-white/30 dark:border-white/10 px-4 sm:px-6 md:px-10 py-3 md:py-4"
+        className="liquid-glass relative w-full flex items-center justify-between border-b border-white/30 dark:border-white/10 px-0 py-3 md:py-4"
       >
         <Link to="/" className="flex items-center gap-2">
           <span className="font-semibold text-lg md:text-xl tracking-tight text-neutral-900 dark:text-neutral-100">
