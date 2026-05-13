@@ -34,10 +34,10 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full px-3 sm:px-4 md:px-6 pt-4 md:pt-6 animate-slide-down">
+    <header className="sticky top-0 z-40 w-full animate-slide-down">
       <nav
         aria-label="Primary"
-        className="mx-auto max-w-7xl flex items-center justify-between rounded-2xl md:rounded-3xl border border-neutral-200/70 dark:border-neutral-800 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-md shadow-2xl shadow-neutral-900/5 dark:shadow-black/40 px-4 sm:px-6 md:px-8 py-3 md:py-4"
+        className="liquid-glass relative w-full flex items-center justify-between border-b border-white/30 dark:border-white/10 px-4 sm:px-6 md:px-10 py-3 md:py-4"
       >
         <Link to="/" className="flex items-center gap-2">
           <span className="font-semibold text-lg md:text-xl tracking-tight text-neutral-900 dark:text-neutral-100">
