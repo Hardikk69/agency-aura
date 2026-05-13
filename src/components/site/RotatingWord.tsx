@@ -14,16 +14,18 @@ export function RotatingWord({ words, interval = 2200 }: { words: string[]; inte
       </span>
       <span className="col-start-1 row-start-1 relative overflow-hidden">
         {words.map((w, idx) => (
-          <span
+          <div
             key={w}
-            className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-neutral-900 to-neutral-600 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent transition-all duration-500 ease-out"
+            className="absolute inset-0 flex flex-col items-center justify-center text-center transition-all duration-500 ease-out"
             style={{
               opacity: idx === i ? 1 : 0,
               transform: `translateY(${idx === i ? "0" : idx < i ? "-100%" : "100%"})`,
             }}
           >
-            {w}
-          </span>
+            <span className="bg-gradient-to-r from-neutral-900 to-neutral-600 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent">
+              {w}
+            </span>
+          </div>
         ))}
       </span>
     </span>

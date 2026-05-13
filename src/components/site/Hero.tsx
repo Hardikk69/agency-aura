@@ -8,14 +8,15 @@ export function Hero() {
       <div aria-hidden className="pointer-events-none absolute inset-0 hero-checker" />
       <div aria-hidden className="pointer-events-none absolute inset-0 hero-checker-fade" />
       <div className="relative mx-auto max-w-5xl text-center">
-        <h1
-          className="animate-fade-up text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.02] tracking-tight text-neutral-950 dark:text-white"
+        <div
+          className="animate-fade-up text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.02] tracking-tight text-neutral-950 dark:text-white flex flex-col items-center"
           style={{ animationDelay: "0.05s" }}
         >
-          We build what makes
-          <br />
-          your <RotatingWord words={["Designing", "Editing", "Automation"]} /> grow
-        </h1>
+          <span>We build what makes</span>
+          <div className="flex flex-col items-center mt-4 mb-4">
+            <RotatingWord words={["Designing", "Editing", "Automation"]} />
+          </div>
+        </div>
         <p
           className="animate-fade-up mx-auto mt-6 md:mt-8 max-w-2xl text-lg md:text-xl font-medium text-neutral-700 dark:text-neutral-300"
           style={{ animationDelay: "0.2s" }}
