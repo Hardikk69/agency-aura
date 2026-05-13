@@ -13,7 +13,7 @@ export function Hero() {
           style={{ animationDelay: "0.05s" }}
         >
           <span>We build what makes</span>
-          <div className="flex flex-col items-center mt-8 mb-8">
+          <div className="flex flex-col items-center mt-4 mb-4">
             <RotatingWord words={["Designing", "Editing", "Automation"]} />
           </div>
         </div>
