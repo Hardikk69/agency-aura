@@ -37,15 +37,15 @@ export function Navbar() {
     <header className="sticky top-0 z-40 w-full animate-slide-down">
       <nav
         aria-label="Primary"
-        className="liquid-glass relative w-full border-b border-white/30 dark:border-white/10 px-0 py-3 md:py-4 flex-row flex items-center justify-between text-xl"
+        className="liquid-glass relative w-full border-b border-white/30 dark:border-white/10 px-0 py-3 md:py-4 flex flex-row items-center text-xl"
       >
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2 mr-6">
           <span className="font-semibold text-lg md:text-xl tracking-tight text-neutral-900 dark:text-neutral-100">
             Wibify
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-1 text-sm">
+        <div className="hidden md:flex items-center gap-0 text-sm">
           <div
             className="relative"
             onMouseEnter={handleEnter}
