@@ -35,10 +35,15 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-screen flex justify-center px-4 pt-4 animate-slide-down">
+    <header className="sticky top-0 z-50 w-full flex justify-center px-4 py-4 pointer-events-none">
       <nav
         aria-label="Primary"
-        className="liquid-glass w-full max-w-2xl rounded-2xl border border-white/30 dark:border-white/10 px-6 py-3 md:py-4 flex items-center justify-center backdrop-blur-s"
+        className="pointer-events-auto relative w-full max-w-2xl rounded-2xl border border-white/20 dark:border-white/10 px-6 py-3 md:py-4 flex items-center justify-center overflow-hidden bg-white/10 dark:bg-white/5"
+        style={{
+          backdropFilter: "blur(20px) saturate(180%)",
+          WebkitBackdropFilter: "blur(20px) saturate(180%)",
+          transform: "translateZ(0)",
+        }}
       >
         <Link to="/" className="flex items-center gap-2 mr-4">
           <Logo />

@@ -18,7 +18,7 @@ export function Hero() {
             lightSpread={0.5}
             rayLength={3}
             followMouse={true}
-            mouseInfluence={0.1}
+            mouseInfluence={0.25}
             noiseAmount={0}
             distortion={0}
             pulsating={false}

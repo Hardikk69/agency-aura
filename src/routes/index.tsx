@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { Services } from "@/components/site/Services";
+import { Portfolio } from "@/components/site/Portfolio";
 import { FloatingWidgets } from "@/components/site/FloatingWidgets";
 import { GradualBlur } from "@/components/site/GradualBlur";
 
@@ -19,8 +20,7 @@ function Index() {
             <Navbar />
             <Hero />
             <Services />
-
-            <section id="portfolio" className="min-h-[20vh]" />
+            <Portfolio />
             <section id="faq" className="min-h-[20vh]" />
             <section id="about" className="min-h-[20vh]" />
             <section id="contact" className="min-h-[10vh]" />
