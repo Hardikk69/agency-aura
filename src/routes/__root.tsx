@@ -80,6 +80,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Vertex Media House" },
+      { name: "twitter:description", content: "Vertex Media House Generated Project" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7c1cf225-a6ca-4242-a375-8f9107d0b59d/id-preview-3b216c31--4e4bdf54-aa10-47e6-a843-cf4818e551cc.lovable.app-1778734852182.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7c1cf225-a6ca-4242-a375-8f9107d0b59d/id-preview-3b216c31--4e4bdf54-aa10-47e6-a843-cf4818e551cc.lovable.app-1778734852182.png" },
     ],
     links: [
       {
