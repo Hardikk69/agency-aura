@@ -1,13 +1,33 @@
 import { Button } from "@/components/ui/button";
 import { LogoMarquee } from "./Marquee";
 import { RotatingWord } from "./RotatingWord";
+import { LightRays } from "./LightRays";
+import { useTheme } from "@/components/theme-provider";
 
 export function Hero() {
+  const { theme } = useTheme();
+
   return (
     <section className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-24 md:py-36">
-      <div aria-hidden className="pointer-events-none absolute inset-0 hero-checker" />
-      <div aria-hidden className="pointer-events-none absolute inset-0 hero-checker-fade" />
-      <div className="relative mx-auto max-w-7xl text-center">
+      {theme === "dark" && (
+        <div className="absolute inset-0 z-0">
+          <LightRays
+            raysOrigin="top-center"
+            raysColor="#ffffff"
+            raysSpeed={1}
+            lightSpread={0.5}
+            rayLength={3}
+            followMouse={true}
+            mouseInfluence={0.1}
+            noiseAmount={0}
+            distortion={0}
+            pulsating={false}
+            fadeDistance={1}
+            saturation={1}
+          />
+        </div>
+      )}
+      <div className="relative mx-auto max-w-7xl text-center z-10">
         <div
           className="animate-fade-up text-6xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-neutral-950 dark:text-white flex flex-col items-center justify-center font-Bricolage Grotesque"
           style={{ animationDelay: "0.05s" }}
