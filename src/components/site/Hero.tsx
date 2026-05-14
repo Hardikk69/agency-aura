@@ -7,9 +7,9 @@ export function Hero() {
     <section className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-24 md:py-36">
       <div aria-hidden className="pointer-events-none absolute inset-0 hero-checker" />
       <div aria-hidden className="pointer-events-none absolute inset-0 hero-checker-fade" />
-      <div className="relative mx-auto max-w-5xl text-center">
+      <div className="relative mx-auto max-w-7xl text-center">
         <div
-          className="animate-fade-up text-5xl md:text-7xl lg:text-6xl font-bold leading-tight tracking-tight text-neutral-950 dark:text-white flex flex-col items-center font-Bricolage Grotesque"
+          className="animate-fade-up text-6xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-neutral-950 dark:text-white flex flex-col items-center justify-center font-Bricolage Grotesque"
           style={{ animationDelay: "0.05s" }}
         >
           <span>We help business & creators with</span>
@@ -23,7 +23,7 @@ export function Hero() {
           className="animate-fade-up mx-auto mt-6 md:mt-8 max-w-2xl text-lg md:text-xl font-medium text-neutral-700 dark:text-neutral-300"
           style={{ animationDelay: "0.2s" }}
         >
-         We work as creative and tech team handaling boring stuff so that you can focus on taking your business to <b> the mooooooooon</b>
+          We work as creative and tech team handaling boring stuff so that you can focus on taking your business to <b> the mooooooooon!</b>
         </p>
         <div
           className="animate-fade-up mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-3"
@@ -31,14 +31,14 @@ export function Hero() {
         >
           <Button
             asChild
-            className="rounded-xl px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03]"
+            className="rounded-x px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03]"
           >
             <a href="#contact">Book a Call</a>
           </Button>
           <Button
             asChild
             variant="outline"
-            className="rounded-xl px-6 py-3 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            className="rounded-x px-6 py-3 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800"
           >
             <a href="#portfolio">Our Services</a>
           </Button>

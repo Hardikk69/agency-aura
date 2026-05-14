@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Logo } from "./Logo";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -37,15 +38,13 @@ export function Navbar() {
     <header className="sticky top-0 z-40 w-screen flex justify-center px-4 pt-4 animate-slide-down">
       <nav
         aria-label="Primary"
-        className="liquid-glass w-full max-w-4xl rounded-2xl border border-white/30 dark:border-white/10 px-6 py-3 md:py-4 flex items-center justify-center"
+        className="liquid-glass w-full max-w-2xl rounded-2xl border border-white/30 dark:border-white/10 px-6 py-3 md:py-4 flex items-center justify-center backdrop-blur-s"
       >
-        <Link to="/" className="flex items-center gap-2 mr-12">
-          <span className="font-semibold text-lg md:text-xl tracking-tight text-neutral-900 dark:text-neutral-100">
-            Vertex Media House
-          </span>
+        <Link to="/" className="flex items-center gap-2 mr-4">
+          <Logo />
         </Link>
 
-        <div className="hidden md:flex items-center gap-1 text-sm mr-12">
+        <div className="hidden md:flex items-center gap-1 text-sm mr-4">
           <div
             className="relative"
             onMouseEnter={handleEnter}
@@ -105,15 +104,15 @@ export function Navbar() {
         <div className="hidden md:block">
           <Button
             asChild
-            className="rounded-full bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03]"
+            className="rounded-x bg-green-500 text-white hover:bg-green-600 dark:bg-green-500 dark:text-white dark:hover:bg-green-600 transition-transform hover:scale-[1.03] ml-4"
           >
-            <a href="#contact">Get a Quote</a>
+            <a href="https://wa.me/+919734437070">Whatsapp</a>
           </Button>
           <Button
             asChild
-            className="rounded-full bg-green-500 text-white hover:bg-green-600 dark:bg-green-500 dark:text-white dark:hover:bg-green-600 transition-transform hover:scale-[1.03] ml-2"
+            className="rounded-x bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03] ml-2"
           >
-            <a href="https://wa.me/+919734437070">Whatsapp</a>
+            <a href="#contact">Get a Quote</a>
           </Button>
         </div>
 

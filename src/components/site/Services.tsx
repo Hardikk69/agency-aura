@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import SpotlightCard from "./SpotlightCard";
+import { Button } from "../ui/button";
 
 type Service = {
   icon: React.ComponentType<{ className?: string }>;
@@ -17,8 +18,6 @@ type Service = {
   description: string;
   tag: string;
   features: string[];
-  proofLabel: string;
-  proofValue: string;
   images: string;
 };
 
@@ -30,31 +29,25 @@ const services: Service[] = [
       "We research the market, build the narrative arc, and design the slides, so your round closes on the...",
     tag: "EDIT",
     features: ["Narrative arc + Storyline", "Market research", "Custom-designed slides"],
-    proofLabel: "PROOF",
-    proofValue: "$25M+ raised",
     images: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2340&auto=format&fit=crop",
   },
   {
     icon: Code2,
     title: "Web Design & UI/UX",
     description:
-      "Conversion-focused interfaces crafted with obsessive attention to typography, spacing and motion.",
+      "Conversion-focused interfaces crafted with obsessive attention to typography and motion.",
     tag: "DESIGN",
     features: ["Obsessive attention to detail", "High-fidelity prototypes", "Design systems & tokens"],
-    proofLabel: "PROOF",
-    proofValue: "100+ projects",
     images: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
-    
+
   },
   {
     icon: Bot,
     title: "AI Integration",
     description:
-    "ChatGPT-powered assistants, automations and bots embedded directly into your product.",
+      "ChatGPT-powered assistants, automations and bots embedded directly into your product.",
     tag: "AUTOMATE",
     features: ["Custom RAG pipelines", "LLM fine-tuning", "Agentic workflows"],
-    proofLabel: "PROOF",
-    proofValue: "50% efficiency gain",
     images: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
   },
 ];
@@ -64,7 +57,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
     <SpotlightCard
       className={cn(
-        "group h-full p-7 md:p-8 rounded-2xl",
+        "group h-full p-5 md:p-6 rounded-2xl",
         "liquid-glass dark:!bg-white/[0.04] dark:!shadow-none",
         "border-white/40 dark:border-white/10",
         "backdrop-blur-xl backdrop-saturate-150",
@@ -74,15 +67,13 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
     >
       <div style={{ animationDelay: `${index * 60}ms` }} className="relative flex flex-col h-full">
         {/* Image Grid Container */}
-        <div className="relative aspect-[1.4/1] w-full overflow-hidden rounded-xl bg-black/40 mb-8">
-        
-              <div className="relative h-full w-full overflow-hidden rounded-lg bg-neutral-900/50">
-                <img
-                  src={service.images}
-                  alt=""
-                  className="h-full w-full object-cover opacity-80"
-                />
-          
+        <div className="relative aspect-[1.4/1] w-full overflow-hidden rounded-xl bg-black/40 mb-6">
+          <div className="relative h-full w-full overflow-hidden rounded-lg bg-neutral-900/50">
+            <img
+              src={service.images}
+              alt=""
+              className="h-full w-full object-cover opacity-80"
+            />
           </div>
         </div>
 
@@ -95,15 +86,15 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           </div>
         </div>
 
-        <h3 className="mt-6 text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">
+        <h3 className="mt-4 text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">
           {service.title}
         </h3>
-        
-        <p className="mt-3 text-sm md:text-[15px] leading-relaxed text-neutral-600 dark:text-neutral-400">
+
+        <p className="mt-2 text-sm md:text-[15px] leading-snug text-neutral-600 dark:text-neutral-400">
           {service.description}
         </p>
 
-        <ul className="mt-7 space-y-3.5">
+        <ul className="mt-5 space-y-2">
           {service.features.map((feature, i) => (
             <li key={i} className="flex items-center gap-3 text-[14px] text-neutral-600 dark:text-neutral-400">
               <div className="h-1 w-1 rounded-full bg-neutral-400 dark:bg-neutral-600" />
@@ -112,14 +103,14 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           ))}
         </ul>
 
-        {/* Footer */}
-        <div className="mt-auto pt-10 flex items-center justify-between">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500">
-            {service.proofLabel}
-          </span>
-          <span className="text-[15px] font-semibold tracking-tight text-neutral-900 dark:text-white">
-            {service.proofValue}
-          </span>
+        <div className="mt-6 flex justify-start">
+          <Button
+            asChild
+            variant="outline"
+            className="rounded-x px-6 py-3 h-auto w-fit border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-transform hover:scale-[1.03]"
+          >
+            <a href="#portfolio">Our Services</a>
+          </Button>
         </div>
       </div>
     </SpotlightCard>
@@ -147,7 +138,7 @@ export function Services() {
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neutral-300/60 dark:via-white/10 to-transparent"
       />
 
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-7xl">
         <div className="flex flex-col items-center text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-medium text-neutral-600 dark:text-neutral-300">
             <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
