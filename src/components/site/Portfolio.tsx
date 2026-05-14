@@ -92,8 +92,8 @@ export function Portfolio() {
                   <div key={index} className="w-[170px] md:w-[300px] flex-shrink-0">
                     <SpotlightCard
                       className="group h-full p-4 md:p-5 rounded-[2.5rem] liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl"
-                      spotlightColor="rgba(249, 115, 22, 0.15)"
-                      darkSpotlightColor="rgba(249, 115, 22, 0.2)"
+                      spotlightColor="rgba(120, 140, 180, 0.28)"
+                      darkSpotlightColor="rgba(255, 255, 255, 0.18)"
                     >
                       <div className="relative aspect-[9/16] w-full overflow-hidden rounded-[1.5rem] bg-neutral-900/50">
                         <iframe loading="lazy" src={src} className="absolute inset-0 h-full w-full border-none" />
