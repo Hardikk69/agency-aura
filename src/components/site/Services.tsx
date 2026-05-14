@@ -9,6 +9,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import SpotlightCard from "./SpotlightCard";
 
 type Service = {
   icon: React.ComponentType<{ className?: string }>;
@@ -65,58 +66,23 @@ const services: Service[] = [
 function ServiceCard({ service, index }: { service: Service; index: number }) {
   const Icon = service.icon;
   return (
-    <div
+    <SpotlightCard
       className={cn(
-        "group relative rounded-2xl p-px overflow-hidden",
-        "transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-        "hover:-translate-y-2 hover:scale-[1.01] will-change-transform",
+        "group h-full p-7 md:p-8 rounded-2xl",
+        "border-neutral-200/70 dark:border-white/10",
+        "bg-white/70 dark:bg-white/[0.04]",
+        "backdrop-blur-xl backdrop-saturate-150",
       )}
-      style={{ animationDelay: `${index * 60}ms` }}
+      spotlightColor="rgba(255, 255, 255, 0.18)"
     >
-      {/* gradient border */}
-      <div
-        aria-hidden
-        className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/15 to-white/5 dark:from-white/12 dark:to-white/[0.04] transition-opacity duration-500 group-hover:from-sky-400/40 group-hover:to-blue-500/10"
-      />
-      {/* hover ambient glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -inset-6 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{
-          background:
-            "radial-gradient(60% 60% at 50% 0%, rgba(59,130,246,0.18), transparent 70%)",
-          filter: "blur(20px)",
-        }}
-      />
-
-      <div
-        className={cn(
-          "relative h-full rounded-[15px] p-7 md:p-8",
-          "bg-white/70 dark:bg-white/[0.04]",
-          "backdrop-blur-xl backdrop-saturate-150",
-          "shadow-[0_1px_0_0_rgba(255,255,255,0.5)_inset,0_20px_40px_-24px_rgba(15,23,42,0.18)]",
-          "dark:shadow-[0_1px_0_0_rgba(255,255,255,0.06)_inset,0_30px_60px_-30px_rgba(0,0,0,0.6)]",
-          "transition-shadow duration-500",
-          "group-hover:shadow-[0_1px_0_0_rgba(255,255,255,0.5)_inset,0_30px_60px_-20px_rgba(59,130,246,0.25)]",
-          "dark:group-hover:shadow-[0_1px_0_0_rgba(255,255,255,0.08)_inset,0_40px_80px_-30px_rgba(59,130,246,0.35)]",
-        )}
-      >
-        {/* inner subtle highlight */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-[15px] bg-gradient-to-b from-white/40 via-transparent to-transparent dark:from-white/[0.06] opacity-60"
-        />
-
-        <div className="relative flex items-center justify-between">
+      <div style={{ animationDelay: `${index * 60}ms` }} className="relative">
+        <div className="flex items-center justify-between">
           <div
             className={cn(
               "inline-flex h-11 w-11 items-center justify-center rounded-xl",
               "border border-neutral-200/70 dark:border-white/10",
               "bg-white/80 dark:bg-white/[0.04]",
               "text-neutral-800 dark:text-neutral-100",
-              "transition-colors duration-500",
-              "group-hover:text-sky-500 dark:group-hover:text-sky-300",
-              "group-hover:border-sky-400/40",
             )}
           >
             <Icon className="h-5 w-5" />
@@ -126,19 +92,19 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           </span>
         </div>
 
-        <h3 className="relative mt-7 text-xl md:text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">
+        <h3 className="mt-7 text-xl md:text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">
           {service.title}
         </h3>
-        <p className="relative mt-3 text-sm md:text-[15px] leading-relaxed text-neutral-600 dark:text-neutral-400">
+        <p className="mt-3 text-sm md:text-[15px] leading-relaxed text-neutral-600 dark:text-neutral-400">
           {service.description}
         </p>
 
-        <div className="relative mt-8 flex items-center gap-2 text-sm font-medium text-neutral-700 dark:text-neutral-300 transition-colors duration-500 group-hover:text-sky-500 dark:group-hover:text-sky-300">
+        <div className="mt-8 flex items-center gap-2 text-sm font-medium text-neutral-700 dark:text-neutral-300">
           <span>Learn more</span>
-          <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <ArrowUpRight className="h-4 w-4" />
         </div>
       </div>
-    </div>
+    </SpotlightCard>
   );
 }
 
