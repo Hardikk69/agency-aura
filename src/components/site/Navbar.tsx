@@ -109,6 +109,12 @@ export function Navbar() {
           >
             <a href="#contact">Get a Quote</a>
           </Button>
+          <Button
+            asChild
+            className="rounded-full bg-green-500 text-white hover:bg-green-600 dark:bg-green-500 dark:text-white dark:hover:bg-green-600 transition-transform hover:scale-[1.03] ml-2"
+          >
+            <a href="https://wa.me/+919734437070">Whatsapp</a>
+          </Button>
         </div>
 
         <div className="md:hidden">

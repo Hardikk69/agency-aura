@@ -23,7 +23,7 @@ export function Hero() {
           className="animate-fade-up mx-auto mt-6 md:mt-8 max-w-2xl text-lg md:text-xl font-medium text-neutral-700 dark:text-neutral-300"
           style={{ animationDelay: "0.2s" }}
         >
-          Websites, web apps and custom software all from one hand, perfectly tailored to your business.
+         We work as creative and tech team handaling boring stuff so that you can focus on taking your business to <b> the mooooooooon</b>
         </p>
         <div
           className="animate-fade-up mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-3"
@@ -31,16 +31,16 @@ export function Hero() {
         >
           <Button
             asChild
-            className="rounded-full px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03]"
+            className="rounded-xl px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03]"
           >
-            <a href="#contact">Get a Quote</a>
+            <a href="#contact">Book a Call</a>
           </Button>
           <Button
             asChild
             variant="outline"
-            className="rounded-full px-6 py-3 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            className="rounded-xl px-6 py-3 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800"
           >
-            <a href="#portfolio">See Portfolio</a>
+            <a href="#portfolio">Our Services</a>
           </Button>
         </div>
 

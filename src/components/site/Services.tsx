@@ -16,55 +16,51 @@ type Service = {
   title: string;
   description: string;
   tag: string;
+  features: string[];
+  proofLabel: string;
+  proofValue: string;
+  images: string;
 };
 
 const services: Service[] = [
   {
     icon: Sparkles,
-    title: "Web Design & UI/UX",
+    title: "Pitch Decks",
     description:
-      "Conversion-focused interfaces crafted with obsessive attention to typography, spacing and motion.",
-    tag: "Design",
+      "We research the market, build the narrative arc, and design the slides, so your round closes on the...",
+    tag: "EDIT",
+    features: ["Narrative arc + Storyline", "Market research", "Custom-designed slides"],
+    proofLabel: "PROOF",
+    proofValue: "$25M+ raised",
+    images: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2340&auto=format&fit=crop",
   },
   {
     icon: Code2,
-    title: "Web Development",
+    title: "Web Design & UI/UX",
     description:
-      "Production-grade Next.js, React and TypeScript builds engineered for performance and scale.",
-    tag: "Engineering",
-  },
-  {
-    icon: Search,
-    title: "SEO Optimization",
-    description:
-      "Technical SEO, content architecture and Core Web Vitals tuned to climb Google rankings.",
-    tag: "Growth",
+      "Conversion-focused interfaces crafted with obsessive attention to typography, spacing and motion.",
+    tag: "DESIGN",
+    features: ["Obsessive attention to detail", "High-fidelity prototypes", "Design systems & tokens"],
+    proofLabel: "PROOF",
+    proofValue: "100+ projects",
+    images: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
+    
   },
   {
     icon: Bot,
     title: "AI Integration",
     description:
-      "ChatGPT-powered assistants, automations and bots embedded directly into your product.",
-    tag: "AI",
-  },
-  {
-    icon: Cpu,
-    title: "AI Systems",
-    description:
-      "Custom AI pipelines, RAG, and agent workflows tailored to your data and operations.",
-    tag: "Systems",
-  },
-  {
-    icon: Layers,
-    title: "Software Development",
-    description:
-      "Bespoke applications, internal tools and platforms built end-to-end by a senior team.",
-    tag: "Product",
+    "ChatGPT-powered assistants, automations and bots embedded directly into your product.",
+    tag: "AUTOMATE",
+    features: ["Custom RAG pipelines", "LLM fine-tuning", "Agentic workflows"],
+    proofLabel: "PROOF",
+    proofValue: "50% efficiency gain",
+    images: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
   },
 ];
 
+
 function ServiceCard({ service, index }: { service: Service; index: number }) {
-  const Icon = service.icon;
   return (
     <SpotlightCard
       className={cn(
@@ -76,38 +72,60 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       spotlightColor="rgba(120, 140, 180, 0.28)"
       darkSpotlightColor="rgba(255, 255, 255, 0.18)"
     >
-      <div style={{ animationDelay: `${index * 60}ms` }} className="relative">
-        <div className="flex items-center justify-between">
-          <div
-            className={cn(
-              "inline-flex h-11 w-11 items-center justify-center rounded-xl",
-              "border border-neutral-200/70 dark:border-white/10",
-              "bg-white/80 dark:bg-white/[0.04]",
-              "text-neutral-800 dark:text-neutral-100",
-            )}
-          >
-            <Icon className="h-5 w-5" />
+      <div style={{ animationDelay: `${index * 60}ms` }} className="relative flex flex-col h-full">
+        {/* Image Grid Container */}
+        <div className="relative aspect-[1.4/1] w-full overflow-hidden rounded-xl bg-black/40 mb-8">
+        
+              <div className="relative h-full w-full overflow-hidden rounded-lg bg-neutral-900/50">
+                <img
+                  src={service.images}
+                  alt=""
+                  className="h-full w-full object-cover opacity-80"
+                />
+          
           </div>
-          <span className="text-[11px] uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
-            {service.tag}
-          </span>
         </div>
 
-        <h3 className="mt-7 text-xl md:text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">
+        <div className="flex items-center justify-between">
+          <span className="inline-flex items-center rounded-lg border border-neutral-200/50 dark:border-white/10 bg-white/50 dark:bg-white/[0.04] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-neutral-800 dark:text-neutral-200">
+            {service.tag}
+          </span>
+          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200/50 dark:border-white/10 bg-white/50 dark:bg-white/[0.02] text-neutral-500 dark:text-neutral-400">
+            <ArrowUpRight className="h-4 w-4" />
+          </div>
+        </div>
+
+        <h3 className="mt-6 text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">
           {service.title}
         </h3>
+        
         <p className="mt-3 text-sm md:text-[15px] leading-relaxed text-neutral-600 dark:text-neutral-400">
           {service.description}
         </p>
 
-        <div className="mt-8 flex items-center gap-2 text-sm font-medium text-neutral-700 dark:text-neutral-300">
-          <span>Learn more</span>
-          <ArrowUpRight className="h-4 w-4" />
+        <ul className="mt-7 space-y-3.5">
+          {service.features.map((feature, i) => (
+            <li key={i} className="flex items-center gap-3 text-[14px] text-neutral-600 dark:text-neutral-400">
+              <div className="h-1 w-1 rounded-full bg-neutral-400 dark:bg-neutral-600" />
+              {feature}
+            </li>
+          ))}
+        </ul>
+
+        {/* Footer */}
+        <div className="mt-auto pt-10 flex items-center justify-between">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500">
+            {service.proofLabel}
+          </span>
+          <span className="text-[15px] font-semibold tracking-tight text-neutral-900 dark:text-white">
+            {service.proofValue}
+          </span>
         </div>
       </div>
     </SpotlightCard>
   );
 }
+
 
 export function Services() {
   return (
