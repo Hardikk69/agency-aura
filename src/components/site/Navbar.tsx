@@ -34,18 +34,18 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full animate-slide-down">
+    <header className="sticky top-0 z-40 w-screen flex justify-center px-4 pt-4 animate-slide-down">
       <nav
         aria-label="Primary"
-        className="liquid-glass relative w-full border-b border-white/30 dark:border-white/10 px-0 py-3 md:py-4 flex flex-row items-center text-xl"
+        className="liquid-glass w-full max-w-4xl rounded-2xl border border-white/30 dark:border-white/10 px-6 py-3 md:py-4 flex items-center justify-center"
       >
-        <Link to="/" className="flex items-center gap-2 mr-6">
+        <Link to="/" className="flex items-center gap-2 mr-12">
           <span className="font-semibold text-lg md:text-xl tracking-tight text-neutral-900 dark:text-neutral-100">
-            Wibify
+            Vertex Media House
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-0 text-sm">
+        <div className="hidden md:flex items-center gap-1 text-sm mr-12">
           <div
             className="relative"
             onMouseEnter={handleEnter}
@@ -161,6 +161,6 @@ export function Navbar() {
           </Sheet>
         </div>
       </nav>
-    </header>
+    </header >
   );
 }

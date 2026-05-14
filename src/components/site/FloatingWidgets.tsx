@@ -55,7 +55,7 @@ export function FloatingWidgets() {
       <WidgetButton
         label="WhatsApp"
         ariaLabel="Contact us on WhatsApp"
-        href="https://wa.me/"
+        href="https://wa.me/+919374437070"
         hoverClass="hover:text-green-600 hover:border-green-500/40"
       >
         <MessageCircle className="h-5 w-5" />

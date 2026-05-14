@@ -12,7 +12,7 @@ export function RotatingWord({ words, interval = 2200 }: { words: string[]; inte
       <span aria-hidden className="invisible col-start-1 row-start-1 whitespace-nowrap">
         {longest}
       </span>
-      <span className="col-start-1 row-start-1 relative overflow-hidden">
+      <span className="col-start-1 row-start-1 relative overflow-hidden pb-8">
         {words.map((w, idx) => (
           <div
             key={w}

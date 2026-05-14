@@ -9,12 +9,14 @@ export function Hero() {
       <div aria-hidden className="pointer-events-none absolute inset-0 hero-checker-fade" />
       <div className="relative mx-auto max-w-5xl text-center">
         <div
-          className="animate-fade-up text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.02] tracking-tight text-neutral-950 dark:text-white flex flex-col items-center"
+          className="animate-fade-up text-5xl md:text-7xl lg:text-6xl font-bold leading-tight tracking-tight text-neutral-950 dark:text-white flex flex-col items-center font-Bricolage Grotesque"
           style={{ animationDelay: "0.05s" }}
         >
-          <span>We build what makes</span>
-          <div className="flex flex-col items-center mt-4 mb-4">
-            <RotatingWord words={["Designing", "Editing", "Automation"]} />
+          <span>We help business & creators with</span>
+          <div className="flex flex-col items-center mt-4" >
+            <div className="text-6xl md:text-8xl lg:text-9xl leading-none font-extrabold">
+              <RotatingWord words={["Designing", "Editing", "Automation"]} />
+            </div>
           </div>
         </div>
         <p
