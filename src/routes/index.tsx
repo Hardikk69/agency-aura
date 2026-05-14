@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
+import { Services } from "@/components/site/Services";
 import { FloatingWidgets } from "@/components/site/FloatingWidgets";
 
 export const Route = createFileRoute("/")({
@@ -16,8 +17,8 @@ function Index() {
           <div className="relative">
             <Navbar />
             <Hero />
+            <Services />
 
-            <section id="services" className="min-h-[20vh]" />
             <section id="portfolio" className="min-h-[20vh]" />
             <section id="faq" className="min-h-[20vh]" />
             <section id="about" className="min-h-[20vh]" />

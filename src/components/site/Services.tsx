@@ -1,0 +1,188 @@
+import * as React from "react";
+import {
+  Sparkles,
+  Code2,
+  Search,
+  Bot,
+  Cpu,
+  Layers,
+  ArrowUpRight,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+
+type Service = {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  tag: string;
+};
+
+const services: Service[] = [
+  {
+    icon: Sparkles,
+    title: "Web Design & UI/UX",
+    description:
+      "Conversion-focused interfaces crafted with obsessive attention to typography, spacing and motion.",
+    tag: "Design",
+  },
+  {
+    icon: Code2,
+    title: "Web Development",
+    description:
+      "Production-grade Next.js, React and TypeScript builds engineered for performance and scale.",
+    tag: "Engineering",
+  },
+  {
+    icon: Search,
+    title: "SEO Optimization",
+    description:
+      "Technical SEO, content architecture and Core Web Vitals tuned to climb Google rankings.",
+    tag: "Growth",
+  },
+  {
+    icon: Bot,
+    title: "AI Integration",
+    description:
+      "ChatGPT-powered assistants, automations and bots embedded directly into your product.",
+    tag: "AI",
+  },
+  {
+    icon: Cpu,
+    title: "AI Systems",
+    description:
+      "Custom AI pipelines, RAG, and agent workflows tailored to your data and operations.",
+    tag: "Systems",
+  },
+  {
+    icon: Layers,
+    title: "Software Development",
+    description:
+      "Bespoke applications, internal tools and platforms built end-to-end by a senior team.",
+    tag: "Product",
+  },
+];
+
+function ServiceCard({ service, index }: { service: Service; index: number }) {
+  const Icon = service.icon;
+  return (
+    <div
+      className={cn(
+        "group relative rounded-2xl p-px overflow-hidden",
+        "transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        "hover:-translate-y-2 hover:scale-[1.01] will-change-transform",
+      )}
+      style={{ animationDelay: `${index * 60}ms` }}
+    >
+      {/* gradient border */}
+      <div
+        aria-hidden
+        className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/15 to-white/5 dark:from-white/12 dark:to-white/[0.04] transition-opacity duration-500 group-hover:from-sky-400/40 group-hover:to-blue-500/10"
+      />
+      {/* hover ambient glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -inset-6 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{
+          background:
+            "radial-gradient(60% 60% at 50% 0%, rgba(59,130,246,0.18), transparent 70%)",
+          filter: "blur(20px)",
+        }}
+      />
+
+      <div
+        className={cn(
+          "relative h-full rounded-[15px] p-7 md:p-8",
+          "bg-white/70 dark:bg-white/[0.04]",
+          "backdrop-blur-xl backdrop-saturate-150",
+          "shadow-[0_1px_0_0_rgba(255,255,255,0.5)_inset,0_20px_40px_-24px_rgba(15,23,42,0.18)]",
+          "dark:shadow-[0_1px_0_0_rgba(255,255,255,0.06)_inset,0_30px_60px_-30px_rgba(0,0,0,0.6)]",
+          "transition-shadow duration-500",
+          "group-hover:shadow-[0_1px_0_0_rgba(255,255,255,0.5)_inset,0_30px_60px_-20px_rgba(59,130,246,0.25)]",
+          "dark:group-hover:shadow-[0_1px_0_0_rgba(255,255,255,0.08)_inset,0_40px_80px_-30px_rgba(59,130,246,0.35)]",
+        )}
+      >
+        {/* inner subtle highlight */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 rounded-[15px] bg-gradient-to-b from-white/40 via-transparent to-transparent dark:from-white/[0.06] opacity-60"
+        />
+
+        <div className="relative flex items-center justify-between">
+          <div
+            className={cn(
+              "inline-flex h-11 w-11 items-center justify-center rounded-xl",
+              "border border-neutral-200/70 dark:border-white/10",
+              "bg-white/80 dark:bg-white/[0.04]",
+              "text-neutral-800 dark:text-neutral-100",
+              "transition-colors duration-500",
+              "group-hover:text-sky-500 dark:group-hover:text-sky-300",
+              "group-hover:border-sky-400/40",
+            )}
+          >
+            <Icon className="h-5 w-5" />
+          </div>
+          <span className="text-[11px] uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
+            {service.tag}
+          </span>
+        </div>
+
+        <h3 className="relative mt-7 text-xl md:text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">
+          {service.title}
+        </h3>
+        <p className="relative mt-3 text-sm md:text-[15px] leading-relaxed text-neutral-600 dark:text-neutral-400">
+          {service.description}
+        </p>
+
+        <div className="relative mt-8 flex items-center gap-2 text-sm font-medium text-neutral-700 dark:text-neutral-300 transition-colors duration-500 group-hover:text-sky-500 dark:group-hover:text-sky-300">
+          <span>Learn more</span>
+          <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function Services() {
+  return (
+    <section
+      id="services"
+      className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-24 md:py-32"
+    >
+      {/* ambient background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neutral-300/60 dark:via-white/10 to-transparent"
+      />
+
+      <div className="relative mx-auto max-w-6xl">
+        <div className="flex flex-col items-center text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-medium text-neutral-600 dark:text-neutral-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
+            Services
+          </span>
+          <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-950 dark:text-white">
+            Everything you need, <span className="text-neutral-400 dark:text-neutral-500">under one roof.</span>
+          </h2>
+          <p className="mt-5 max-w-2xl text-base md:text-lg text-neutral-600 dark:text-neutral-400">
+            From design to deployment to AI — a senior team executing on every
+            layer of your product, with restraint and precision.
+          </p>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {services.map((s, i) => (
+            <ServiceCard key={s.title} service={s} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
