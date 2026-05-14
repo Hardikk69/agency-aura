@@ -4,6 +4,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { Services } from "@/components/site/Services";
 import { FloatingWidgets } from "@/components/site/FloatingWidgets";
+import { GradualBlur } from "@/components/site/GradualBlur";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -26,6 +27,7 @@ function Index() {
           </div>
         </main>
         <FloatingWidgets />
+        <GradualBlur position="bottom" height="8rem" strength={2.5} divCount={6} exponential opacity={1} />
       </div>
     </ThemeProvider>
   );
