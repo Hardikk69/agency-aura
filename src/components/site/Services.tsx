@@ -69,11 +69,12 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
     <SpotlightCard
       className={cn(
         "group h-full p-7 md:p-8 rounded-2xl",
-        "border-neutral-200/70 dark:border-white/10",
-        "bg-white/70 dark:bg-white/[0.04]",
+        "liquid-glass dark:!bg-white/[0.04] dark:!shadow-none",
+        "border-white/40 dark:border-white/10",
         "backdrop-blur-xl backdrop-saturate-150",
       )}
-      spotlightColor="rgba(255, 255, 255, 0.18)"
+      spotlightColor="rgba(120, 140, 180, 0.28)"
+      darkSpotlightColor="rgba(255, 255, 255, 0.18)"
     >
       <div style={{ animationDelay: `${index * 60}ms` }} className="relative">
         <div className="flex items-center justify-between">
