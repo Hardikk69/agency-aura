@@ -8,7 +8,7 @@ export function Hero() {
   const { theme } = useTheme();
 
   return (
-    <section className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-24 md:py-36">
+    <section className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-20 md:py-28">
       {theme === "dark" && (
         <div className="absolute inset-0 z-0">
           <LightRays

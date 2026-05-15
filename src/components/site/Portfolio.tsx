@@ -28,7 +28,7 @@ export function Portfolio() {
   const [activeTab, setActiveTab] = React.useState<Tab>("edit");
 
   return (
-    <section id="portfolio" className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-24 md:py-32 bg-white dark:bg-black/50">
+    <section id="portfolio" className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-16 md:py-24 bg-white dark:bg-black/50">
       {/* ambient background */}
       <div
         aria-hidden
@@ -91,13 +91,13 @@ export function Portfolio() {
                 {[...editVideos, ...editVideos, ...editVideos].map((src, index) => (
                   <div key={index} className="w-[170px] md:w-[300px] flex-shrink-0">
                     <SpotlightCard
-                      className="group h-full p-4 md:p-5 rounded-[2.5rem] liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl"
+                      className="group h-full p-4 md:p-5 rounded-x liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl"
                       spotlightColor="rgba(120, 140, 180, 0.28)"
                       darkSpotlightColor="rgba(255, 255, 255, 0.18)"
                     >
-                      <div className="relative aspect-[9/16] w-full overflow-hidden rounded-[1.5rem] bg-neutral-900/50">
+                      <div className="relative aspect-[9/16] w-full overflow-hidden rounded-x bg-neutral-900/50">
                         <iframe loading="lazy" src={src} className="absolute inset-0 h-full w-full border-none" />
-                        <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[1.5rem]" />
+                        <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10 rounded-x" />
                       </div>
                     </SpotlightCard>
                   </div>
@@ -119,11 +119,11 @@ export function Portfolio() {
                     )}
                   >
                     <SpotlightCard
-                      className="group h-full p-3 md:p-4 rounded-[2rem] liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl"
+                      className="group h-full p-3 md:p-4 rounded-x liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl"
                       spotlightColor="rgba(59, 130, 246, 0.15)"
                       darkSpotlightColor="rgba(59, 130, 246, 0.2)"
                     >
-                      <div className="relative h-full w-full overflow-hidden rounded-2xl bg-neutral-900/50">
+                      <div className="relative h-full w-full overflow-hidden rounded-x bg-neutral-900/50">
                         <img 
                           src={src} 
                           alt="Design portfolio" 
@@ -156,12 +156,12 @@ export function Portfolio() {
                     )}
                   >
                     <SpotlightCard
-                      className="group h-full p-6 rounded-[2.5rem] liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl"
+                      className="group h-full p-6 rounded-x liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl"
                       spotlightColor="rgba(139, 92, 246, 0.15)"
                       darkSpotlightColor="rgba(139, 92, 246, 0.2)"
                     >
                       <div className="flex flex-col h-full">
-                        <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-neutral-900/50 mb-6">
+                        <div className="relative aspect-video w-full overflow-hidden rounded-x bg-neutral-900/50 mb-6">
                            <iframe loading="lazy" src={src} className="absolute inset-0 h-full w-full border-none" />
                         </div>
                         <div className="mt-auto">
@@ -181,7 +181,7 @@ export function Portfolio() {
           <Button
             asChild
             variant="outline"
-            className="rounded-xl px-8 py-4 h-auto border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all hover:scale-[1.03] shadow-sm"
+            className="rounded-x px-8 py-4 h-auto border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all hover:scale-[1.03] shadow-sm"
           >
             <a href="#portfolio">View Full Portfolio</a>
           </Button>

@@ -57,7 +57,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
     <SpotlightCard
       className={cn(
-        "group h-full p-5 md:p-6 rounded-2xl",
+        "group h-full p-5 md:p-6 rounded-x",
         "liquid-glass dark:!bg-white/[0.04] dark:!shadow-none",
         "border-white/40 dark:border-white/10",
         "backdrop-blur-xl backdrop-saturate-150",
@@ -67,8 +67,8 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
     >
       <div style={{ animationDelay: `${index * 60}ms` }} className="relative flex flex-col h-full">
         {/* Image Grid Container */}
-        <div className="relative aspect-[1.4/1] w-full overflow-hidden rounded-xl bg-black/40 mb-6">
-          <div className="relative h-full w-full overflow-hidden rounded-lg bg-neutral-900/50">
+        <div className="relative aspect-[1.4/1] w-full overflow-hidden rounded-x bg-black/40 mb-6">
+          <div className="relative h-full w-full overflow-hidden rounded-x bg-neutral-900/50">
             <img
               src={service.images}
               alt=""
@@ -78,7 +78,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="inline-flex items-center rounded-lg border border-neutral-200/50 dark:border-white/10 bg-white/50 dark:bg-white/[0.04] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-neutral-800 dark:text-neutral-200">
+          <span className="inline-flex items-center rounded-x border border-neutral-200/50 dark:border-white/10 bg-white/50 dark:bg-white/[0.04] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-neutral-800 dark:text-neutral-200">
             {service.tag}
           </span>
           <div className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200/50 dark:border-white/10 bg-white/50 dark:bg-white/[0.02] text-neutral-500 dark:text-neutral-400">
@@ -122,7 +122,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-24 md:py-32"
+      className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-16 md:py-24"
     >
       {/* ambient background */}
       <div
