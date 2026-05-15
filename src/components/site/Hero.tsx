@@ -8,7 +8,7 @@ export function Hero() {
   const { theme } = useTheme();
 
   return (
-    <section className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-20 md:py-28">
+    <section className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-10 md:py-20">
       {theme === "dark" && (
         <div className="absolute inset-0 z-0">
           <LightRays
@@ -32,7 +32,27 @@ export function Hero() {
           className="animate-fade-up text-6xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-neutral-950 dark:text-white flex flex-col items-center justify-center font-Bricolage Grotesque"
           style={{ animationDelay: "0.05s" }}
         >
-          <span>We help business & creators with</span>
+          <span>
+            We help{" "}
+            <span className="relative inline-block">
+              business & creators
+              <svg
+                className="absolute -bottom-4 -left-[0%] w-[100%] h-2 md:h- text-orange-500"
+                viewBox="0 0 200 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M0 12C40 -1 160 -1 200 12"
+                  stroke="currentColor"
+                  strokeWidth="10"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>{" "}
+            with
+          </span>
           <div className="flex flex-col items-center mt-4" >
             <div className="text-6xl md:text-8xl lg:text-9xl leading-none font-extrabold">
               <RotatingWord words={["Designing", "Editing", "Automation"]} />
@@ -49,12 +69,22 @@ export function Hero() {
           className="animate-fade-up mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-3"
           style={{ animationDelay: "0.35s" }}
         >
-          <Button
-            asChild
-            className="rounded-x px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03]"
-          >
-            <a href="#contact">Book a Call</a>
-          </Button>
+          <div className="relative group">
+            <Button
+              asChild
+              className="rounded-x px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03]"
+            >
+              <a href="#contact">Book a Call</a>
+            </Button>
+            <div className="absolute -top-[-15px] -left-20 hidden lg:flex flex-col items-center pointer-events-none">
+              <svg className="w-16 h-12 text-[#ff4d31]/80" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 32C5 32 10 5 50 8M50 8L40 15M50 8L42 2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="text-2xl text-[#ff4d31] font-['Caveat'] -mt-3 ml-[-50px]">
+                It's free
+              </span>
+            </div>
+          </div>
           <Button
             asChild
             variant="outline"

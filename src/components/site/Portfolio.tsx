@@ -28,7 +28,7 @@ export function Portfolio() {
   const [activeTab, setActiveTab] = React.useState<Tab>("edit");
 
   return (
-    <section id="portfolio" className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-16 md:py-24 bg-white dark:bg-black/50">
+    <section id="portfolio" className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-8 md:py-12 bg-white dark:bg-black/50">
       {/* ambient background */}
       <div
         aria-hidden

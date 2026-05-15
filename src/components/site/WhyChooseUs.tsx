@@ -148,13 +148,13 @@ const features = [
 
 export function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-16 md:py-24 bg-white dark:bg-black">
+    <section id="why-choose-us" className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-8 md:py-12 bg-white dark:bg-black">
       {/* Background Ambience / Glows */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-orange-500/[0.03] blur-[120px] pointer-events-none rounded-full" />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/[0.03] blur-[120px] pointer-events-none rounded-full" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="flex flex-col items-center text-center mb-16 md:mb-24">
+        <div className="flex flex-col items-center text-center mb-8 md:mb-12">
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}

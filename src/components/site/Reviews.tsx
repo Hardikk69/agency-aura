@@ -106,7 +106,7 @@ export function Reviews() {
   const row2 = reviews.slice(4, 8);
 
   return (
-    <section id="reviews" className="relative w-full overflow-hidden py-16 md:py-24 bg-white dark:bg-black">
+    <section id="reviews" className="relative w-full overflow-hidden py-8 md:py-12 bg-white dark:bg-black">
       {/* Background Ambience */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-orange-500/[0.03] blur-[120px] pointer-events-none rounded-full" />
       
@@ -119,7 +119,7 @@ export function Reviews() {
         />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 mb-20 flex flex-col items-center text-center">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 mb-10 flex flex-col items-center text-center">
         <motion.span
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -151,22 +151,24 @@ export function Reviews() {
         </motion.p>
       </div>
 
-      <div className="relative flex flex-col gap-4">
-        {/* Row 1: Moving Left */}
-        <div className="marquee-mask relative flex overflow-hidden py-4">
-          <div className="flex animate-marquee whitespace-nowrap hover:[animation-play-state:paused]">
-            {[...row1, ...row1, ...row1].map((review, i) => (
-              <ReviewCard key={`row1-${i}`} {...review} />
-            ))}
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        <div className="relative flex flex-col gap-4">
+          {/* Row 1: Moving Left */}
+          <div className="marquee-mask relative flex overflow-hidden py-4">
+            <div className="flex animate-marquee whitespace-nowrap hover:[animation-play-state:paused]">
+              {[...row1, ...row1, ...row1].map((review, i) => (
+                <ReviewCard key={`row1-${i}`} {...review} />
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Row 2: Moving Right */}
-        <div className="marquee-mask relative flex overflow-hidden py-4">
-          <div className="flex animate-marquee-reverse whitespace-nowrap hover:[animation-play-state:paused]">
-            {[...row2, ...row2, ...row2].map((review, i) => (
-              <ReviewCard key={`row2-${i}`} {...review} />
-            ))}
+          {/* Row 2: Moving Right */}
+          <div className="marquee-mask relative flex overflow-hidden py-4">
+            <div className="flex animate-marquee-reverse whitespace-nowrap hover:[animation-play-state:paused]">
+              {[...row2, ...row2, ...row2].map((review, i) => (
+                <ReviewCard key={`row2-${i}`} {...review} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -187,8 +189,8 @@ export function Reviews() {
           animation: marquee-reverse 40s linear infinite;
         }
         .marquee-mask {
-          -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-          mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+          -webkit-mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+          mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
         }
       `}} />
     </section>

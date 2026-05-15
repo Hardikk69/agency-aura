@@ -19,7 +19,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="w-full px-4 pb-8 pt-16">
+    <footer className="w-full px-4 pb-4 pt-8">
       <div 
         className={cn(
           "relative mx-auto max-w-7xl rounded-2xl border border-white/20 dark:border-white/10 px-6 py-8 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden",

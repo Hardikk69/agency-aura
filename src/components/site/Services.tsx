@@ -122,7 +122,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-16 md:py-24"
+      className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-8 md:py-12"
     >
       {/* ambient background */}
       <div
@@ -141,11 +141,11 @@ export function Services() {
       <div className="relative mx-auto max-w-7xl">
         <div className="flex flex-col items-center text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-medium text-neutral-600 dark:text-neutral-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
+            <span className="h-1.5 w-1.5 rounded-full bg-orange-400" />
             Services
           </span>
           <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-950 dark:text-white">
-            Everything you need, <span className="text-neutral-400 dark:text-neutral-500">under one roof.</span>
+            Everything you need, <span className="text-orange-400 dark:text-orange-500">under one roof.</span>
           </h2>
           <p className="mt-5 max-w-2xl text-base md:text-lg text-neutral-600 dark:text-neutral-400">
             From design to deployment to AI — a senior team executing on every
