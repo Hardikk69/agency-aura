@@ -24,30 +24,32 @@ type Service = {
 const services: Service[] = [
   {
     icon: Sparkles,
-    title: "Pitch Decks",
+    title: "Design",
     description:
-      "We research the market, build the narrative arc, and design the slides, so your round closes on the...",
-    tag: "EDIT",
-    features: ["Narrative arc + Storyline", "Market research", "Custom-designed slides"],
+      "From your website to your social feed - every touchpoint your audience sees, built to impress and convert. ",
+    tag: "01",
+    features: ["Website Design","Pitch Deck Design","LinkedIn Carousels","Social Media Creatives","Thumbnail Design"
+    ],
     images: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2340&auto=format&fit=crop",
   },
   {
     icon: Code2,
-    title: "Web Design & UI/UX",
+    title: "Edit",
     description:
-      "Conversion-focused interfaces crafted with obsessive attention to typography and motion.",
-    tag: "DESIGN",
-    features: ["Obsessive attention to detail", "High-fidelity prototypes", "Design systems & tokens"],
+      "Raw footage in, scroll-stopping content out. Whether it's a 30-second reel or a 2-hour podcast - we handle the full edit.",
+    tag: "02",
+    features: ["Short-Form Editing (Insta, TikTok, Shorts)","Long-Form Editing","Content Repurposing Systems","Retention-Focused Storytelling","Platform-Optimized Deliverables"
+    ],
     images: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
 
   },
   {
     icon: Bot,
-    title: "AI Integration",
+    title: "Automation",
     description:
-      "ChatGPT-powered assistants, automations and bots embedded directly into your product.",
-    tag: "AUTOMATE",
-    features: ["Custom RAG pipelines", "LLM fine-tuning", "Agentic workflows"],
+      "We identify the tasks eating your time and replace them with systems that run 24/7 — no extra hires, no extra headaches.",
+    tag: "03",
+    features: ["Customised workflow automations","Email & Voice agents","Content Automation Pipelines","Lead & CRM Automation","Multi- agents System"],
     images: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
   },
 ];
@@ -72,13 +74,13 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
             <img
               src={service.images}
               alt=""
-              className="h-full w-full object-cover opacity-80"
+              className="h-full w-full object-cover opacity-80 rounded-[0.75rem]"
             />
           </div>
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="inline-flex items-center rounded-x border border-neutral-200/50 dark:border-white/10 bg-white/50 dark:bg-white/[0.04] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-neutral-800 dark:text-neutral-200">
+          <span className="inline-flex items-center rounded-sm border border-neutral-200/50 dark:border-white/10 bg-white/50 dark:bg-white/[0.04] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-neutral-800 dark:text-neutral-200">
             {service.tag}
           </span>
           <div className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200/50 dark:border-white/10 bg-white/50 dark:bg-white/[0.02] text-neutral-500 dark:text-neutral-400">
@@ -122,7 +124,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-8 md:py-12"
+      className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-12 md:py-20"
     >
       {/* ambient background */}
       <div
@@ -141,15 +143,14 @@ export function Services() {
       <div className="relative mx-auto max-w-7xl">
         <div className="flex flex-col items-center text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-medium text-neutral-600 dark:text-neutral-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-orange-400" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31]" />
             Services
           </span>
           <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-950 dark:text-white">
-            Everything you need, <span className="text-orange-400 dark:text-orange-500">under one roof.</span>
+            Everything you need, <span className="text-[#ff4d31] dark:text-[#ff4d31]">under one roof.</span>
           </h2>
           <p className="mt-5 max-w-2xl text-base md:text-lg text-neutral-600 dark:text-neutral-400">
-            From design to deployment to AI — a senior team executing on every
-            layer of your product, with restraint and precision.
+            Design that builds brands. Edits that grow audiences. Automation that saves hours. All from one team that actually talks to each other.
           </p>
         </div>
 

@@ -81,7 +81,7 @@ const FeatureCard = ({ icon: Icon, title, description, index }: FeatureCardProps
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="flex h-14 w-14 items-center justify-center rounded-xl bg-orange-500/10 text-orange-500 group-hover:scale-110 group-hover:bg-orange-500/20 transition-all duration-500"
+              className="flex h-14 w-14 items-center justify-center rounded-xl bg-orange-500/10 text-[#ff4d31] group-hover:scale-110 group-hover:bg-orange-500/20 transition-all duration-500"
             >
               <Icon className="h-7 w-7 transition-transform duration-500 group-hover:rotate-[360deg]" />
               
@@ -116,42 +116,52 @@ const FeatureCard = ({ icon: Icon, title, description, index }: FeatureCardProps
 const features = [
   {
     icon: Sparkles,
-    title: "Elite Production",
-    description: "The unparalleled standard behind the biggest names in media. We don't just edit; we craft cinematic experiences.",
+    title: "One team. Not three vendors.",
+    description: "Design, video, and AI under one roof means no miscommunication, no finger-pointing, no 'that's not our department.' Just results.",
   },
   {
     icon: Zap,
-    title: "Blazing Speed",
-    description: "Lightning-fast turnarounds without compromising on quality. Your content moves at the speed of culture.",
-  },
-  {
-    icon: Shield,
-    title: "Obsessive Detail",
-    description: "Pixel-perfect precision in every frame. We obsess over typography and motion so you don't have to.",
-  },
-  {
-    icon: Rocket,
-    title: "Viral Engineering",
-    description: "We understand the algorithms. Our edits are engineered to capture attention and hold it until the final second.",
-  },
-  {
-    icon: Target,
-    title: "Conversion First",
-    description: "ROI-driven creative direction that turns viewers into customers and followers into fans.",
+    title: "Fastest Turnaround",
+    description: "Reels, edits, design assets, automation setups - delivered fast without the back-and-forth most agencies drag out for weeks.",
   },
   {
     icon: Users,
-    title: "Strategic Partners",
-    description: "We don't just work for you; we work with you as a long-term growth partner for your brand.",
+    title: "You're never left wondering",
+    description: "Every project lives in a shared Notion workspace — timelines, deliverables, feedback, and progress updates all in one place. No chasing. No confusion. Just clarity.",
+  },
+  {
+    icon: Rocket,
+    title: "Nothing leaves without sign-off",
+    description: "Pixel-perfect precision across every frame, every layout, every workflow. We obsess over the details so your audience never notices the effort — only the result.",
+  },
+  {
+    icon: Target,
+    title: "A full team, not a one-person show ",
+    description: "Dedicated designers, editors, and AI specialists — each an expert in their lane. You get specialist-level quality across all three, every time.",
+  },
+  {
+    icon: Shield,
+    title: "We speak business, not jargon",
+    description: "No 'synergising deliverables' or 'scalable paradigms.' We tell you what we're building, why it works, and what result to expect.",
   },
 ];
 
 export function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-8 md:py-12 bg-white dark:bg-black">
-      {/* Background Ambience / Glows */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-orange-500/[0.03] blur-[120px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/[0.03] blur-[120px] pointer-events-none rounded-full" />
+    <section id="why-choose-us" className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-12 md:py-20 bg-white dark:bg-black">
+      {/* ambient background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neutral-300/60 dark:via-white/10 to-transparent"
+      />
 
       <div className="relative mx-auto max-w-7xl">
         <div className="flex flex-col items-center text-center mb-8 md:mb-12">
@@ -161,7 +171,7 @@ export function WhyChooseUs() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-semibold text-neutral-600 dark:text-neutral-300 uppercase tracking-wider"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" />
             Our Edge
           </motion.span>
           
@@ -172,7 +182,7 @@ export function WhyChooseUs() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-6 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white"
           >
-            Why Choose Us
+            The difference is in everything.
           </motion.h2>
           
           <motion.p
@@ -182,7 +192,7 @@ export function WhyChooseUs() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
           >
-            We bridge the gap between creative vision and technical execution, delivering results that dominate.
+            Three services. One team. Zero compromises on quality, speed, or results. 
           </motion.p>
         </div>
 

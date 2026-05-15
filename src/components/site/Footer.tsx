@@ -19,16 +19,26 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="w-full px-4 pb-4 pt-8">
+    <footer className="w-full px-4 pb-6 pt-12">
       <div 
         className={cn(
           "relative mx-auto max-w-7xl rounded-2xl border border-white/20 dark:border-white/10 px-6 py-8 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden",
           "liquid-glass backdrop-blur-xl"
         )}
       >
-        {/* Ambient Glows */}
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-orange-500/[0.05] blur-[80px] pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-blue-500/[0.05] blur-[80px] pointer-events-none" />
+        {/* ambient background */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neutral-300/60 dark:via-white/10 to-transparent"
+        />
 
         {/* Logo & Text */}
         <div className="flex items-center gap-3">
@@ -44,7 +54,7 @@ export function Footer() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
+              className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-[#ff4d31] dark:hover:text-[#ff4d31] transition-colors"
             >
               {link.label}
             </a>
@@ -58,7 +68,7 @@ export function Footer() {
               key={social.label}
               href={social.href}
               aria-label={social.label}
-              className="group relative flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-white/[0.02] text-neutral-600 dark:text-neutral-400 hover:border-orange-500/50 hover:text-orange-500 transition-all duration-300"
+              className="group relative flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-white/[0.02] text-neutral-600 dark:text-neutral-400 hover:border-orange-500/50 hover:text-[#ff4d31] dark:hover:text-[#ff4d31] transition-all duration-300"
             >
               <social.icon className="h-5 w-5" />
               {/* Hover Glow */}

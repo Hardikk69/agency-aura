@@ -28,13 +28,14 @@ export function Portfolio() {
   const [activeTab, setActiveTab] = React.useState<Tab>("edit");
 
   return (
-    <section id="portfolio" className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-8 md:py-12 bg-white dark:bg-black/50">
+    <section id="portfolio" className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-12 md:py-20 bg-white dark:bg-black/50">
       {/* ambient background */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
-          background: "radial-gradient(80% 50% at 50% 100%, rgba(249,115,22,0.06), transparent 70%)",
+          background:
+            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
         }}
       />
       <div
@@ -42,26 +43,17 @@ export function Portfolio() {
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neutral-300/60 dark:via-white/10 to-transparent"
       />
 
-      {/* Doodle Placeholder - Right Side */}
-      <div className="absolute top-1/2 -right-12 md:right-0 -translate-y-1/2 w-32 md:w-64 h-64 pointer-events-none opacity-20 dark:opacity-30">
-        <img
-          src="https://cdn.prod.website-files.com/6778043699a2f913f47628dd/67cf96eb6ef7b334f3a6e2a2_sketch%20orange.svg"
-          alt=""
-          className="w-full h-full object-contain rotate-12"
-        />
-      </div>
-
       <div className="relative mx-auto max-w-7xl">
         <div className="flex flex-col items-center text-center mb-12">
           <span className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-medium text-neutral-600 dark:text-neutral-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
-            Portfolio
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31]" />
+            Our Work
           </span>
           <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-950 dark:text-white max-w-4xl">
-            Your footage into world class <span className="text-orange-600 dark:text-orange-400">edits that go viral</span>
+            From idea to design to execution n─ <span className="text-[#ff4d31] dark:text-[#ff4d31]">we handle all three</span>
           </h2>
           <p className="mt-8 max-w-2xl text-base md:text-lg text-neutral-600 dark:text-neutral-400">
-            The unparalleled production standard behind the biggest names in media. Podcasts. Shows. Long form. We got it all.
+            Design that builds brands. Edits that stop the scroll. Automation that runs while you sleep. Pick a category and see what we've built.
           </p>
 
           {/* Tab Buttons */}
@@ -123,7 +115,7 @@ export function Portfolio() {
                       spotlightColor="rgba(59, 130, 246, 0.15)"
                       darkSpotlightColor="rgba(59, 130, 246, 0.2)"
                     >
-                      <div className="relative h-full w-full overflow-hidden rounded-x bg-neutral-900/50">
+                      <div className="relative h-full w-full overflow-hidden rounded-md bg-neutral-900/50">
                         <img 
                           src={src} 
                           alt="Design portfolio" 

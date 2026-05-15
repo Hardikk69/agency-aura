@@ -37,7 +37,7 @@ export function Hero() {
             <span className="relative inline-block">
               business & creators
               <svg
-                className="absolute -bottom-4 -left-[0%] w-[100%] h-2 md:h- text-orange-500"
+                className="absolute -bottom-4 -left-[0%] w-[100%] h-2 md:h- text-[#ff4d31]"
                 viewBox="0 0 200 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ export function Hero() {
           className="animate-fade-up mx-auto mt-6 md:mt-8 max-w-2xl text-lg md:text-xl font-medium text-neutral-700 dark:text-neutral-300"
           style={{ animationDelay: "0.2s" }}
         >
-          We work as creative and tech team handaling boring stuff so that you can focus on taking your business to <b> the mooooooooon!</b>
+          We work as creative and tech team handaling boring stuff so that you can focus on taking your business to <b> the mooooooooon!🚀</b>
         </p>
         <div
           className="animate-fade-up mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-3"

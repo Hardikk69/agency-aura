@@ -13,7 +13,7 @@ const logos = [
 export function LogoMarquee() {
   const items = [...logos, ...logos, ...logos]; // Triple for smoother loop if few items
   return (
-    <div className="marquee-mask overflow-hidden w-full py-5">
+    <div className="marquee-mask overflow-hidden w-full py-8">
       <div className="flex w-max animate-marquee hover:[animation-play-state:paused] gap-6 px-6">
         {items.map((logo, i) => (
           <div

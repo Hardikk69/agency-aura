@@ -88,7 +88,7 @@ const ReviewCard = ({ review, name, position, service }: Review) => {
                   {position}
                 </span>
                 <span className="h-1 w-1 rounded-full bg-neutral-300 dark:bg-neutral-700" />
-                <span className="text-sm font-semibold text-orange-500 dark:text-orange-400">
+                <span className="text-sm font-semibold text-[#ff4d31] dark:text-[#ff4d31]">
                   {service}
                 </span>
               </div>
@@ -106,18 +106,20 @@ export function Reviews() {
   const row2 = reviews.slice(4, 8);
 
   return (
-    <section id="reviews" className="relative w-full overflow-hidden py-8 md:py-12 bg-white dark:bg-black">
-      {/* Background Ambience */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-orange-500/[0.03] blur-[120px] pointer-events-none rounded-full" />
-      
-      {/* Doodle Sketch - Left Side */}
-      <div className="absolute top-1/4 -left-12 w-48 h-48 pointer-events-none opacity-20 dark:opacity-30">
-        <img
-          src="https://cdn.prod.website-files.com/6778043699a2f913f47628dd/67cf96eb6ef7b334f3a6e2a2_sketch%20orange.svg"
-          alt=""
-          className="w-full h-full object-contain -rotate-12 scale-x-[-1]"
-        />
-      </div>
+    <section id="reviews" className="relative w-full overflow-hidden py-12 md:py-20 bg-white dark:bg-black">
+      {/* ambient background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neutral-300/60 dark:via-white/10 to-transparent"
+      />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 mb-10 flex flex-col items-center text-center">
         <motion.span
@@ -126,7 +128,7 @@ export function Reviews() {
           viewport={{ once: true }}
           className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-semibold text-neutral-600 dark:text-neutral-300 uppercase tracking-wider"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" />
           Testimonials
         </motion.span>
         
@@ -137,7 +139,7 @@ export function Reviews() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mt-6 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white"
         >
-          The Proof is in <span className="text-orange-500 dark:text-orange-400">the Results</span>
+        Real clients. Real results. <span className="text-[#ff4d31] dark:text-[#ff4d31]">No fluff.</span>
         </motion.h2>
         
         <motion.p
@@ -147,14 +149,14 @@ export function Reviews() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
         >
-          Don't just take our word for it. We've helped dozens of creators and brands scale their content through strategic editing and automation.
+         Creators, founders, and brand owners who trusted us with their growth - here's what happened.
         </motion.p>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <div className="relative flex flex-col gap-4">
           {/* Row 1: Moving Left */}
-          <div className="marquee-mask relative flex overflow-hidden py-4">
+          <div className="marquee-mask relative flex overflow-hidden py-1">
             <div className="flex animate-marquee whitespace-nowrap hover:[animation-play-state:paused]">
               {[...row1, ...row1, ...row1].map((review, i) => (
                 <ReviewCard key={`row1-${i}`} {...review} />
@@ -163,7 +165,7 @@ export function Reviews() {
           </div>
 
           {/* Row 2: Moving Right */}
-          <div className="marquee-mask relative flex overflow-hidden py-4">
+          <div className="marquee-mask relative flex overflow-hidden py-1">
             <div className="flex animate-marquee-reverse whitespace-nowrap hover:[animation-play-state:paused]">
               {[...row2, ...row2, ...row2].map((review, i) => (
                 <ReviewCard key={`row2-${i}`} {...review} />
