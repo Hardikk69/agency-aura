@@ -6,13 +6,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const services = [
-  { title: "Web Design & UI/UX", subtitle: "Conversion-optimized websites" },
-  { title: "Web Development", subtitle: "Next.js, React, TypeScript" },
-  { title: "SEO Optimization", subtitle: "Better Google rankings" },
-  { title: "AI Integration", subtitle: "ChatGPT, Automation, Bots" },
-  { title: "AI Systems", subtitle: "Custom AI solutions" },
-  { title: "Software Development", subtitle: "Custom applications" },
+const services: { title: string; subtitle: string; to: "/design" | "/edit" | "/automate" }[] = [
+  { title: "Design", subtitle: "Brand, web, decks & social", to: "/design" },
+  { title: "Edit", subtitle: "Short-form, long-form & cinematic", to: "/edit" },
+  { title: "Automate", subtitle: "AI agents, workflows & pipelines", to: "/automate" },
 ];
 
 const navLinks = [
@@ -78,9 +75,10 @@ export function Navbar() {
             >
               <div className="min-w-[300px] rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl p-2">
                 {services.map((s) => (
-                  <a
+                  <Link
                     key={s.title}
-                    href="#services"
+                    to={s.to}
+                    onClick={() => setOpen(false)}
                     className="block px-3 py-2.5 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
                   >
                     <div className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
@@ -89,7 +87,7 @@ export function Navbar() {
                     <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
                       {s.subtitle}
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -137,15 +135,15 @@ export function Navbar() {
                   Services
                 </div>
                 {services.map((s) => (
-                  <a
+                  <Link
                     key={s.title}
-                    href="#services"
+                    to={s.to}
                     onClick={() => setMobileOpen(false)}
                     className="px-3 py-2.5 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"
                   >
                     <div className="text-sm font-medium">{s.title}</div>
                     <div className="text-xs text-neutral-500">{s.subtitle}</div>
-                  </a>
+                  </Link>
                 ))}
                 <div className="border-t border-neutral-200 dark:border-neutral-800 my-3" />
                 {navLinks.map((l) => (
