@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion";
-import { Sparkles, Zap, Shield, Target, Rocket, Users } from "lucide-react";
+import { Layers, Zap, Kanban, BadgeCheck, Users, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
 import StarBorder from "./StarBorder";
 
@@ -115,7 +115,7 @@ const FeatureCard = ({ icon: Icon, title, description, index }: FeatureCardProps
 
 const features = [
   {
-    icon: Sparkles,
+    icon: Layers,
     title: "One team. Not three vendors.",
     description: "Design, video, and AI under one roof means no miscommunication, no finger-pointing, no 'that's not our department.' Just results.",
   },
@@ -125,22 +125,22 @@ const features = [
     description: "Reels, edits, design assets, automation setups - delivered fast without the back-and-forth most agencies drag out for weeks.",
   },
   {
-    icon: Users,
+    icon: Kanban,
     title: "You're never left wondering",
     description: "Every project lives in a shared Notion workspace — timelines, deliverables, feedback, and progress updates all in one place. No chasing. No confusion. Just clarity.",
   },
   {
-    icon: Rocket,
+    icon: BadgeCheck,
     title: "Nothing leaves without sign-off",
     description: "Pixel-perfect precision across every frame, every layout, every workflow. We obsess over the details so your audience never notices the effort — only the result.",
   },
   {
-    icon: Target,
+    icon: Users,
     title: "A full team, not a one-person show ",
     description: "Dedicated designers, editors, and AI specialists — each an expert in their lane. You get specialist-level quality across all three, every time.",
   },
   {
-    icon: Shield,
+    icon: Briefcase,
     title: "We speak business, not jargon",
     description: "No 'synergising deliverables' or 'scalable paradigms.' We tell you what we're building, why it works, and what result to expect.",
   },

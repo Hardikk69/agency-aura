@@ -50,7 +50,7 @@ export function Portfolio() {
             Our Work
           </span>
           <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-950 dark:text-white max-w-4xl">
-            From idea to design to execution n─ <span className="text-[#ff4d31] dark:text-[#ff4d31]">we handle all three</span>
+            From idea to design to execution ─ <span className="text-[#ff4d31] dark:text-[#ff4d31]">we handle all three</span>
           </h2>
           <p className="mt-8 max-w-2xl text-base md:text-lg text-neutral-600 dark:text-neutral-400">
             Design that builds brands. Edits that stop the scroll. Automation that runs while you sleep. Pick a category and see what we've built.
