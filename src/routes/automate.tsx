@@ -170,8 +170,8 @@ function Services() {
             <SpotlightCard
               key={s.title}
               className={cn("group h-full p-7 rounded-2xl liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl")}
-              spotlightColor="rgba(16,185,129,0.18)"
-              darkSpotlightColor="rgba(16,185,129,0.22)"
+              spotlightColor="rgba(16, 185, 129, 0.18)"
+              darkSpotlightColor="rgba(16, 185, 129, 0.22)"
             >
               <div className="flex items-center justify-between">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
@@ -221,8 +221,8 @@ function Portfolio() {
             <SpotlightCard
               key={b.title}
               className="group p-7 md:p-8 rounded-2xl liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl"
-              spotlightColor="rgba(16,185,129,0.18)"
-              darkSpotlightColor="rgba(16,185,129,0.22)"
+              spotlightColor="rgba(16, 185, 129, 0.18)"
+              darkSpotlightColor="rgba(16, 185, 129, 0.22)"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>

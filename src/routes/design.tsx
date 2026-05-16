@@ -196,8 +196,8 @@ function Portfolio() {
             <SpotlightCard
               key={i}
               className={cn("group rounded-2xl p-2 liquid-glass dark:!bg-white/[0.04] border-white/30 dark:border-white/10 backdrop-blur-xl", span)}
-              spotlightColor="rgba(255,100,80,0.2)"
-              darkSpotlightColor="rgba(255,255,255,0.16)"
+              spotlightColor="rgba(255, 100, 80, 0.2)"
+              darkSpotlightColor="rgba(255, 255, 255, 0.16)"
             >
               <div className="relative h-full w-full overflow-hidden rounded-xl">
                 <img src={item.img} alt={item.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />

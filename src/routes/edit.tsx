@@ -150,8 +150,8 @@ function Services() {
             <SpotlightCard
               key={s.title}
               className="group h-full p-7 rounded-2xl liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl"
-              spotlightColor="rgba(255,77,49,0.18)"
-              darkSpotlightColor="rgba(255,255,255,0.18)"
+              spotlightColor="rgba(255, 77, 49, 0.18)"
+              darkSpotlightColor="rgba(255, 255, 255, 0.18)"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#ff4d31]/10 text-[#ff4d31]">
@@ -198,8 +198,8 @@ function Portfolio() {
             <SpotlightCard
               key={i}
               className="group p-3 rounded-2xl liquid-glass dark:!bg-white/[0.04] border-white/30 dark:border-white/10 backdrop-blur-xl"
-              spotlightColor="rgba(255,77,49,0.2)"
-              darkSpotlightColor="rgba(255,255,255,0.18)"
+              spotlightColor="rgba(255, 77, 49, 0.2)"
+              darkSpotlightColor="rgba(255, 255, 255, 0.18)"
             >
               <div className="relative aspect-[9/16] overflow-hidden rounded-xl bg-neutral-900">
                 <iframe loading="lazy" src={src} className="absolute inset-0 h-full w-full border-none" />
