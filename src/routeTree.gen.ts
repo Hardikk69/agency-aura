@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as EditRouteImport } from './routes/edit'
 import { Route as DesignRouteImport } from './routes/design'
+import { Route as AutomateRouteImport } from './routes/automate'
 import { Route as IndexRouteImport } from './routes/index'
 
 const EditRoute = EditRouteImport.update({
@@ -23,6 +24,11 @@ const DesignRoute = DesignRouteImport.update({
   path: '/design',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AutomateRoute = AutomateRouteImport.update({
+  id: '/automate',
+  path: '/automate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +37,34 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/automate': typeof AutomateRoute
   '/design': typeof DesignRoute
   '/edit': typeof EditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/automate': typeof AutomateRoute
   '/design': typeof DesignRoute
   '/edit': typeof EditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/automate': typeof AutomateRoute
   '/design': typeof DesignRoute
   '/edit': typeof EditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/design' | '/edit'
+  fullPaths: '/' | '/automate' | '/design' | '/edit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/design' | '/edit'
-  id: '__root__' | '/' | '/design' | '/edit'
+  to: '/' | '/automate' | '/design' | '/edit'
+  id: '__root__' | '/' | '/automate' | '/design' | '/edit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AutomateRoute: typeof AutomateRoute
   DesignRoute: typeof DesignRoute
   EditRoute: typeof EditRoute
 }
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DesignRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/automate': {
+      id: '/automate'
+      path: '/automate'
+      fullPath: '/automate'
+      preLoaderRoute: typeof AutomateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AutomateRoute: AutomateRoute,
   DesignRoute: DesignRoute,
   EditRoute: EditRoute,
 }
