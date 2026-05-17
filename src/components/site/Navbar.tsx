@@ -1,21 +1,21 @@
 import * as React from "react";
 import { Logo } from "./Logo";
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown, Menu, Palette, Video, Cpu, FolderHeart, HelpCircle, Info, MessageSquare, Phone } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const services: { title: string; subtitle: string; to: "/design" | "/edit" | "/automate" }[] = [
-  { title: "Design", subtitle: "Brand, web, decks & social", to: "/design" },
-  { title: "Edit", subtitle: "Short-form, long-form & cinematic", to: "/edit" },
-  { title: "Automate", subtitle: "AI agents, workflows & pipelines", to: "/automate" },
-];
+const services = [
+  { title: "Design", subtitle: "Brand, web, decks & social", to: "/design", icon: Palette },
+  { title: "Edit", subtitle: "Short-form, long-form & cinematic", to: "/edit", icon: Video },
+  { title: "Automate", subtitle: "AI agents, workflows & pipelines", to: "/automate", icon: Cpu },
+] as const;
 
 const navLinks = [
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "FAQ", href: "#faq" },
-  { label: "About", href: "#about" },
+  { label: "Portfolio", href: "#portfolio", icon: FolderHeart },
+  { label: "FAQ", href: "#faq", icon: HelpCircle },
+  { label: "About", href: "#about", icon: Info },
 ];
 
 export function Navbar() {
@@ -35,14 +35,12 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full flex justify-center px-4 py-4 pointer-events-none">
       <nav
         aria-label="Primary"
-        className="pointer-events-auto relative w-full max-w-2xl rounded-2xl border border-white/20 dark:border-white/10 px-6 py-3 md:py-4 flex items-center justify-center overflow-hidden bg-white/10 dark:bg-white/5"
+        className="pointer-events-auto relative w-full max-w-4xl rounded-2xl border border-white/40 dark:border-white/10 px-4 md:px-6 py-2.5 md:py-4 flex items-center justify-between liquid-glass dark:!bg-neutral-900/80 backdrop-blur-2xl saturate-150 shadow-lg shadow-black/5"
         style={{
-          backdropFilter: "blur(20px) saturate(180%)",
-          WebkitBackdropFilter: "blur(20px) saturate(180%)",
           transform: "translateZ(0)",
         }}
       >
-        <Link to="/" className="flex items-center gap-2 mr-4">
+        <Link to="/" className="flex items-center gap-2 shrink-0">
           <Logo />
         </Link>
 
@@ -56,6 +54,10 @@ export function Navbar() {
               className="group inline-flex items-center gap-1 px-3 py-2 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
               aria-haspopup="menu"
               aria-expanded={open}
+              onClick={(e) => {
+                e.preventDefault();
+                setOpen(!open);
+              }}
             >
               Services
               <ChevronDown
@@ -67,25 +69,30 @@ export function Navbar() {
             </button>
             <div
               className={cn(
-                "absolute left-1/2 -translate-x-1/2 top-full pt-3 origin-top transition-all duration-200",
+                "absolute left-1/2 -translate-x-1/2 top-full pt-3 origin-top transition-all duration-300 ease-out z-50",
                 open
-                  ? "opacity-100 scale-100 pointer-events-auto"
-                  : "opacity-0 scale-95 pointer-events-none",
+                  ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
+                  : "opacity-0 scale-95 -translate-y-2 pointer-events-none",
               )}
             >
-              <div className="min-w-[300px] rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl p-2">
+              <div className="min-w-[280px] rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl p-2 overflow-hidden">
                 {services.map((s) => (
                   <Link
                     key={s.title}
                     to={s.to}
                     onClick={() => setOpen(false)}
-                    className="block px-3 py-2.5 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-200 group/item"
                   >
-                    <div className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
-                      {s.title}
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors">
+                      <s.icon className="h-5 w-5" />
                     </div>
-                    <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
-                      {s.subtitle}
+                    <div>
+                      <div className="text-sm font-medium text-neutral-900 dark:text-neutral-100 group-hover/item:text-primary transition-colors">
+                        {s.title}
+                      </div>
+                      <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
+                        {s.subtitle}
+                      </div>
                     </div>
                   </Link>
                 ))}
@@ -139,10 +146,15 @@ export function Navbar() {
                     key={s.title}
                     to={s.to}
                     onClick={() => setMobileOpen(false)}
-                    className="px-3 py-2.5 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                    className="flex items-center gap-4 px-3 py-3 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
                   >
-                    <div className="text-sm font-medium">{s.title}</div>
-                    <div className="text-xs text-neutral-500">{s.subtitle}</div>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-100 dark:bg-neutral-800 text-primary">
+                      <s.icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium">{s.title}</div>
+                      <div className="text-xs text-neutral-500">{s.subtitle}</div>
+                    </div>
                   </Link>
                 ))}
                 <div className="border-t border-neutral-200 dark:border-neutral-800 my-3" />
@@ -151,14 +163,23 @@ export function Navbar() {
                     key={l.label}
                     href={l.href}
                     onClick={() => setMobileOpen(false)}
-                    className="px-3 py-2.5 rounded-xl text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                    className="flex items-center gap-4 px-3 py-3 rounded-xl text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
                   >
-                    {l.label}
+                    <l.icon className="h-5 w-5 text-neutral-400" />
+                    <span className="text-sm font-medium">{l.label}</span>
                   </a>
                 ))}
                 <Button
                   asChild
-                  className="mt-4 rounded-full bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900"
+                  className="mt-4 rounded-full bg-green-500 text-white hover:bg-green-600 dark:bg-green-500 dark:text-white dark:hover:bg-green-600"
+                >
+                  <a href="https://wa.me/+919734437070" onClick={() => setMobileOpen(false)}>
+                    Whatsapp
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  className="mt-2 rounded-full bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900"
                 >
                   <a href="#contact" onClick={() => setMobileOpen(false)}>
                     Get a Quote

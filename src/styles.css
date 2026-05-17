@@ -290,4 +290,8 @@
   .animate-fade-up {
     animation: fade-up 0.8s ease-out both;
   }
+
+  .rounded-x {
+    border-radius: 0.75rem;
+  }
 }

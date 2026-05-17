@@ -64,7 +64,7 @@ const reviews: Review[] = [
 const ReviewCard = ({ review, name, position, service }: Review) => {
   return (
     <div className="w-[380px] shrink-0 p-4">
-      <SpotlightCard 
+      <SpotlightCard
         className={cn(
           "flex flex-col h-full p-8 rounded-xl",
           "liquid-glass dark:!bg-white/[0.03] border-white/40 dark:border-white/10",
@@ -77,7 +77,7 @@ const ReviewCard = ({ review, name, position, service }: Review) => {
           <p className="text-xl font-bold text-neutral-900 dark:text-white leading-tight mb-8 line-clamp-2">
             "{review}"
           </p>
-          
+
           <div className="mt-auto pt-6 border-t border-neutral-200/50 dark:border-white/5">
             <div className="flex flex-col gap-1">
               <span className="text-base font-bold text-neutral-950 dark:text-neutral-100 tracking-tight">
@@ -100,10 +100,16 @@ const ReviewCard = ({ review, name, position, service }: Review) => {
   );
 };
 
-export function Reviews() {
-  // Split reviews into two rows of 4 unique cards each
-  const row1 = reviews.slice(0, 4);
-  const row2 = reviews.slice(4, 8);
+export function Reviews({ 
+  rows = 2, 
+  items = reviews 
+}: { 
+  rows?: 1 | 2;
+  items?: Review[];
+}) {
+  // Split reviews into rows
+  const row1 = rows === 1 ? items : items.slice(0, Math.ceil(items.length / 2));
+  const row2 = items.slice(Math.ceil(items.length / 2));
 
   return (
     <section id="reviews" className="relative w-full overflow-hidden py-12 md:py-20 bg-white dark:bg-black">
@@ -131,7 +137,7 @@ export function Reviews() {
           <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" />
           Testimonials
         </motion.span>
-        
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -139,9 +145,9 @@ export function Reviews() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mt-6 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white"
         >
-        Real clients. Real results. <span className="text-[#ff4d31] dark:text-[#ff4d31]">No fluff.</span>
+          Real clients. Real results. <span className="text-[#ff4d31] dark:text-[#ff4d31]">No fluff.</span>
         </motion.h2>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -149,7 +155,7 @@ export function Reviews() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
         >
-         Creators, founders, and brand owners who trusted us with their growth - here's what happened.
+          Creators, founders, and brand owners who trusted us with their growth - here's what happened.
         </motion.p>
       </div>
 
@@ -164,18 +170,21 @@ export function Reviews() {
             </div>
           </div>
 
-          {/* Row 2: Moving Right */}
-          <div className="marquee-mask relative flex overflow-hidden py-1">
-            <div className="flex animate-marquee-reverse whitespace-nowrap hover:[animation-play-state:paused]">
-              {[...row2, ...row2, ...row2].map((review, i) => (
-                <ReviewCard key={`row2-${i}`} {...review} />
-              ))}
+          {/* Row 2: Moving Right (Only if rows === 2 and we have enough items) */}
+          {rows === 2 && row2.length > 0 && (
+            <div className="marquee-mask relative flex overflow-hidden py-1">
+              <div className="flex animate-marquee-reverse whitespace-nowrap hover:[animation-play-state:paused]">
+                {[...row2, ...row2, ...row2].map((review, i) => (
+                  <ReviewCard key={`row2-${i}`} {...review} />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-33.33%); }

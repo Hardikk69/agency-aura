@@ -1,12 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import * as React from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { ArrowUpRight, Palette, Layers, Type, Sparkles, Frame, Brush } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { LogoMarquee } from "@/components/site/Marquee";
 import SpotlightCard from "@/components/site/SpotlightCard";
 import { Button } from "@/components/ui/button";
+import StarBorder from "@/components/site/StarBorder";
 import { cn } from "@/lib/utils";
+import CardSwap, { Card } from "@/components/site/CardSwap";
+import { Reviews } from "@/components/site/Reviews";
+import { CombinedPackage } from "@/components/site/CombinedPackage";
+import { Footer } from "@/components/site/Footer";
+import { MagicGrid, MagicCard } from "@/components/site/MagicBento";
 
 export const Route = createFileRoute("/design")({
   head: () => ({
@@ -92,21 +98,35 @@ function Hero() {
             </motion.div>
           </div>
 
-          <div className="md:col-span-5">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }}
-              className="relative aspect-[4/5] w-full liquid-glass rounded-3xl border border-white/30 dark:border-white/10 overflow-hidden"
+          <div className="md:col-span-5 h-[500px] md:h-[600px] relative">
+            <CardSwap
+              width="100%"
+              height="100%"
+              cardDistance={50}
+              verticalDistance={60}
+              delay={2000}
+              pauseOnHover={true}
             >
-              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1200" alt="" className="absolute inset-0 h-full w-full object-cover opacity-90" />
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/60 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-white">
-                <div>
-                  <p className="text-xs uppercase tracking-widest opacity-80">Case 01</p>
-                  <p className="font-semibold">Brand · Web · Print</p>
-                </div>
-                <ArrowUpRight className="h-5 w-5" />
-              </div>
-            </motion.div>
+              {[
+                { img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1200", title: "Brand Identity", case: "Case 01" },
+                { img: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200", title: "Digital Experience", case: "Case 02" },
+                { img: "https://images.unsplash.com/photo-1581291518151-0e07553bb465?q=80&w=1200", title: "Motion Systems", case: "Case 03" },
+              ].map((item, idx) => (
+                <Card key={idx} className="overflow-hidden group/card border-white/30 dark:border-white/10">
+                  <img src={item.img} alt="" className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover/card:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white">
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.2em] opacity-70 mb-1">{item.case}</p>
+                      <p className="font-semibold text-lg leading-tight">{item.title}</p>
+                    </div>
+                    <div className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center transition-transform group-hover/card:translate-x-1 group-hover/card:-translate-y-1">
+                      <ArrowUpRight className="h-5 w-5" />
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </CardSwap>
           </div>
         </div>
       </div>
@@ -114,51 +134,178 @@ function Hero() {
   );
 }
 
-/* ---------- Services ---------- */
+/* ---------- Services (WhyChooseUs-style layout) ---------- */
 const designServices = [
-  { icon: Layers, title: "Website Design", desc: "Conversion-led websites with story, motion, and craft." },
-  { icon: Frame, title: "Pitch Decks", desc: "Investor decks that make the room lean forward." },
-  { icon: Type, title: "Brand Identity", desc: "Logo systems, typography, color, voice — the whole soul." },
-  { icon: Palette, title: "Social Creatives", desc: "Feeds, carousels and thumbnails built to stop scrolls." },
-  { icon: Brush, title: "Print & Editorial", desc: "Books, magazines and merch that feel like artifacts." },
-  { icon: Sparkles, title: "Design Systems", desc: "Tokens, components, docs — design that scales with you." },
+  { icon: Layers, title: "Website Design", description: "Conversion-led websites with story, motion, and craft — built to turn visitors into customers from the first scroll." },
+  { icon: Frame, title: "Pitch Decks", description: "Investor decks that make the room lean forward. Narrative-driven slides with data visualization that actually persuades." },
+  { icon: Type, title: "Brand Identity", description: "Logo systems, typography, color palettes, voice — the whole soul of your brand, distilled into a system that scales." },
+  { icon: Palette, title: "Social Creatives", description: "Feeds, carousels and thumbnails built to stop the scroll. Platform-native design that drives engagement and shares." },
+  { icon: Brush, title: "Print & Editorial", description: "Books, magazines and merch that feel like artifacts. Tactile design crafted for the real world, not just screens." },
+  { icon: Sparkles, title: "Design Systems", description: "Tokens, components, documentation — design infrastructure that scales with your team without losing consistency." },
 ];
+
+function DesignServiceCard({ icon: Icon, title, description, index }: { icon: React.ElementType; title: string; description: string; index: number }) {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      onMouseMove={handleMouseMove}
+      className="group relative transition-all duration-500 ease-out hover:-translate-y-3"
+    >
+      <StarBorder
+        className="w-full h-full"
+        color="rgba(255, 255, 255, 0.6)"
+        speed="16s"
+        thickness={3}
+      >
+        <div className={cn(
+          "relative flex flex-col items-start p-8 h-full w-full overflow-hidden",
+          "liquid-glass dark:!bg-white/[0.03] border-none shadow-none",
+          "backdrop-blur-xl backdrop-saturate-150"
+        )}>
+          {/* Spotlight Effect (Light Mode) */}
+          <motion.div
+            className="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:hidden"
+            style={{
+              background: useMotionTemplate`
+                radial-gradient(
+                  400px circle at ${mouseX}px ${mouseY}px,
+                  rgba(120, 140, 180, 0.28),
+                  transparent 80%
+                )
+              `,
+            }}
+          />
+          {/* Spotlight Effect (Dark Mode) */}
+          <motion.div
+            className="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden dark:block"
+            style={{
+              background: useMotionTemplate`
+                radial-gradient(
+                  400px circle at ${mouseX}px ${mouseY}px,
+                  rgba(255, 255, 255, 0.18),
+                  transparent 80%
+                )
+              `,
+            }}
+          />
+
+          {/* Animated Icon Container */}
+          <div className="relative mb-6">
+            <motion.div
+              animate={{
+                y: [0, -8, 0],
+                rotate: [0, 10, -10, 0],
+                scale: [1, 1.05, 1],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="flex h-14 w-14 items-center justify-center rounded-xl bg-orange-500/10 text-[#ff4d31] group-hover:scale-110 group-hover:bg-orange-500/20 transition-all duration-500"
+            >
+              <Icon className="h-7 w-7 transition-transform duration-500 group-hover:rotate-[360deg]" />
+
+              {/* Icon Glow Animation */}
+              <motion.div
+                animate={{
+                  opacity: [0.2, 0.5, 0.2],
+                  scale: [1, 1.3, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute inset-0 rounded-xl bg-orange-500/20 blur-xl"
+              />
+            </motion.div>
+          </div>
+
+          <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-3 tracking-tight">
+            {title}
+          </h3>
+          <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-base">
+            {description}
+          </p>
+        </div>
+      </StarBorder>
+    </motion.div>
+  );
+}
+
 function Services() {
   return (
-    <section id="services" className="relative w-full px-4 sm:px-6 md:px-8 py-16 md:py-24">
-      <div className="absolute top-10 right-10 hidden md:block text-amber-500/40">
-        <StarDoodle className="h-10 w-10" />
-      </div>
-      <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#ff4d31]">— Services</p>
-          <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-950 dark:text-white">
-            Six disciplines.<br/><span className="font-serif italic text-neutral-500 dark:text-neutral-400">One studio.</span>
-          </h2>
+    <section id="services" className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-12 md:py-20 bg-white dark:bg-black">
+      {/* ambient background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neutral-300/60 dark:via-white/10 to-transparent"
+      />
+
+      <div className="relative mx-auto max-w-7xl">
+        <div className="flex flex-col items-center text-center mb-8 md:mb-12">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-semibold text-neutral-600 dark:text-neutral-300 uppercase tracking-wider"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" />
+            Services
+          </motion.span>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-6 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white"
+          >
+            Six disciplines. <span className="text-[#ff4d31]">One studio.</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
+          >
+            From brand identity to pixel-perfect interfaces — every detail is crafted to convert and captivate.
+          </motion.p>
         </div>
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {designServices.map((s, i) => (
-            <SpotlightCard
-              key={s.title}
-              className={cn("group h-full p-7 rounded-2xl liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl")}
-              spotlightColor="rgba(255, 100, 80, 0.18)"
-              darkSpotlightColor="rgba(255, 255, 255, 0.18)"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/60 dark:bg-white/[0.05] border border-white/40 dark:border-white/10">
-                  <s.icon className="h-5 w-5 text-[#ff4d31]" />
-                </div>
-                <span className="text-xs font-mono text-neutral-400">0{i+1}</span>
-              </div>
-              <h3 className="mt-6 text-xl font-semibold text-neutral-950 dark:text-white">{s.title}</h3>
-              <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">{s.desc}</p>
-            </SpotlightCard>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {designServices.map((service, index) => (
+            <DesignServiceCard key={index} {...service} index={index} />
           ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ---------- Portfolio (asymmetric editorial grid) ---------- */
 const designWork = [
@@ -185,21 +332,28 @@ function Portfolio() {
           <p className="max-w-md text-neutral-600 dark:text-neutral-400">Recent collaborations across identity, product, editorial and packaging.</p>
         </div>
 
-        <div className="grid grid-cols-12 gap-4 md:gap-6">
+        <MagicGrid className="grid grid-cols-12 gap-2 md:gap-3" spotlightRadius={400}>
           {[
             { item: designWork[0], span: "col-span-12 md:col-span-7 aspect-[4/3]" },
-            { item: designWork[1], span: "col-span-12 md:col-span-5 aspect-[4/3]" },
+            { item: designWork[1], span: "col-span-12 md:col-span-5 aspect-[99/105]" },
             { item: designWork[2], span: "col-span-6 md:col-span-4 aspect-square" },
             { item: designWork[3], span: "col-span-6 md:col-span-4 aspect-square" },
             { item: designWork[4], span: "col-span-12 md:col-span-4 aspect-square" },
           ].map(({ item, span }, i) => (
-            <SpotlightCard
+            <MagicCard
               key={i}
-              className={cn("group rounded-2xl p-2 liquid-glass dark:!bg-white/[0.04] border-white/30 dark:border-white/10 backdrop-blur-xl", span)}
-              spotlightColor="rgba(255, 100, 80, 0.2)"
-              darkSpotlightColor="rgba(255, 255, 255, 0.16)"
+              className={cn(
+                "group rounded-x p-2 md:p-4 liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10",
+                span
+              )}
+              enableStars={true}
+              enableTilt={false}
+              enableMagnetism={false}
+              clickEffect={true}
+              glowColor="255, 77, 49"
+              particleCount={32}
             >
-              <div className="relative h-full w-full overflow-hidden rounded-xl">
+              <div className="relative h-full w-full overflow-hidden rounded-[calc(0.75rem-2px)] md:rounded-[calc(0.75rem-4px)]">
                 <img src={item.img} alt={item.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="absolute bottom-4 left-4 right-4 text-white translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
@@ -207,48 +361,20 @@ function Portfolio() {
                   <p className="font-semibold text-lg">{item.title}</p>
                 </div>
               </div>
-            </SpotlightCard>
+            </MagicCard>
           ))}
-        </div>
+        </MagicGrid>
       </div>
     </section>
   );
 }
 
-/* ---------- Testimonials (editorial pull-quote stack) ---------- */
-const designQuotes = [
-  { quote: "They turned a vague mood-board into a brand we actually want to wear.", name: "Iris Lange", role: "Founder, Lumen" },
-  { quote: "The pitch deck closed our seed round in three meetings.", name: "Daniel Park", role: "CEO, Atlas" },
-  { quote: "Every page feels considered. Nothing accidental.", name: "Maya Okafor", role: "Head of Brand, Northwind" },
+const designReviews = [
+  { review: "They turned a vague mood-board into a brand we actually want to wear.", name: "Iris Lange", position: "Founder", service: "Lumen" },
+  { review: "The pitch deck closed our seed round in three meetings.", name: "Daniel Park", position: "CEO", service: "Atlas" },
+  { review: "Every page feels considered. Nothing accidental.", name: "Maya Okafor", position: "Head of Brand", service: "Northwind" },
+  { review: "Precision across every frame. They obsess over the details so we don't have to.", name: "Liam O'Connor", position: "Marketing Head", service: "Soft Goods Co." },
 ];
-function Testimonials() {
-  return (
-    <section className="relative w-full px-4 sm:px-6 md:px-8 py-16 md:py-24">
-      <div className="absolute top-10 right-12 hidden md:block text-[#ff4d31]/50">
-        <CircleArrowDoodle className="h-16 w-16" />
-      </div>
-      <div className="mx-auto max-w-5xl">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[#ff4d31] text-center">— Words from clients</p>
-        <div className="mt-12 grid gap-6">
-          {designQuotes.map((q, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className={cn("liquid-glass rounded-2xl border border-white/30 dark:border-white/10 p-8 md:p-12", i % 2 ? "md:ml-16" : "md:mr-16")}
-            >
-              <p className="text-2xl md:text-3xl font-serif italic leading-snug text-neutral-900 dark:text-white">"{q.quote}"</p>
-              <div className="mt-6 flex items-center gap-3">
-                <div className="h-px flex-1 bg-neutral-300 dark:bg-white/10" />
-                <span className="text-sm font-semibold text-neutral-700 dark:text-neutral-200">{q.name}</span>
-                <span className="text-sm text-neutral-500">· {q.role}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function DesignPage() {
   return (
@@ -259,7 +385,8 @@ function DesignPage() {
       </div>
       <Services />
       <Portfolio />
-      <Testimonials />
+      <Reviews rows={1} items={designReviews} />
+      <CombinedPackage />
     </PageShell>
   );
 }

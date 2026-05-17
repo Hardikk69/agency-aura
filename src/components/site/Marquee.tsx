@@ -14,14 +14,14 @@ export function LogoMarquee() {
   const items = [...logos, ...logos, ...logos]; // Triple for smoother loop if few items
   return (
     <div className="marquee-mask overflow-hidden w-full py-8">
-      <div className="flex w-max animate-marquee hover:[animation-play-state:paused] gap-6 px-6">
+      <div className="flex w-max animate-marquee hover:[animation-play-state:paused] gap-8 px-6">
         {items.map((logo, i) => (
           <div
             key={`${logo.name}-${i}`}
             className={cn(
               "liquid-glass",
               "flex items-center justify-center",
-              "w-44 h-20 p-2 rounded-[0.75rem]",
+              "w-56 h-24 p-2 rounded-[0.75rem]",
               "border border-white/10 dark:border-white/5",
               "group transition-all duration-500 hover:scale-105"
             )}
@@ -39,7 +39,7 @@ export function LogoMarquee() {
               <img
                 src={logo.src}
                 alt={logo.name}
-                className="h-7 w-auto max-w-[65%] object-contain brightness-0 dark:invert opacity-40 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110"
+                className="h-9 w-auto max-w-[70%] object-contain brightness-0 dark:invert opacity-40 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   if (e.currentTarget.nextSibling) {

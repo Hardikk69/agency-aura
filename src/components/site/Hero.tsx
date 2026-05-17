@@ -29,33 +29,45 @@ export function Hero() {
       )}
       <div className="relative mx-auto max-w-7xl text-center z-10">
         <div
-          className="animate-fade-up text-6xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-neutral-950 dark:text-white flex flex-col items-center justify-center font-Bricolage Grotesque"
+          className="animate-fade-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-neutral-950 dark:text-white flex flex-col items-center justify-center font-Bricolage Grotesque"
           style={{ animationDelay: "0.05s" }}
         >
-          <span>
-            We help{" "}
-            <span className="relative inline-block">
-              business & creators
-              <svg
-                className="absolute -bottom-4 -left-[0%] w-[100%] h-2 md:h- text-[#ff4d31]"
-                viewBox="0 0 200 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M0 12C40 -1 160 -1 200 12"
-                  stroke="currentColor"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>{" "}
-            with
-          </span>
-          <div className="flex flex-col items-center mt-4" >
-            <div className="text-6xl md:text-8xl lg:text-9xl leading-none font-extrabold">
+          {/* Mobile Layout */}
+          <div className="flex flex-col items-center md:hidden gap-0.5 text-[2.3rem] sm:text-5xl leading-[1.1] tracking-tighter">
+            <span className="whitespace-nowrap">We help business</span>
+            <span className="whitespace-nowrap">& creators with</span>
+            <div className="flex items-center gap-3 mt-1 text-5xl sm:text-6xl leading-none font-extrabold whitespace-nowrap">
               <RotatingWord words={["Designing", "Editing", "Automation"]} />
+            </div>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden md:flex flex-col items-center">
+            <span>
+              We help{" "}
+              <span className="relative inline-block">
+                business & creators
+                <svg
+                  className="absolute -bottom-4 -left-[0%] w-[100%] h-2 text-[#ff4d31]"
+                  viewBox="0 0 200 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M0 12C40 -1 160 -1 200 12"
+                    stroke="currentColor"
+                    strokeWidth="10"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>{" "}
+              with
+            </span>
+            <div className="mt-4">
+              <div className="text-8xl lg:text-9xl leading-none font-extrabold">
+                <RotatingWord words={["Designing", "Editing", "Automation"]} />
+              </div>
             </div>
           </div>
         </div>
