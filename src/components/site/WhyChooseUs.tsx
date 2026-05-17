@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion";
+import React from "react";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { Layers, Zap, Kanban, BadgeCheck, Users, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
 import StarBorder from "./StarBorder";
@@ -30,17 +30,19 @@ const FeatureCard = ({ icon: Icon, title, description, index }: FeatureCardProps
       onMouseMove={handleMouseMove}
       className="group relative transition-all duration-500 ease-out hover:-translate-y-3"
     >
-      <StarBorder 
-        className="w-full h-full" 
-        color="rgba(255, 255, 255, 0.6)" 
-        speed="16s" 
+      <StarBorder
+        className="w-full h-full"
+        color="rgba(255, 255, 255, 0.6)"
+        speed="16s"
         thickness={3}
       >
-        <div className={cn(
-          "relative flex flex-col items-start p-8 h-full w-full overflow-hidden",
-          "liquid-glass dark:!bg-white/[0.03] border-none shadow-none",
-          "backdrop-blur-xl backdrop-saturate-150"
-        )}>
+        <div
+          className={cn(
+            "relative flex flex-col items-start p-8 h-full w-full overflow-hidden",
+            "liquid-glass dark:!bg-white/[0.03] border-none shadow-none",
+            "backdrop-blur-xl backdrop-saturate-150",
+          )}
+        >
           {/* Spotlight Effect (Light Mode) */}
           <motion.div
             className="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:hidden"
@@ -84,7 +86,7 @@ const FeatureCard = ({ icon: Icon, title, description, index }: FeatureCardProps
               className="flex h-14 w-14 items-center justify-center rounded-xl bg-orange-500/10 text-[#ff4d31] group-hover:scale-110 group-hover:bg-orange-500/20 transition-all duration-500"
             >
               <Icon className="h-7 w-7 transition-transform duration-500 group-hover:rotate-[360deg]" />
-              
+
               {/* Icon Glow Animation */}
               <motion.div
                 animate={{
@@ -117,45 +119,53 @@ const features = [
   {
     icon: Layers,
     title: "One team. Not three vendors.",
-    description: "Design, video, and AI under one roof means no miscommunication, no finger-pointing, no 'that's not our department.' Just results.",
+    description:
+      "Design, video, and AI under one roof means no miscommunication, no finger-pointing, no 'that's not our department.' Just results.",
   },
   {
     icon: Zap,
     title: "Fastest Turnaround",
-    description: "Reels, edits, design assets, automation setups - delivered fast without the back-and-forth most agencies drag out for weeks.",
+    description:
+      "Reels, edits, design assets, automation setups - delivered fast without the back-and-forth most agencies drag out for weeks.",
   },
   {
     icon: Kanban,
     title: "You're never left wondering",
-    description: "Every project lives in a shared Notion workspace — timelines, deliverables, feedback, and progress updates all in one place. No chasing. No confusion. Just clarity.",
+    description:
+      "Every project lives in a shared Notion workspace — timelines, deliverables, feedback, and progress updates all in one place. No chasing. No confusion. Just clarity.",
   },
   {
     icon: BadgeCheck,
     title: "Nothing leaves without sign-off",
-    description: "Pixel-perfect precision across every frame, every layout, every workflow. We obsess over the details so your audience never notices the effort — only the result.",
+    description:
+      "Pixel-perfect precision across every frame, every layout, every workflow. We obsess over the details so your audience never notices the effort — only the result.",
   },
   {
     icon: Users,
     title: "A full team, not a one-person show ",
-    description: "Dedicated designers, editors, and AI specialists — each an expert in their lane. You get specialist-level quality across all three, every time.",
+    description:
+      "Dedicated designers, editors, and AI specialists — each an expert in their lane. You get specialist-level quality across all three, every time.",
   },
   {
     icon: Briefcase,
     title: "We speak business, not jargon",
-    description: "No 'synergising deliverables' or 'scalable paradigms.' We tell you what we're building, why it works, and what result to expect.",
+    description:
+      "No 'synergising deliverables' or 'scalable paradigms.' We tell you what we're building, why it works, and what result to expect.",
   },
 ];
 
 export function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-12 md:py-20 bg-white dark:bg-black">
+    <section
+      id="why-choose-us"
+      className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-12 md:py-20 bg-white dark:bg-black"
+    >
       {/* ambient background */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
-          background:
-            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
+          background: "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
         }}
       />
       <div
@@ -174,7 +184,7 @@ export function WhyChooseUs() {
             <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" />
             Our Edge
           </motion.span>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -184,7 +194,7 @@ export function WhyChooseUs() {
           >
             The difference is in everything.
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -192,7 +202,7 @@ export function WhyChooseUs() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
           >
-            Three services. One team. Zero compromises on quality, speed, or results. 
+            Three services. One team. Zero compromises on quality, speed, or results.
           </motion.p>
         </div>
 

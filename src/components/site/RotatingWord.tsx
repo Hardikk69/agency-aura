@@ -24,10 +24,10 @@ export function RotatingWord({ words, interval = 2200 }: { words: string[]; inte
           // We want the current word to be at 0
           // The word that just passed to be at -100%
           // All other words to be at 100% (waiting to come in)
-          
+
           const isCurrent = idx === index;
           const isPrevious = idx === (index - 1 + words.length) % words.length;
-          
+
           let translateY = "100%";
           let opacity = 0;
           let transition = "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
@@ -64,4 +64,3 @@ export function RotatingWord({ words, interval = 2200 }: { words: string[]; inte
     </span>
   );
 }
-

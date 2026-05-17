@@ -30,7 +30,14 @@ function Index() {
           </div>
         </main>
         <FloatingWidgets />
-        <GradualBlur position="bottom" height="4rem" strength={1.5} divCount={6} exponential opacity={1} />
+        <GradualBlur
+          position="bottom"
+          height="4rem"
+          strength={1.5}
+          divCount={6}
+          exponential
+          opacity={1}
+        />
       </div>
     </ThemeProvider>
   );

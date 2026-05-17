@@ -68,7 +68,7 @@ const ReviewCard = ({ review, name, position, service }: Review) => {
         className={cn(
           "flex flex-col h-full p-8 rounded-xl",
           "liquid-glass dark:!bg-white/[0.03] border-white/40 dark:border-white/10",
-          "backdrop-blur-xl backdrop-saturate-150 shadow-2xl shadow-orange-500/5"
+          "backdrop-blur-xl backdrop-saturate-150 shadow-2xl shadow-orange-500/5",
         )}
         spotlightColor="rgba(120, 140, 180, 0.28)"
         darkSpotlightColor="rgba(255, 255, 255, 0.18)"
@@ -100,26 +100,22 @@ const ReviewCard = ({ review, name, position, service }: Review) => {
   );
 };
 
-export function Reviews({ 
-  rows = 2, 
-  items = reviews 
-}: { 
-  rows?: 1 | 2;
-  items?: Review[];
-}) {
+export function Reviews({ rows = 2, items = reviews }: { rows?: 1 | 2; items?: Review[] }) {
   // Split reviews into rows
   const row1 = rows === 1 ? items : items.slice(0, Math.ceil(items.length / 2));
   const row2 = items.slice(Math.ceil(items.length / 2));
 
   return (
-    <section id="reviews" className="relative w-full overflow-hidden py-12 md:py-20 bg-white dark:bg-black">
+    <section
+      id="reviews"
+      className="relative w-full overflow-hidden py-12 md:py-20 bg-white dark:bg-black"
+    >
       {/* ambient background */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
-          background:
-            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
+          background: "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
         }}
       />
       <div
@@ -145,7 +141,8 @@ export function Reviews({
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mt-6 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white"
         >
-          Real clients. Real results. <span className="text-[#ff4d31] dark:text-[#ff4d31]">No fluff.</span>
+          Real clients. Real results.{" "}
+          <span className="text-[#ff4d31] dark:text-[#ff4d31]">No fluff.</span>
         </motion.h2>
 
         <motion.p
@@ -155,7 +152,8 @@ export function Reviews({
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
         >
-          Creators, founders, and brand owners who trusted us with their growth - here's what happened.
+          Creators, founders, and brand owners who trusted us with their growth - here's what
+          happened.
         </motion.p>
       </div>
 
@@ -183,8 +181,9 @@ export function Reviews({
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-33.33%); }
@@ -203,7 +202,9 @@ export function Reviews({
           -webkit-mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
           mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
         }
-      `}} />
+      `,
+        }}
+      />
     </section>
   );
 }

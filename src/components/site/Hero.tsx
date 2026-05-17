@@ -75,7 +75,8 @@ export function Hero() {
           className="animate-fade-up mx-auto mt-6 md:mt-8 max-w-2xl text-lg md:text-xl font-medium text-neutral-700 dark:text-neutral-300"
           style={{ animationDelay: "0.2s" }}
         >
-          We work as creative and tech team handaling boring stuff so that you can focus on taking your business to <b> the mooooooooon!🚀</b>
+          We work as creative and tech team handaling boring stuff so that you can focus on taking
+          your business to <b> the mooooooooon!🚀</b>
         </p>
         <div
           className="animate-fade-up mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-3"
@@ -89,8 +90,19 @@ export function Hero() {
               <a href="#contact">Book a Call</a>
             </Button>
             <div className="absolute -top-[-15px] -left-20 hidden lg:flex flex-col items-center pointer-events-none">
-              <svg className="w-16 h-12 text-[#ff4d31]/80" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 32C5 32 10 5 50 8M50 8L40 15M50 8L42 2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                className="w-16 h-12 text-[#ff4d31]/80"
+                viewBox="0 0 60 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 32C5 32 10 5 50 8M50 8L40 15M50 8L42 2"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
               <span className="text-2xl text-[#ff4d31] font-['Caveat'] -mt-3 ml-[-50px]">
                 It's free
@@ -106,10 +118,7 @@ export function Hero() {
           </Button>
         </div>
 
-        <div
-          className="animate-fade-up mt-16 md:mt-24"
-          style={{ animationDelay: "0.5s" }}
-        >
+        <div className="animate-fade-up mt-16 md:mt-24" style={{ animationDelay: "0.5s" }}>
           <LogoMarquee />
         </div>
       </div>

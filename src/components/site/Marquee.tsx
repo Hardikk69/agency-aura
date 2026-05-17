@@ -23,7 +23,7 @@ export function LogoMarquee() {
               "flex items-center justify-center",
               "w-56 h-24 p-2 rounded-[0.75rem]",
               "border border-white/10 dark:border-white/5",
-              "group transition-all duration-500 hover:scale-105"
+              "group transition-all duration-500 hover:scale-105",
             )}
           >
             <div
@@ -33,7 +33,7 @@ export function LogoMarquee() {
                 "w-full h-full rounded-[0.75rem]",
                 "border border-black/[0.08] dark:border-white/[0.12]",
                 "shadow-[0_4px_12px_-4px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_12px_-4px_rgba(0,0,0,0.5)]",
-                "transition-all duration-500 group-hover:scale-[0.98] group-hover:border-white/20"
+                "transition-all duration-500 group-hover:scale-[0.98] group-hover:border-white/20",
               )}
             >
               <img
@@ -41,7 +41,7 @@ export function LogoMarquee() {
                 alt={logo.name}
                 className="h-9 w-auto max-w-[70%] object-contain brightness-0 dark:invert opacity-40 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110"
                 onError={(e) => {
-                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.style.display = "none";
                   if (e.currentTarget.nextSibling) {
                     e.currentTarget.nextSibling.textContent = logo.name;
                   }

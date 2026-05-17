@@ -1,13 +1,5 @@
 import * as React from "react";
-import {
-  Sparkles,
-  Code2,
-  Search,
-  Bot,
-  Cpu,
-  Layers,
-  ArrowUpRight,
-} from "lucide-react";
+import { Sparkles, Code2, Bot, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import SpotlightCard from "./SpotlightCard";
 import { Button } from "../ui/button";
@@ -28,9 +20,15 @@ const services: Service[] = [
     description:
       "From your website to your social feed - every touchpoint your audience sees, built to impress and convert. ",
     tag: "01",
-    features: ["Website Design","Pitch Deck Design","LinkedIn Carousels","Social Media Creatives","Thumbnail Design"
+    features: [
+      "Website Design",
+      "Pitch Deck Design",
+      "LinkedIn Carousels",
+      "Social Media Creatives",
+      "Thumbnail Design",
     ],
-    images: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2340&auto=format&fit=crop",
+    images:
+      "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2340&auto=format&fit=crop",
   },
   {
     icon: Code2,
@@ -38,10 +36,15 @@ const services: Service[] = [
     description:
       "Raw footage in, scroll-stopping content out. Whether it's a 30-second reel or a 2-hour podcast - we handle the full edit.",
     tag: "02",
-    features: ["Short-Form Editing (Insta, TikTok, Shorts)","Long-Form Editing","Content Repurposing Systems","Retention-Focused Storytelling","Platform-Optimized Deliverables"
+    features: [
+      "Short-Form Editing (Insta, TikTok, Shorts)",
+      "Long-Form Editing",
+      "Content Repurposing Systems",
+      "Retention-Focused Storytelling",
+      "Platform-Optimized Deliverables",
     ],
-    images: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
-
+    images:
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
   },
   {
     icon: Bot,
@@ -49,11 +52,17 @@ const services: Service[] = [
     description:
       "We identify the tasks eating your time and replace them with systems that run 24/7 — no extra hires, no extra headaches.",
     tag: "03",
-    features: ["Customised workflow automations","Email & Voice agents","Content Automation Pipelines","Lead & CRM Automation","Multi- agents System"],
-    images: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
+    features: [
+      "Customised workflow automations",
+      "Email & Voice agents",
+      "Content Automation Pipelines",
+      "Lead & CRM Automation",
+      "Multi- agents System",
+    ],
+    images:
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
   },
 ];
-
 
 function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
@@ -98,7 +107,10 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 
         <ul className="mt-5 space-y-2">
           {service.features.map((feature, i) => (
-            <li key={i} className="flex items-center gap-3 text-[14px] text-neutral-600 dark:text-neutral-400">
+            <li
+              key={i}
+              className="flex items-center gap-3 text-[14px] text-neutral-600 dark:text-neutral-400"
+            >
               <div className="h-1 w-1 rounded-full bg-neutral-400 dark:bg-neutral-600" />
               {feature}
             </li>
@@ -119,7 +131,6 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   );
 }
 
-
 export function Services() {
   return (
     <section
@@ -131,8 +142,7 @@ export function Services() {
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
-          background:
-            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
+          background: "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
         }}
       />
       <div
@@ -147,10 +157,12 @@ export function Services() {
             Services
           </span>
           <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-950 dark:text-white">
-            Everything you need, <span className="text-[#ff4d31] dark:text-[#ff4d31]">under one roof.</span>
+            Everything you need,{" "}
+            <span className="text-[#ff4d31] dark:text-[#ff4d31]">under one roof.</span>
           </h2>
           <p className="mt-5 max-w-2xl text-base md:text-lg text-neutral-600 dark:text-neutral-400">
-            Design that builds brands. Edits that grow audiences. Automation that saves hours. All from one team that actually talks to each other.
+            Design that builds brands. Edits that grow audiences. Automation that saves hours. All
+            from one team that actually talks to each other.
           </p>
         </div>
 

@@ -20,10 +20,10 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="w-full px-4 pb-6 pt-12">
-      <div 
+      <div
         className={cn(
           "relative mx-auto max-w-7xl rounded-2xl border border-white/20 dark:border-white/10 px-6 py-8 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden",
-          "liquid-glass backdrop-blur-xl"
+          "liquid-glass backdrop-blur-xl",
         )}
       >
         {/* ambient background */}
@@ -80,7 +80,7 @@ export function Footer() {
         {/* Bottom decorative line for mobile */}
         <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-neutral-300/30 dark:via-white/10 to-transparent md:hidden" />
       </div>
-      
+
       {/* Copyright */}
       <div className="mt-8 text-center text-xs text-neutral-400 dark:text-neutral-600">
         © {new Date().getFullYear()} Vertex Media House. All rights reserved.

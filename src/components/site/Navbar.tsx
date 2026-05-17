@@ -1,7 +1,16 @@
 import * as React from "react";
 import { Logo } from "./Logo";
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, Menu, Palette, Video, Cpu, FolderHeart, HelpCircle, Info, MessageSquare, Phone } from "lucide-react";
+import {
+  ChevronDown,
+  Menu,
+  Palette,
+  Video,
+  Cpu,
+  FolderHeart,
+  HelpCircle,
+  Info,
+} from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -45,11 +54,7 @@ export function Navbar() {
         </Link>
 
         <div className="hidden md:flex items-center gap-1 text-sm mr-4">
-          <div
-            className="relative"
-            onMouseEnter={handleEnter}
-            onMouseLeave={handleLeave}
-          >
+          <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
             <button
               className="group inline-flex items-center gap-1 px-3 py-2 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
               aria-haspopup="menu"
@@ -190,6 +195,6 @@ export function Navbar() {
           </Sheet>
         </div>
       </nav>
-    </header >
+    </header>
   );
 }

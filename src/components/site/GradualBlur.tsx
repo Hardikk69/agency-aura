@@ -52,8 +52,7 @@ export function GradualBlur({
         const segStart = (i / divCount) * 100;
         const segEnd = ((i + 1) / divCount) * 100;
 
-        const gradientDir =
-          position === "bottom" ? "to bottom" : "to top";
+        const gradientDir = position === "bottom" ? "to bottom" : "to top";
 
         const mask = `linear-gradient(${gradientDir}, transparent ${segStart}%, black ${(segStart + segEnd) / 2}%, black ${segEnd}%, transparent 100%)`;
 
