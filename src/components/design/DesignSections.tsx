@@ -411,7 +411,7 @@ export function Portfolio() {
             <MagicCard
               key={i}
               className={cn(
-                "group rounded-x p-2 md:p-4 liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10",
+                "group rounded-x p-2 md:p-4 liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10",
                 span,
               )}
               enableStars={true}
@@ -568,7 +568,7 @@ export function PackageCard({ pkg, index }: { pkg: (typeof packages)[0]; index: 
               background: useMotionTemplate`
                 radial-gradient(
                   400px circle at ${mouseX}px ${mouseY}px,
-                  ${pkg.highlighted ? "rgba(255, 77, 49, 0.12)" : "rgba(255, 255, 255, 0.12)"},
+                  ${pkg.highlighted ? "rgba(255, 255, 255, 0.18)" : "rgba(255, 255, 255, 0.12)"},
                   transparent 80%
                 )
               `,
@@ -661,7 +661,7 @@ export function Packages() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(60% 50% at 50% 0%, rgba(255, 77, 49, 0.06), transparent 70%)",
+            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
         }}
       />
       <div

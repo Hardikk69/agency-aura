@@ -1341,7 +1341,7 @@ export function PackageCard({ pkg, index }: { pkg: (typeof packages)[0]; index: 
               background: useMotionTemplate`
                 radial-gradient(
                   400px circle at ${mouseX}px ${mouseY}px,
-                  ${pkg.highlighted ? "rgba(255, 77, 49, 0.12)" : "rgba(255, 255, 255, 0.12)"},
+                  ${pkg.highlighted ? "rgba(255, 255, 255, 0.18)" : "rgba(255, 255, 255, 0.12)"},
                   transparent 80%
                 )
               `,
@@ -1434,7 +1434,7 @@ export function Packages() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(60% 50% at 50% 0%, rgba(255, 77, 49, 0.06), transparent 70%)",
+            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
         }}
       />
       <div

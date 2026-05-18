@@ -254,7 +254,7 @@ export function AutomateServiceCard({
               background: useMotionTemplate`
                 radial-gradient(
                   400px circle at ${mouseX}px ${mouseY}px,
-                  rgba(255, 77, 49, 0.18),
+                  rgba(120, 140, 180, 0.28),
                   transparent 80%
                 )
               `,
@@ -267,7 +267,7 @@ export function AutomateServiceCard({
               background: useMotionTemplate`
                 radial-gradient(
                   400px circle at ${mouseX}px ${mouseY}px,
-                  rgba(255, 77, 49, 0.22),
+                  rgba(255, 255, 255, 0.18),
                   transparent 80%
                 )
               `,
@@ -433,8 +433,8 @@ function Portfolio() {
             <SpotlightCard
               key={b.title}
               className="group p-7 md:p-8 rounded-2xl liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl"
-              spotlightColor="rgba(255, 77, 49, 0.18)"
-              darkSpotlightColor="rgba(255, 77, 49, 0.22)"
+              spotlightColor="rgba(120, 140, 180, 0.28)"
+              darkSpotlightColor="rgba(255, 255, 255, 0.18)"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
