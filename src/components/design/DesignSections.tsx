@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import StarBorder from "@/components/site/StarBorder";
 import { PitchDeckSimulator } from "./PitchDeckSimulator";
 import { MagicGrid, MagicCard } from "@/components/site/MagicBento";
+import { SectionGlow } from "@/components/site/SectionGlow";
 
 /* ---------- Doodles ---------- */
 export function StarDoodle({ className }: { className?: string }) {
@@ -59,13 +60,14 @@ export function CircleArrowDoodle({ className }: { className?: string }) {
 export function Hero() {
   return (
     <section className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 pt-10 md:pt-20 pb-12">
-      <div className="absolute top-32 left-8 hidden md:block text-[#ff4d31]/70 rotate-12">
+      <SectionGlow />
+      <div className="absolute top-32 left-8 hidden md:block text-[#ff4d31]/70 rotate-12 doodle-float">
         <StarDoodle className="h-12 w-12" />
       </div>
-      <div className="absolute top-20 right-16 hidden md:block text-amber-500/60 -rotate-12">
+      <div className="absolute top-20 right-16 hidden md:block text-amber-500/60 -rotate-12 doodle-spin-slow">
         <CircleArrowDoodle className="h-20 w-20" />
       </div>
-      <div className="absolute bottom-8 right-20 hidden lg:block text-[#ff4d31]/50">
+      <div className="absolute bottom-8 right-20 hidden lg:block text-[#ff4d31]/50 doodle-float-slow">
         <SquiggleDoodle className="h-6 w-32" />
       </div>
 
@@ -378,7 +380,8 @@ export function Portfolio() {
       id="portfolio"
       className="relative w-full px-4 sm:px-6 md:px-8 py-16 md:py-24 bg-white dark:bg-black/40"
     >
-      <div className="absolute top-20 left-10 hidden md:block text-[#ff4d31]/40 -rotate-6">
+      <SectionGlow />
+      <div className="absolute top-20 left-10 hidden md:block text-[#ff4d31]/40 -rotate-6 doodle-float">
         <SquiggleDoodle className="h-5 w-28" />
       </div>
       <div className="mx-auto max-w-7xl">
