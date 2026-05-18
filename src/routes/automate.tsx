@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { N8nWorkflowSimulator } from "@/components/automate/N8nWorkflowSimulator";
 import { Reviews } from "@/components/site/Reviews";
+import { SectionGlow } from "@/components/site/SectionGlow";
 
 export const Route = createFileRoute("/automate")({
   head: () => ({
@@ -100,11 +101,11 @@ function Hero() {
           maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
         }}
       />
-
-      <div className="absolute top-28 left-8 hidden md:block text-[#ff4d31]/60">
+      <SectionGlow />
+      <div className="absolute top-28 left-8 hidden md:block text-[#ff4d31]/60 doodle-float">
         <NodeGraph className="h-20 w-28" />
       </div>
-      <div className="absolute top-32 right-10 hidden md:block text-[#ff4d31]/40">
+      <div className="absolute top-32 right-10 hidden md:block text-[#ff4d31]/40 doodle-spin-slow">
         <PlusGrid className="h-20 w-20" />
       </div>
 
@@ -329,7 +330,8 @@ function Services() {
       id="services"
       className="relative w-full px-4 sm:px-6 md:px-8 py-16 md:py-24 bg-white dark:bg-black/40 overflow-hidden"
     >
-      <div className="absolute top-16 right-8 hidden md:block text-[#ff4d31]/40">
+      <SectionGlow />
+      <div className="absolute top-16 right-8 hidden md:block text-[#ff4d31]/40 doodle-pulse">
         <CircuitDoodle className="h-8 w-40" />
       </div>
       <div className="mx-auto max-w-7xl">
@@ -410,7 +412,8 @@ const builds = [
 function Portfolio() {
   return (
     <section id="portfolio" className="relative w-full px-4 sm:px-6 md:px-8 py-16 md:py-24">
-      <div className="absolute bottom-10 left-12 hidden md:block text-[#ff4d31]/40">
+      <SectionGlow />
+      <div className="absolute bottom-10 left-12 hidden md:block text-[#ff4d31]/40 doodle-float">
         <NodeGraph className="h-16 w-24" />
       </div>
       <div className="mx-auto max-w-7xl">
