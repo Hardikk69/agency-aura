@@ -723,11 +723,11 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="mt-6 text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-neutral-950 dark:text-white leading-[0.95]"
+              className="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-neutral-950 dark:text-white leading-[0.95]"
             >
-              Footage in.
+              You shoot it.
               <br />
-              <span className="text-[#ff4d31]">Scroll-stoppers</span> out.
+              <span className="text-[#ff4d31]">We make it worth watching.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -735,7 +735,7 @@ export function Hero() {
               transition={{ delay: 0.2 }}
               className="mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400"
             >
-              Reels, shorts, podcasts, long-form, ads — we cut frames the algorithm can't ignore.
+              Reels, Shorts, TikToks, YouTube, podcasts — every edit is built for retention, paced for the platform
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -770,43 +770,42 @@ export function Hero() {
   );
 }
 
-/* ---------- Services (WhyChooseUs-style layout) ---------- */
 const editServices = [
   {
     icon: Scissors,
-    title: "Short-Form Edits",
+    title: "Short Form Editing",
     description:
-      "Reels, TikToks, Shorts — hook-first pacing built around the critical first 0.8 seconds to maximize scroll-stopping power.",
-  },
-  {
-    icon: Clapperboard,
-    title: "Long-Form & Podcasts",
-    description:
-      "Retention-graphs guide every cut, b-roll placement and chapter marker. We keep viewers watching to the end.",
-  },
-  {
-    icon: Wand2,
-    title: "VFX & Motion Graphics",
-    description:
-      "Tracked text, seamless transitions and motion graphics that feel premium — without the Hollywood timeline or budget.",
+      "Reels, Shorts, and TikToks built around one thing — keeping people watching. Hook-first pacing, tight cuts, captions, and sound that makes stopping feel impossible.",
   },
   {
     icon: Music2,
     title: "Sound Design",
     description:
-      "Mix, master, SFX layers and music selection — audio is never an afterthought. Every frame sounds as good as it looks.",
+      "Music selection, SFX layers, voice mixing — audio is never an afterthought here. Every video sounds as polished as it looks.",
+  },
+  {
+    icon: Wand2,
+    title: "Motion Graphics & Text",
+    description:
+    "Animated subtitles, lower thirds, transitions, and text overlays that make your content look like it cost ten times more to make.",
+  },
+  {
+    icon: Clapperboard,
+    title: "Long Form Editing",
+    description:
+      "YouTube videos, podcasts, and brand films that hold attention end to end. Smart b-roll, chapter flow, and cuts that make an hour feel like ten minutes.",
   },
   {
     icon: Film,
-    title: "Cinematic Color Grade",
+    title: "Colour Grading",
     description:
-      "Film-grade color science tuned to your brand palette and platform. Consistent, cinematic looks across every deliverable.",
+      "Cinematic colour grades tuned to your brand palette. Consistent, warm, and platform-ready across every single deliverable.",
   },
   {
     icon: Zap,
     title: "Content Repurposing",
     description:
-      "One shoot, twenty deliverables. We natively adapt your content across platforms — no lazy crops, no letterboxing.",
+      "One shoot, multiple formats. We cut your long-form content into Reels, Shorts, clips, and highlights — so nothing you record goes to waste.",
   },
 ];
 
@@ -1244,55 +1243,57 @@ export function Testimonials() {
 export const packages = [
   {
     name: "Starter",
-    tagline: "Perfect for creators just getting started",
-    price: "$499",
-    period: "/month",
+    tagline: "For creators building consistency · For founders getting started with content",
     features: [
-      "4 short-form edits per month",
-      "Basic color grading",
-      "Licensed music & SFX",
-      "2 revision rounds",
-      "48h turnaround",
-      "Vertical + square formats",
+      "10 Reels / Month",
+      "Content Planning",
+      "Script Writing",
+      "Professional Video Editing",
+      "Thumbnail & Cover Design",
+      "3 Revisions Included",
+      "36–48 Hour Delivery",
     ],
     cta: "Get started",
     highlighted: false,
   },
   {
     name: "Growth",
-    tagline: "For brands scaling their content engine",
-    price: "$999",
-    period: "/month",
+    tagline: "For creators scaling their reach · For founders growing their online presence",
     features: [
-      "10 short-form edits per month",
-      "2 long-form edits per month",
-      "Cinematic color grading",
-      "Motion graphics & text overlays",
-      "Sound design & mixing",
-      "Unlimited revisions",
-      "24h priority turnaround",
-      "Multi-platform delivery",
+      "20 Reels / Month",
+      "Content Planning",
+      "Script Writing",
+      "Professional Video Editing",
+      "Hook Creation",
+      "Thumbnail & Cover Design",
+      "Motion Graphics",
+      "Check-in Calls",
+      "Dedicated Support",
+      "5 Revisions Included",
+      "24 Hour Delivery",
     ],
     cta: "Scale now",
     highlighted: true,
   },
   {
-    name: "Studio",
-    tagline: "Full production team on retainer",
-    price: "$2,499",
-    period: "/month",
+    name: "Premium",
+    tagline: "For creators going full-time · For founders who want content working 24/7",
     features: [
-      "Unlimited short-form edits",
-      "6 long-form edits per month",
-      "Advanced VFX & compositing",
-      "Custom motion graphics",
-      "Dedicated editor assigned",
-      "Same-day turnaround",
-      "Raw project files included",
-      "Slack/Discord direct access",
-      "Monthly strategy call",
+      "30 Reels / Month",
+      "Content Planning",
+      "Script Writing",
+      "Professional Video Editing",
+      "Hook Creation",
+      "Thumbnail & Cover Design",
+      "Motion Graphics",
+      "Check-in Calls",
+      "Dedicated Support",
+      "Monthly Strategy Call",
+      "Monthly Performance Report",
+      "Unlimited Revisions",
+      "24 Hour Delivery",
     ],
-    cta: "Go studio",
+    cta: "Get premium",
     highlighted: false,
   },
 ];

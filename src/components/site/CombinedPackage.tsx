@@ -1,11 +1,76 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle2, Layers, Clapperboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const bundlePackages = [
+  {
+    id: "starter",
+    name: "Starter",
+    tagline: "For creators building consistency · For founders getting started with content",
+    title: "Starter Content Engine",
+    description: "Get complete brand alignment and start your social media video engine with our standard professional support.",
+    features: [
+      "10 Reels / Month",
+      "Content Planning",
+      "Script Writing",
+      "Professional Video Editing",
+      "Thumbnail & Cover Design",
+      "3 Revisions Included",
+      "36–48 Hour Delivery"
+    ]
+  },
+  {
+    id: "growth",
+    name: "Growth",
+    tagline: "For creators scaling their reach · For founders growing their online presence",
+    title: "Growth Content Engine",
+    description: "Scale your audience growth with premium edits, hooks, dedicated support and rapid turnaround times.",
+    features: [
+      "20 Reels / Month",
+      "Content Planning",
+      "Script Writing",
+      "Professional Video Editing",
+      "Hook Creation",
+      "Thumbnail & Cover Design",
+      "Motion Graphics",
+      "Check-in Calls",
+      "Dedicated Support",
+      "5 Revisions Included",
+      "24 Hour Delivery"
+    ]
+  },
+  {
+    id: "premium",
+    name: "Premium",
+    tagline: "For creators going full-time · For founders who want content working 24/7",
+    title: "Premium Content Engine",
+    description: "Our all-inclusive visual engine retainer for dominating every platform with maximum quality and strategy.",
+    features: [
+      "30 Reels / Month",
+      "Content Planning",
+      "Script Writing",
+      "Professional Video Editing",
+      "Hook Creation",
+      "Thumbnail & Cover Design",
+      "Motion Graphics",
+      "Check-in Calls",
+      "Dedicated Support",
+      "Monthly Strategy Call",
+      "Monthly Performance Report",
+      "Unlimited Revisions",
+      "24 Hour Delivery"
+    ]
+  }
+];
 
 export function CombinedPackage() {
+  const [selectedPackage, setSelectedPackage] = useState("growth");
+  const currentPkg = bundlePackages.find((p) => p.id === selectedPackage) || bundlePackages[1];
+
   return (
-    <section id="combined-package" className="py-24 md:py-32 relative overflow-hidden bg-neutral-50 dark:bg-[#0a0a0a] transition-colors duration-300">
+    <section id="combined-package" className="py-10 md:py-14 relative overflow-hidden bg-neutral-50 dark:bg-[#0a0a0a] transition-colors duration-300">
       {/* Deep ambient glow at the bottom */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[#ff4d31]/5 dark:from-[#ff4d31]/10 via-neutral-50 dark:via-[#0a0a0a] to-neutral-50 dark:to-[#0a0a0a] pointer-events-none"></div>
 
@@ -14,18 +79,41 @@ export function CombinedPackage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16 md:mb-24"
+          className="text-center mb-6"
         >
-          <h2 className="text-6xl md:text-8xl font-black text-neutral-950 dark:text-white tracking-tighter mb-6 flex flex-col md:flex-row items-center justify-center gap-4">
+          <h2 className="text-5xl md:text-6xl font-black text-neutral-950 dark:text-white tracking-tighter mb-2 flex flex-col md:flex-row items-center justify-center gap-4">
             DESIGN
             <span className="text-neutral-300 dark:text-neutral-800 hidden md:block">✕</span>
             <span className="text-neutral-300 dark:text-neutral-800 md:hidden text-4xl">✕</span>
             EDIT
           </h2>
-          <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 font-medium max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium max-w-2xl mx-auto">
             The ultimate content engine. One team. Complete visual alignment.
           </p>
         </motion.div>
+
+        {/* Tab Buttons for Starter, Growth, Premium */}
+        <div className="flex justify-center mb-8 md:mb-10">
+          <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-neutral-200/50 dark:bg-white/[0.03] border border-neutral-300 dark:border-white/10 w-fit backdrop-blur-md">
+            {bundlePackages.map((pkg) => {
+              const isActive = selectedPackage === pkg.id;
+              return (
+                <button
+                  key={pkg.id}
+                  onClick={() => setSelectedPackage(pkg.id)}
+                  className={cn(
+                    "px-6 py-2.5 rounded-full text-xs md:text-sm font-bold transition-all duration-300 capitalize cursor-pointer",
+                    isActive
+                      ? "bg-white dark:bg-white/10 text-[#ff4d31] dark:text-white shadow-lg border border-black/5 dark:border-white/10"
+                      : "text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
+                  )}
+                >
+                  {pkg.name}
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -40,71 +128,77 @@ export function CombinedPackage() {
             style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }}
           ></div>
 
-          <div className="relative z-10 bg-gradient-to-b from-white/90 dark:from-neutral-900/80 to-neutral-50/90 dark:to-[#0a0a0a] rounded-[2rem] border border-neutral-100 dark:border-white/5 overflow-hidden flex flex-col md:flex-row gap-8 md:gap-12 p-8 md:p-12">
-            {/* Left Column (Info & CTA) */}
-            <div className="flex-grow flex-shrink flex-col justify-center flex-[1.2]">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center -space-x-2">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 shadow-lg z-10">
-                    <Layers className="h-5 w-5 text-[#ff4d31]" />
-                  </div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 shadow-lg z-0">
-                    <Clapperboard className="h-5 w-5 text-[#ff4d31]" />
-                  </div>
-                </div>
-                <span className="text-sm font-semibold uppercase tracking-widest text-[#ff4d31]">
-                  The Ultimate Bundle
-                </span>
-              </div>
-
-              <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-950 dark:text-white">
-                The Full Content <br className="hidden md:block" /> Engine.
-              </h3>
-
-              <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
-                Why hire a designer and an editor separately? Get a unified visual identity across
-                your brand and your videos. One team. Complete consistency.
-              </p>
-
-              <Button
-                asChild
-                className="w-full md:w-auto self-start rounded-full h-14 px-8 text-base font-bold transition-all duration-300 bg-[#ff4d31] text-white hover:bg-[#e8462c] shadow-lg shadow-[#ff4d31]/25 hover:shadow-xl hover:shadow-[#ff4d31]/40 hover:-translate-y-0.5"
+          <div className="relative z-10 bg-gradient-to-b from-white/90 dark:from-neutral-900/80 to-neutral-50/90 dark:to-[#0a0a0a] rounded-[2rem] border border-neutral-100 dark:border-white/5 overflow-hidden p-6 md:p-8">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedPackage}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col md:flex-row gap-6 md:gap-8"
               >
-                <a href="#contact" className="flex items-center justify-center gap-2">
-                  Claim Bundle Offer
-                  <ArrowRight className="h-5 w-5" />
-                </a>
-              </Button>
-            </div>
+                {/* Left Column (Info & CTA) */}
+                <div className="flex-grow flex-shrink flex-col justify-center flex-[1.2]">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center -space-x-2">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 shadow-lg z-10">
+                        <Layers className="h-4.5 w-4.5 text-[#ff4d31]" />
+                      </div>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 shadow-lg z-0">
+                        <Clapperboard className="h-4.5 w-4.5 text-[#ff4d31]" />
+                      </div>
+                    </div>
+                    <span className="text-xs font-semibold uppercase tracking-widest text-[#ff4d31]">
+                      Design ✕ Edit Bundle Offer
+                    </span>
+                  </div>
 
-            {/* Right Column (Features) */}
-            <div className="flex-grow flex-shrink p-6 md:p-8 bg-neutral-100/50 dark:bg-white/5 rounded-2xl border border-neutral-200/50 dark:border-white/5 shadow-inner flex-1">
-              <div className="mb-6 pb-6 border-b border-neutral-200/80 dark:border-white/10">
-                <h4 className="text-sm font-bold uppercase tracking-wider text-neutral-950 dark:text-white mb-2">
-                  What's Included
-                </h4>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 font-medium">
-                  Everything from our premium Design and Edit packages, perfectly integrated.
-                </p>
-              </div>
+                  <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2 text-neutral-950 dark:text-white leading-tight">
+                    {currentPkg.title}
+                  </h3>
 
-              <ul className="space-y-4">
-                {[
-                  "Complete Brand Identity & Guidelines",
-                  "Unlimited Short-Form Edits",
-                  "Custom Motion Graphics Package",
-                  "Platform-Native Social Creatives",
-                  "Dedicated Designer & Editor",
-                  "Priority 24h Turnarounds",
-                  "Unified Strategy & Content Sync",
-                ].map((feature, i) => (
-                  <li key={i} className="flex items-start gap-4">
-                    <CheckCircle2 className="h-5 w-5 text-[#ff4d31] shrink-0" />
-                    <span className="text-neutral-800 dark:text-neutral-300 font-semibold">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                  <p className="text-xs text-[#ff4d31] font-bold uppercase tracking-wider mb-4 leading-normal">
+                    {currentPkg.tagline}
+                  </p>
+
+                  <p className="text-base text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
+                    {currentPkg.description}
+                  </p>
+
+                  <Button
+                    asChild
+                    className="w-full md:w-auto self-start rounded-full h-12 px-6 text-sm font-bold transition-all duration-300 bg-[#ff4d31] text-white hover:bg-[#e8462c] shadow-lg shadow-[#ff4d31]/25 hover:shadow-xl hover:shadow-[#ff4d31]/40 hover:-translate-y-0.5"
+                  >
+                    <a href="#contact" className="flex items-center justify-center gap-2">
+                      Claim {currentPkg.name} Offer
+                      <ArrowRight className="h-4.5 w-4.5" />
+                    </a>
+                  </Button>
+                </div>
+
+                {/* Right Column (Features) */}
+                <div className="flex-grow flex-shrink p-6 md:p-8 bg-neutral-100/50 dark:bg-white/5 rounded-2xl border border-neutral-200/50 dark:border-white/5 shadow-inner flex-1">
+                  <div className="mb-6 pb-6 border-b border-neutral-200/80 dark:border-white/10">
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-neutral-950 dark:text-white mb-2">
+                      What's Included
+                    </h4>
+                    <p className="text-sm text-neutral-600 dark:text-neutral-400 font-medium">
+                      Tailored Design x Edit retention-focused assets for your brand:
+                    </p>
+                  </div>
+
+                  <ul className="space-y-4">
+                    {currentPkg.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-4">
+                        <CheckCircle2 className="h-5 w-5 text-[#ff4d31] shrink-0" />
+                        <span className="text-neutral-800 dark:text-neutral-300 font-semibold">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </motion.div>
       </div>

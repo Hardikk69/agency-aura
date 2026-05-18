@@ -1,6 +1,6 @@
 import * as React from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { ArrowUpRight, Palette, Layers, Type, Sparkles, Frame, Brush } from "lucide-react";
+import { ArrowUpRight, Palette, Layers, Type, Sparkles, Frame, Brush, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import StarBorder from "@/components/site/StarBorder";
@@ -77,7 +77,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 rounded-full liquid-glass border border-white/30 dark:border-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-neutral-700 dark:text-neutral-300"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31]" /> Design Studio
+              <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31]" /> Design Suits
             </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -85,8 +85,8 @@ export function Hero() {
               transition={{ delay: 0.1 }}
               className="mt-6 text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-neutral-950 dark:text-white leading-[0.95]"
             >
-              Design that <em className="font-serif italic text-[#ff4d31]">whispers</em>,<br />{" "}
-              brand that <em className="font-serif italic">roars</em>.
+              Design that makes<em className="font-serif italic text-[#ff4d31]"> you,</em><br />{" "}
+              look like the <em className="font-serif italic">best in room</em>.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -94,8 +94,7 @@ export function Hero() {
               transition={{ delay: 0.2 }}
               className="mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400"
             >
-              From the first pixel of your website to the last frame of your pitch deck — we craft
-              design systems people actually feel.
+              From your website to your social feed — every touchpoint your audience sees, built to impress, built to convert, and built to be remembered. 
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -134,37 +133,37 @@ export const designServices = [
     icon: Layers,
     title: "Website Design",
     description:
-      "Conversion-led websites with story, motion, and craft — built to turn visitors into customers from the first scroll.",
+      "Your website is your best salesperson. We design sites that load with a story, guide visitors with intention, and turn browsers into buyers. ",
   },
   {
     icon: Frame,
-    title: "Pitch Decks",
+    title: "Pitch Decks Design",
     description:
-      "Investor decks that make the room lean forward. Narrative-driven slides with data visualization that actually persuades.",
+      "Your idea deserves better than a boring slide deck. We design pitch decks that are clear, visual, and impossible to ignore.",
   },
   {
     icon: Type,
-    title: "Brand Identity",
+    title: "LinkedIn Carousels",
     description:
-      "Logo systems, typography, color palettes, voice — the whole soul of your brand, distilled into a system that scales.",
+      "Carousels that get saved, shared, and followed. We design scroll-stopping educational content that builds authority and grows your audience on autopilot. ",
   },
   {
     icon: Palette,
-    title: "Social Creatives",
+    title: "Social Media Posts",
     description:
-      "Feeds, carousels and thumbnails built to stop the scroll. Platform-native design that drives engagement and shares.",
+      "Consistent, on-brand content for every platform. Designed to stop the scroll, reflect your brand identity, and keep your feed looking intentional — not random",
   },
   {
     icon: Brush,
-    title: "Print & Editorial",
+    title: "Thumbnail Design",
     description:
-      "Books, magazines and merch that feel like artifacts. Tactile design crafted for the real world, not just screens.",
+      "Your thumbnail is your billboard. We design click-worthy covers for YouTube, Shorts, and Reels that compete at the highest level and actually get clicked.",
   },
   {
     icon: Sparkles,
-    title: "Design Systems",
+    title: "Company Profiles",
     description:
-      "Tokens, components, documentation — design infrastructure that scales with your team without losing consistency.",
+      "Your company profile is the first thing a client reads about you. We design it to make the right impression — clean, professional, and built to win trust before you say a word.",
   },
 ];
 
@@ -389,15 +388,15 @@ export function Portfolio() {
               — Selected Work
             </p>
             <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-950 dark:text-white">
-              A gallery,
+              Work that
               <br />
               <span className="font-serif italic text-neutral-500 dark:text-neutral-400">
-                not a portfolio.
+                speaks for itself.
               </span>
             </h2>
           </div>
           <p className="max-w-md text-neutral-600 dark:text-neutral-400">
-            Recent collaborations across identity, product, editorial and packaging.
+            Real projects across websites, pitch decks, and social content. 
           </p>
         </div>
 
@@ -468,3 +467,261 @@ export const designReviews = [
     service: "Soft Goods Co.",
   },
 ];
+
+/* ---------- Packages ---------- */
+export const packages = [
+  {
+    name: "Starter",
+    tagline: "Perfect for brands needing consistent asset design",
+    features: [
+      "10 Custom Designs / Month",
+      "Static Social Media Posts",
+      "Carousel Post Designs",
+      "Cover Page / Thumbnail Designs",
+      "Thumbnail & Cover Graphics",
+      "3 Revisions Included",
+      "36–48 Hour Delivery",
+    ],
+    cta: "Get started",
+    highlighted: false,
+  },
+  {
+    name: "Growth",
+    tagline: "For brands scaling their design assets and decks",
+    features: [
+      "20 Custom Designs / Month",
+      "Static Social Media Posts",
+      "Carousel Post Designs",
+      "Story Designs",
+      "Thumbnail & Cover Graphics",
+      "Motion Design",
+      "1 Presentation / Pitch Deck Design",
+      "Check-in Calls",
+      "Dedicated Support",
+      "Unlimited Revisions",
+      "24 Hour Delivery",
+    ],
+    cta: "Scale now",
+    highlighted: true,
+  },
+  {
+    name: "Premium",
+    tagline: "Your complete product and brand design squad",
+    features: [
+      "30 Custom Designs / Month",
+      "Static Social Media Posts",
+      "Carousel Post Designs",
+      "Story Designs",
+      "Thumbnail & Cover Graphics",
+      "Motion Design",
+      "3 Presentation / Pitch Deck Designs",
+      "Check-in Calls",
+      "Dedicated Support",
+      "Unlimited Revisions",
+      "Priority 24 Hour Delivery",
+    ],
+    cta: "Get premium",
+    highlighted: false,
+  },
+];
+
+export function PackageCard({ pkg, index }: { pkg: (typeof packages)[0]; index: number }) {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.15 }}
+      onMouseMove={handleMouseMove}
+      className={cn(
+        "group relative transition-all duration-500 ease-out hover:-translate-y-3 h-full",
+      )}
+    >
+      <StarBorder
+        className="w-full h-full"
+        color={pkg.highlighted ? "rgba(255, 77, 49, 0.8)" : "rgba(255, 255, 255, 0.6)"}
+        speed={pkg.highlighted ? "10s" : "16s"}
+        thickness={pkg.highlighted ? 4 : 3}
+      >
+        <div
+          className={cn(
+            "relative flex flex-col p-8 h-full w-full overflow-hidden",
+            "liquid-glass backdrop-blur-xl backdrop-saturate-150",
+            pkg.highlighted
+              ? "dark:!bg-white/[0.06] border-none shadow-none"
+              : "dark:!bg-white/[0.03] border-none shadow-none",
+          )}
+        >
+          {/* Spotlight hover */}
+          <motion.div
+            className="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden dark:block"
+            style={{
+              background: useMotionTemplate`
+                radial-gradient(
+                  400px circle at ${mouseX}px ${mouseY}px,
+                  ${pkg.highlighted ? "rgba(255, 77, 49, 0.12)" : "rgba(255, 255, 255, 0.12)"},
+                  transparent 80%
+                )
+              `,
+            }}
+          />
+          <motion.div
+            className="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:hidden"
+            style={{
+              background: useMotionTemplate`
+                radial-gradient(
+                  400px circle at ${mouseX}px ${mouseY}px,
+                  rgba(120, 140, 180, 0.28),
+                  transparent 80%
+                )
+              `,
+            }}
+          />
+
+          {/* Recommended badge */}
+          {pkg.highlighted && (
+            <div className="absolute top-0 right-6 z-10">
+              <div className="bg-[#ff4d31] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-b-lg shadow-lg shadow-[#ff4d31]/30">
+                Recommended
+              </div>
+            </div>
+          )}
+
+          {/* Header */}
+          <div className="mb-6">
+            <h3
+              className={cn(
+                "text-2xl font-bold tracking-tight mb-1",
+                pkg.highlighted ? "text-[#ff4d31]" : "text-neutral-900 dark:text-white",
+              )}
+            >
+              {pkg.name}
+            </h3>
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">{pkg.tagline}</p>
+          </div>
+
+          {/* Features list */}
+          <ul className="space-y-3 mb-8 flex-grow">
+            {pkg.features.map((feature, i) => (
+              <li key={i} className="flex items-start gap-3 text-sm">
+                <div
+                  className={cn(
+                    "flex h-5 w-5 shrink-0 items-center justify-center rounded-full mt-0.5",
+                    pkg.highlighted
+                      ? "bg-[#ff4d31]/15 text-[#ff4d31]"
+                      : "bg-white/10 dark:bg-white/[0.06] text-neutral-500 dark:text-neutral-400",
+                  )}
+                >
+                  <Check className="h-3 w-3" />
+                </div>
+                <span className="text-neutral-700 dark:text-neutral-300">{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA */}
+          <Button
+            asChild
+            className={cn(
+              "w-full rounded-full h-12 text-sm font-semibold transition-all duration-300",
+              pkg.highlighted
+                ? "bg-[#ff4d31] text-white hover:bg-[#e8462c] shadow-lg shadow-[#ff4d31]/20 hover:shadow-xl hover:shadow-[#ff4d31]/30"
+                : "bg-white/10 dark:bg-white/[0.06] text-neutral-900 dark:text-white border border-neutral-200/50 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/[0.1]",
+            )}
+          >
+            <a href="#contact" className="flex items-center justify-center gap-2">
+              {pkg.cta}
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </Button>
+        </div>
+      </StarBorder>
+    </motion.div>
+  );
+}
+
+export function Packages() {
+  return (
+    <section
+      id="packages"
+      className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-12 md:py-20 bg-white dark:bg-black"
+    >
+      {/* ambient background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 50% 0%, rgba(255, 77, 49, 0.06), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neutral-300/60 dark:via-white/10 to-transparent"
+      />
+
+      <div className="relative mx-auto max-w-7xl">
+        <div className="flex flex-col items-center text-center mb-10 md:mb-14">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-semibold text-neutral-600 dark:text-neutral-300 uppercase tracking-wider"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" />
+            Packages
+          </motion.span>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-6 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white"
+          >
+            Work that speaks <span className="text-[#ff4d31]">for itself.</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
+          >
+            Real projects across websites, pitch decks, and social content 
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-5 lg:gap-6 items-stretch">
+          {packages.map((pkg, index) => (
+            <PackageCard key={pkg.name} pkg={pkg} index={index} />
+          ))}
+        </div>
+
+        {/* Bottom note */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-10 text-center text-sm text-neutral-500 dark:text-neutral-500"
+        >
+          Need something custom?{" "}
+          <a href="#contact" className="text-[#ff4d31] font-semibold hover:underline">
+            Let's talk →
+          </a>
+        </motion.p>
+      </div>
+    </section>
+  );
+}

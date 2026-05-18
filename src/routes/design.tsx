@@ -25,7 +25,7 @@ export const Route = createFileRoute("/design")({
   component: DesignPage,
 });
 
-import { Hero, Services, Portfolio, designReviews } from "@/components/design/DesignSections";
+import { Hero, Services, Portfolio, designReviews, Packages } from "@/components/design/DesignSections";
 
 function DesignPage() {
   return (
@@ -37,6 +37,7 @@ function DesignPage() {
       <Services />
       <Portfolio />
       <Reviews rows={1} items={designReviews} />
+      <Packages />
       <CombinedPackage />
     </PageShell>
   );

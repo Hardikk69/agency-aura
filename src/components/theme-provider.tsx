@@ -4,18 +4,20 @@ type Theme = "light" | "dark";
 type Ctx = { theme: Theme; toggle: () => void; setTheme: (t: Theme) => void };
 
 const ThemeContext = React.createContext<Ctx>({
-  theme: "light",
+  theme: "dark",
   toggle: () => {},
   setTheme: () => {},
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = React.useState<Theme>("light");
+  const [theme, setThemeState] = React.useState<Theme>("dark");
 
   React.useEffect(() => {
-    const stored = (typeof window !== "undefined" && localStorage.getItem("theme")) as Theme | null;
+    const stored = (typeof window !== "undefined" && localStorage.getItem("vertex_theme_v2")) as Theme | null;
     if (stored === "dark" || stored === "light") {
       setThemeState(stored);
+    } else {
+      setThemeState("dark");
     }
   }, []);
 
@@ -24,7 +26,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (theme === "dark") root.classList.add("dark");
     else root.classList.remove("dark");
     try {
-      localStorage.setItem("theme", theme);
+      localStorage.setItem("vertex_theme_v2", theme);
     } catch {}
   }, [theme]);
 

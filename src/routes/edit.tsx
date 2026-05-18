@@ -43,15 +43,15 @@ function EditPage() {
       <Portfolio
         items={shortFormItems}
         title="Short-form Reels."
-        subtitle="Designed for instant hook rate, tight pacing, and maximum audience retention."
+        subtitle="Hook in the first second. Captions that keep eyes on screen. Pacing that earns every extra second of watch time. "
         direction="left"
       />
-      <Portfolio
+      {/* <Portfolio
         items={cinematicItems}
         title="Cinematic Commercials."
         subtitle="Premium corporate messaging, rich sound design, and color grading tuned for conversion."
         direction="right"
-      />
+      /> */}
       <Reviews rows={1} />
       <Packages />
       <CombinedPackage />
