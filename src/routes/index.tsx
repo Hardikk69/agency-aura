@@ -9,6 +9,7 @@ import { Reviews } from "@/components/site/Reviews";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWidgets } from "@/components/site/FloatingWidgets";
 import { GradualBlur } from "@/components/site/GradualBlur";
+import { CalendarCTA } from "@/components/site/CalendarCTA";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -26,6 +27,7 @@ function Index() {
             <Portfolio />
             <WhyChooseUs />
             <Reviews />
+            <CalendarCTA />
             <Footer />
           </div>
         </main>

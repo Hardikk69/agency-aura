@@ -2,9 +2,9 @@ import * as React from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { ArrowUpRight, Palette, Layers, Type, Sparkles, Frame, Brush } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import StarBorder from "@/components/site/StarBorder";
 import { cn } from "@/lib/utils";
-import CardSwap, { Card } from "@/components/site/CardSwap";
+import StarBorder from "@/components/site/StarBorder";
+import { PitchDeckSimulator } from "./PitchDeckSimulator";
 import { MagicGrid, MagicCard } from "@/components/site/MagicBento";
 
 /* ---------- Doodles ---------- */
@@ -69,9 +69,9 @@ export function Hero() {
         <SquiggleDoodle className="h-6 w-32" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div className="md:col-span-7">
+          <div className="lg:col-span-5 md:col-span-6">
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -119,56 +119,8 @@ export function Hero() {
             </motion.div>
           </div>
 
-          <div className="md:col-span-5 h-[500px] md:h-[600px] relative">
-            <CardSwap
-              width="100%"
-              height="100%"
-              cardDistance={50}
-              verticalDistance={60}
-              delay={2000}
-              pauseOnHover={true}
-            >
-              {[
-                {
-                  img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1200",
-                  title: "Brand Identity",
-                  case: "Case 01",
-                },
-                {
-                  img: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200",
-                  title: "Digital Experience",
-                  case: "Case 02",
-                },
-                {
-                  img: "https://images.unsplash.com/photo-1581291518151-0e07553bb465?q=80&w=1200",
-                  title: "Motion Systems",
-                  case: "Case 03",
-                },
-              ].map((item, idx) => (
-                <Card
-                  key={idx}
-                  className="overflow-hidden group/card border-white/30 dark:border-white/10"
-                >
-                  <img
-                    src={item.img}
-                    alt=""
-                    className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover/card:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white">
-                    <div>
-                      <p className="text-[10px] uppercase tracking-[0.2em] opacity-70 mb-1">
-                        {item.case}
-                      </p>
-                      <p className="font-semibold text-lg leading-tight">{item.title}</p>
-                    </div>
-                    <div className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center transition-transform group-hover/card:translate-x-1 group-hover/card:-translate-y-1">
-                      <ArrowUpRight className="h-5 w-5" />
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </CardSwap>
+          <div className="lg:col-span-7 md:col-span-6 h-[320px] sm:h-[400px] md:h-[460px] lg:h-[500px] relative w-full">
+            <PitchDeckSimulator />
           </div>
         </div>
       </div>

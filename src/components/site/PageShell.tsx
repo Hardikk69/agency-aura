@@ -2,6 +2,7 @@ import * as React from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { CalendarCTA } from "./CalendarCTA";
 import { FloatingWidgets } from "./FloatingWidgets";
 import { GradualBlur } from "./GradualBlur";
 
@@ -13,6 +14,7 @@ export function PageShell({ children }: { children: React.ReactNode }) {
           <div className="relative">
             <Navbar />
             {children}
+            <CalendarCTA />
             <Footer />
           </div>
         </main>

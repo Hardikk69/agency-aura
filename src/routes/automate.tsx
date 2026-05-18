@@ -1,11 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import StarBorder from "@/components/site/StarBorder";
 import { Bot, Workflow, Mail, Database, Network, Zap, ArrowRight, Terminal } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { LogoMarquee } from "@/components/site/Marquee";
 import SpotlightCard from "@/components/site/SpotlightCard";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { N8nWorkflowSimulator } from "@/components/automate/N8nWorkflowSimulator";
+import { Reviews } from "@/components/site/Reviews";
 
 export const Route = createFileRoute("/automate")({
   head: () => ({
@@ -93,97 +96,80 @@ function Hero() {
           backgroundImage:
             "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
           backgroundSize: "44px 44px",
-          color: "#10b981",
+          color: "#ff4d31",
           maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
         }}
       />
 
-      <div className="absolute top-28 left-8 hidden md:block text-emerald-500/60">
+      <div className="absolute top-28 left-8 hidden md:block text-[#ff4d31]/60">
         <NodeGraph className="h-20 w-28" />
       </div>
-      <div className="absolute top-32 right-10 hidden md:block text-emerald-500/40">
+      <div className="absolute top-32 right-10 hidden md:block text-[#ff4d31]/40">
         <PlusGrid className="h-20 w-20" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl">
-        <div className="text-center">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 rounded-full liquid-glass border border-white/30 dark:border-white/10 px-3 py-1 text-xs font-mono uppercase tracking-widest text-neutral-700 dark:text-neutral-300"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            ./agents --status running
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mt-6 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-neutral-950 dark:text-white leading-[0.95]"
-          >
-            Build the <span className="text-emerald-500">system</span>,<br />
-            not the busywork.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mt-6 mx-auto max-w-2xl text-lg text-neutral-600 dark:text-neutral-400"
-          >
-            We design AI agents, workflows and pipelines that quietly handle 80% of the work — so
-            your team can ship the other 20%.
-          </motion.p>
+      <div className="relative mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-5">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 rounded-full liquid-glass border border-white/30 dark:border-white/10 px-3 py-1 text-xs font-mono uppercase tracking-widest text-neutral-700 dark:text-neutral-300"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" />
+              ./agents --status running
+            </motion.span>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white leading-[0.95]"
+            >
+              Build the <span className="text-[#ff4d31]">system</span>,<br />
+              not the busywork.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400"
+            >
+              We design AI agents, workflows and pipelines that quietly handle 80% of the work — so
+              your team can ship the other 20%.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="mt-8 flex flex-wrap gap-3"
+            >
+              <Button
+                asChild
+                className="rounded-full px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-[#ff4d31] dark:text-white dark:hover:bg-[#e8462c]"
+              >
+                <a href="#contact">Audit my workflow</a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-full px-6 py-3 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent"
+              >
+                <a href="#portfolio">See builds</a>
+              </Button>
+            </motion.div>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mt-8 flex flex-wrap justify-center gap-3"
+            transition={{ delay: 0.4 }}
+            className="lg:col-span-7 h-[320px] sm:h-[420px] md:h-[480px] lg:h-[530px] relative w-full"
           >
-            <Button
-              asChild
-              className="rounded-full px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-emerald-500 dark:text-neutral-900 dark:hover:bg-emerald-400"
-            >
-              <a href="#contact">Audit my workflow</a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full px-6 py-3 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent"
-            >
-              <a href="#portfolio">See builds</a>
-            </Button>
+            <div className="w-full h-full relative lg:max-w-[calc(100%-50px)] lg:ml-auto">
+              <N8nWorkflowSimulator />
+            </div>
           </motion.div>
         </div>
-
-        {/* workflow visualization */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="mt-14 liquid-glass rounded-2xl border border-white/30 dark:border-white/10 p-5 md:p-8"
-        >
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-2 items-center">
-            {[
-              { icon: Mail, label: "Inbound" },
-              { icon: Bot, label: "AI Agent" },
-              { icon: Database, label: "CRM" },
-              { icon: Workflow, label: "Workflow" },
-              { icon: Zap, label: "Action" },
-            ].map((step, i, arr) => (
-              <div key={step.label} className="flex items-center gap-2">
-                <div className="flex-1 flex flex-col items-center gap-2 rounded-xl border border-emerald-500/20 bg-emerald-500/5 px-3 py-4">
-                  <step.icon className="h-5 w-5 text-emerald-500" />
-                  <span className="font-mono text-xs text-neutral-700 dark:text-neutral-300">
-                    {step.label}
-                  </span>
-                </div>
-                {i < arr.length - 1 && (
-                  <ArrowRight className="hidden md:block h-4 w-4 text-emerald-500 shrink-0" />
-                )}
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
@@ -218,50 +204,175 @@ const autoServices = [
     desc: "From idea to published asset, no human in the middle.",
   },
 ];
+
+export function AutomateServiceCard({
+  icon: Icon,
+  title,
+  desc,
+  index,
+}: {
+  icon: React.ElementType;
+  title: string;
+  desc: string;
+  index: number;
+}) {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      onMouseMove={handleMouseMove}
+      className="group relative transition-all duration-500 ease-out hover:-translate-y-3"
+    >
+      <StarBorder
+        className="w-full h-full"
+        color="rgba(255, 77, 49, 0.6)"
+        speed="16s"
+        thickness={3}
+      >
+        <div
+          className={cn(
+            "relative flex flex-col items-start p-8 h-full w-full overflow-hidden",
+            "liquid-glass dark:!bg-white/[0.03] border-none shadow-none",
+            "backdrop-blur-xl backdrop-saturate-150",
+          )}
+        >
+          {/* Spotlight Effect (Light Mode) */}
+          <motion.div
+            className="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:hidden"
+            style={{
+              background: useMotionTemplate`
+                radial-gradient(
+                  400px circle at ${mouseX}px ${mouseY}px,
+                  rgba(255, 77, 49, 0.18),
+                  transparent 80%
+                )
+              `,
+            }}
+          />
+          {/* Spotlight Effect (Dark Mode) */}
+          <motion.div
+            className="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden dark:block"
+            style={{
+              background: useMotionTemplate`
+                radial-gradient(
+                  400px circle at ${mouseX}px ${mouseY}px,
+                  rgba(255, 77, 49, 0.22),
+                  transparent 80%
+                )
+              `,
+            }}
+          />
+
+          {/* Animated Icon Container */}
+          <div className="relative mb-6">
+            <motion.div
+              animate={{
+                y: [0, -8, 0],
+                rotate: [0, 10, -10, 0],
+                scale: [1, 1.05, 1],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="flex h-14 w-14 items-center justify-center rounded-xl bg-orange-500/10 text-[#ff4d31] group-hover:scale-110 group-hover:bg-orange-500/20 transition-all duration-500"
+            >
+              <Icon className="h-7 w-7 transition-transform duration-500 group-hover:rotate-[360deg]" />
+
+              {/* Icon Glow Animation */}
+              <motion.div
+                animate={{
+                  opacity: [0.2, 0.5, 0.2],
+                  scale: [1, 1.3, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute inset-0 rounded-xl bg-[#ff4d31]/20 blur-xl"
+              />
+            </motion.div>
+          </div>
+
+          <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-3 tracking-tight">
+            {title}
+          </h3>
+          <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-base">
+            {desc}
+          </p>
+
+          <div className="mt-5 pt-4 border-t border-dashed border-neutral-300/60 dark:border-white/10 w-full flex items-center gap-2 text-xs font-mono text-orange-600 dark:text-orange-400">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" /> deployed
+          </div>
+        </div>
+      </StarBorder>
+    </motion.div>
+  );
+}
+
 function Services() {
   return (
     <section
       id="services"
-      className="relative w-full px-4 sm:px-6 md:px-8 py-16 md:py-24 bg-white dark:bg-black/40"
+      className="relative w-full px-4 sm:px-6 md:px-8 py-16 md:py-24 bg-white dark:bg-black/40 overflow-hidden"
     >
-      <div className="absolute top-16 right-8 hidden md:block text-emerald-500/40">
+      <div className="absolute top-16 right-8 hidden md:block text-[#ff4d31]/40">
         <CircuitDoodle className="h-8 w-40" />
       </div>
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-emerald-500">
-            // services
-          </p>
-          <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-950 dark:text-white">
-            Modular. Composable.
-            <br />
-            <span className="text-emerald-500">Always-on.</span>
-          </h2>
+        <div className="flex flex-col items-center text-center mb-8 md:mb-12">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-semibold text-neutral-600 dark:text-neutral-300 uppercase tracking-wider"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" />
+            Services
+          </motion.span>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-6 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white"
+          >
+            Modular. Composable. <span className="text-[#ff4d31]">Always-on.</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
+          >
+            We design AI agents, workflows and pipelines that quietly handle 80% of the work — so your team can ship the other 20%.
+          </motion.p>
         </div>
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {autoServices.map((s, i) => (
-            <SpotlightCard
+            <AutomateServiceCard
               key={s.title}
-              className={cn(
-                "group h-full p-7 rounded-2xl liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl",
-              )}
-              spotlightColor="rgba(16, 185, 129, 0.18)"
-              darkSpotlightColor="rgba(16, 185, 129, 0.22)"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
-                  <s.icon className="h-5 w-5" />
-                </div>
-                <span className="font-mono text-xs text-emerald-500/70">
-                  SYS.{String(i + 1).padStart(3, "0")}
-                </span>
-              </div>
-              <h3 className="mt-5 text-xl font-bold text-neutral-950 dark:text-white">{s.title}</h3>
-              <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">{s.desc}</p>
-              <div className="mt-5 pt-4 border-t border-dashed border-neutral-300/60 dark:border-white/10 flex items-center gap-2 text-xs font-mono text-emerald-600 dark:text-emerald-400">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" /> deployed
-              </div>
-            </SpotlightCard>
+              icon={s.icon}
+              title={s.title}
+              desc={s.desc}
+              index={i}
+            />
           ))}
         </div>
       </div>
@@ -299,13 +410,13 @@ const builds = [
 function Portfolio() {
   return (
     <section id="portfolio" className="relative w-full px-4 sm:px-6 md:px-8 py-16 md:py-24">
-      <div className="absolute bottom-10 left-12 hidden md:block text-emerald-500/40">
+      <div className="absolute bottom-10 left-12 hidden md:block text-[#ff4d31]/40">
         <NodeGraph className="h-16 w-24" />
       </div>
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-emerald-500">
+            <p className="font-mono text-xs uppercase tracking-widest text-[#ff4d31]">
               // case studies
             </p>
             <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-950 dark:text-white">
@@ -322,12 +433,12 @@ function Portfolio() {
             <SpotlightCard
               key={b.title}
               className="group p-7 md:p-8 rounded-2xl liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl"
-              spotlightColor="rgba(16, 185, 129, 0.18)"
-              darkSpotlightColor="rgba(16, 185, 129, 0.22)"
+              spotlightColor="rgba(255, 77, 49, 0.18)"
+              darkSpotlightColor="rgba(255, 77, 49, 0.22)"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-mono text-xs text-emerald-500">
+                  <p className="font-mono text-xs text-[#ff4d31]">
                     BUILD/{String(i + 1).padStart(2, "0")}
                   </p>
                   <h3 className="mt-2 text-2xl font-bold text-neutral-950 dark:text-white">
@@ -336,7 +447,7 @@ function Portfolio() {
                 </div>
                 <div className="text-right">
                   <p className="font-mono text-xs text-neutral-500 uppercase">Impact</p>
-                  <p className="text-lg font-bold text-emerald-500">{b.metric}</p>
+                  <p className="text-lg font-bold text-[#ff4d31]">{b.metric}</p>
                 </div>
               </div>
               <p className="mt-4 text-neutral-600 dark:text-neutral-400">{b.desc}</p>
@@ -358,65 +469,6 @@ function Portfolio() {
   );
 }
 
-/* ---------- Testimonials ---------- */
-const autoQuotes = [
-  {
-    quote: "Felt like we hired five people overnight. The system just runs.",
-    name: "Elena Rodriguez",
-    role: "COO, NorthStack",
-  },
-  {
-    quote: "Our sales team finally talks to leads while they're still warm.",
-    name: "Jamal Brooks",
-    role: "Head of Growth, Coil",
-  },
-  {
-    quote: "Saved roughly 30 hours a week across ops. Zero new hires.",
-    name: "Aiko Tanaka",
-    role: "Founder, Tsuki Labs",
-  },
-];
-function Testimonials() {
-  return (
-    <section className="relative w-full px-4 sm:px-6 md:px-8 py-16 md:py-24 bg-white dark:bg-black/40">
-      <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col items-center text-center mb-12">
-          <p className="font-mono text-xs uppercase tracking-widest text-emerald-500">// signal</p>
-          <h2 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 dark:text-white">
-            From ops leaders <span className="text-emerald-500">running it.</span>
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-3 gap-5">
-          {autoQuotes.map((q, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="liquid-glass rounded-2xl border border-white/30 dark:border-white/10 p-7 relative overflow-hidden"
-            >
-              <div
-                aria-hidden
-                className="absolute -top-6 -right-6 text-emerald-500/10 text-[140px] font-serif leading-none"
-              >
-                "
-              </div>
-              <p className="relative text-base text-neutral-800 dark:text-neutral-200 leading-relaxed">
-                "{q.quote}"
-              </p>
-              <div className="relative mt-6 pt-4 border-t border-neutral-200/60 dark:border-white/10">
-                <p className="text-sm font-semibold text-neutral-900 dark:text-white">{q.name}</p>
-                <p className="text-xs text-neutral-500 font-mono">{q.role}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function AutomatePage() {
   return (
     <PageShell>
@@ -426,7 +478,7 @@ function AutomatePage() {
       </div>
       <Services />
       <Portfolio />
-      <Testimonials />
+      <Reviews rows={1} />
     </PageShell>
   );
 }
