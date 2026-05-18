@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle2, Layers, Clapperboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { SectionGlow } from "@/components/site/SectionGlow";
 
 const bundlePackages = [
   {
@@ -71,6 +72,7 @@ export function CombinedPackage() {
 
   return (
     <section id="combined-package" className="py-10 md:py-14 relative overflow-hidden bg-neutral-50 dark:bg-[#0a0a0a] transition-colors duration-300">
+      <SectionGlow />
       {/* Deep ambient glow at the bottom */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[#ff4d31]/5 dark:from-[#ff4d31]/10 via-neutral-50 dark:via-[#0a0a0a] to-neutral-50 dark:to-[#0a0a0a] pointer-events-none"></div>
 

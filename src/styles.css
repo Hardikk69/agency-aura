@@ -254,6 +254,23 @@
     animation: marquee 40s linear infinite;
   }
 
+  @keyframes doodle-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(2deg); }
+  }
+  @keyframes doodle-spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes doodle-pulse {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.04); }
+  }
+  .doodle-float { animation: doodle-float 6s ease-in-out infinite; transform-origin: center; }
+  .doodle-float-slow { animation: doodle-float 9s ease-in-out infinite; transform-origin: center; }
+  .doodle-spin-slow { animation: doodle-spin-slow 22s linear infinite; transform-origin: center; }
+  .doodle-pulse { animation: doodle-pulse 4s ease-in-out infinite; transform-origin: center; }
+
   .marquee-mask {
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);

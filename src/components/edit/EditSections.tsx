@@ -14,6 +14,7 @@ import {
 import StarBorder from "@/components/site/StarBorder";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { SectionGlow } from "@/components/site/SectionGlow";
 
 /* ---------- Doodles ---------- */
 export function PlayDoodle({ className }: { className?: string }) {
@@ -698,13 +699,14 @@ export function VideoEditorSimulator() {
 export function Hero() {
   return (
     <section className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 pt-10 md:pt-20 pb-12">
-      <div className="absolute top-24 left-6 hidden md:block text-[#ff4d31]/60 rotate-12">
+      <SectionGlow />
+      <div className="absolute top-24 left-6 hidden md:block text-[#ff4d31]/60 rotate-12 doodle-float">
         <PlayDoodle className="h-16 w-16" />
       </div>
-      <div className="absolute bottom-10 right-10 hidden md:block text-neutral-400 dark:text-white/30">
+      <div className="absolute bottom-10 right-10 hidden md:block text-neutral-400 dark:text-white/30 doodle-pulse">
         <WaveDoodle className="h-10 w-48" />
       </div>
-      <div className="absolute top-1/2 left-0 right-0 hidden lg:block text-neutral-300 dark:text-white/10 -translate-y-1/2">
+      <div className="absolute top-1/2 left-0 right-0 hidden lg:block text-neutral-300 dark:text-white/10 -translate-y-1/2 doodle-pulse">
         <FilmStrip className="h-8 w-full" />
       </div>
 
@@ -1089,7 +1091,8 @@ export function Portfolio({ items, title, subtitle, direction = "left" }: Portfo
 
   return (
     <section className="relative w-full px-4 sm:px-6 md:px-8 py-12 md:py-16 overflow-hidden">
-      <div className="absolute bottom-10 left-10 hidden md:block text-[#ff4d31]/40">
+      <SectionGlow />
+      <div className="absolute bottom-10 left-10 hidden md:block text-[#ff4d31]/40 doodle-float">
         <PlayDoodle className="h-14 w-14" />
       </div>
 
@@ -1197,6 +1200,7 @@ const editQuotes = [
 export function Testimonials() {
   return (
     <section className="relative w-full px-4 sm:px-6 md:px-8 py-16 md:py-24 bg-white dark:bg-black/40">
+      <SectionGlow />
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center text-center mb-12">
           <p className="text-xs font-mono uppercase tracking-widest text-[#ff4d31]">
@@ -1341,7 +1345,7 @@ export function PackageCard({ pkg, index }: { pkg: (typeof packages)[0]; index: 
               background: useMotionTemplate`
                 radial-gradient(
                   400px circle at ${mouseX}px ${mouseY}px,
-                  ${pkg.highlighted ? "rgba(255, 77, 49, 0.12)" : "rgba(255, 255, 255, 0.12)"},
+                  ${pkg.highlighted ? "rgba(255, 255, 255, 0.18)" : "rgba(255, 255, 255, 0.12)"},
                   transparent 80%
                 )
               `,
@@ -1434,7 +1438,7 @@ export function Packages() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(60% 50% at 50% 0%, rgba(255, 77, 49, 0.06), transparent 70%)",
+            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
         }}
       />
       <div
