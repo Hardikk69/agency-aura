@@ -12,52 +12,53 @@ interface Review {
 
 const reviews: Review[] = [
   {
-    review: "Vertex transformed our brand's visual identity completely. Highly recommended!",
-    name: "Sarah Chen",
-    position: "CEO at TechFlow",
-    service: "Web Design",
+    review: "he was very professional and creative. I'll love to work with him again!",
+    name: "Jerry Stephen",
+    position: "",
+    service: "Pitch Deck",
   },
   {
-    review: "Their video editing speed and quality are unmatched in the industry.",
-    name: "Marcus Thorne",
-    position: "YouTube Personality",
+    review: "Very good to work with. Communicated well through the chat through the process.",
+    name: "Tomwdalls",
+    position: "",
     service: "Video Editing",
   },
   {
-    review: "The AI automation they implemented saved us over 20 hours a week.",
-    name: "Elena Rodriguez",
-    position: "Operations Manager",
+    review: "Great experience working with Dhrumil—detail-oriented, responsive, and consistently delivered on time.",
+    name: "Kweku711",
+    position: "",
+    service: "Website Design",
+  },
+
+  {
+    review: "Dhrumil exceeded expectations and was great to work with.",
+    name: "Saradvij",
+    position: "",
     service: "AI Automation",
   },
   {
-    review: "Incredible attention to detail. Every frame is a masterpiece.",
-    name: "David Kim",
-    position: "Filmmaker",
-    service: "Post Production",
+    review: "I am extremely happy and satisfied with the results. Every shot is perfect.",
+    name: "Abelwal",
+    position: "",
+    service: "Video Editing",
   },
   {
-    review: "The most creative team we've ever worked with. Truly visionary.",
-    name: "Jessica Walsh",
-    position: "Art Director",
-    service: "Creative Direction",
+    review: "Dhrumil S. delivered strong, high-quality presentations and exceeded expectations.",
+    name: "Mangtang1",
+    position: "",
+    service: "Pitch Deck",
   },
   {
-    review: "They understood our vision from day one and exceeded all expectations.",
-    name: "Liam O'Connor",
-    position: "Marketing Head",
-    service: "Brand Strategy",
+    review: "I have definitely found my go to person for all marketing creatives!",
+    name: "Stevenkuhn",
+    position: "",
+    service: "Pitch Deck",
   },
   {
-    review: "Results-driven approach that actually moved the needle for our sales.",
-    name: "Aisha Patel",
-    position: "E-commerce Founder",
-    service: "Viral Content",
-  },
-  {
-    review: "Professional, responsive, and incredibly talented. A joy to work with.",
-    name: "Tom Harrison",
-    position: "Product Lead",
-    service: "UI/UX Design",
+    review: "This is our second time working together, and it exceeded my expectations, again..",
+    name: "Primeonecredit",
+    position: "",
+    service: "Web Design",
   },
 ];
 
@@ -74,7 +75,7 @@ const ReviewCard = ({ review, name, position, service }: Review) => {
         darkSpotlightColor="rgba(255, 255, 255, 0.18)"
       >
         <div className="relative z-10 flex flex-col h-full">
-          <p className="text-xl font-bold text-neutral-900 dark:text-white leading-tight mb-8 line-clamp-2">
+          <p className="text-xl font-bold text-neutral-900 dark:text-white leading-tight mb-8 line-clamp-2 whitespace-normal">
             "{review}"
           </p>
 

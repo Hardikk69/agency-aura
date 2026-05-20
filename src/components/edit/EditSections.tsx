@@ -236,19 +236,19 @@ export function VideoEditorSimulator() {
 
   const clips = [
     {
-      video: "https://framerusercontent.com/assets/OvEhiZOEQzLDyQgOeNVhfvDC50.mp4",
+      video: "/src/assets/video/1.mp4",
       poster:
         "https://framerusercontent.com/images/FHS0pgop7yjZHlGI56VGYUZULS0.png?width=260&height=462",
       subtitle: "Wait... how did I get 10M views?",
     },
     {
-      video: "https://framerusercontent.com/assets/9d7Q1tAYAEPaUo7PQrKcC2G00Qg.mp4",
+      video: "/src/assets/video/2.mp4",
       poster:
         "https://framerusercontent.com/images/4kp2KImAJicjmXIczDErqcpt9FI.png?width=528&height=938",
       subtitle: "It all starts in the first 0.8 seconds.",
     },
     {
-      video: "https://framerusercontent.com/assets/5rWhVdIvfX2ypMArjXiZ5ZIbyQ.mp4",
+      video: "/src/assets/video/3.mp4",
       poster:
         "https://framerusercontent.com/images/RJn1eKEVAnvuDEpP5MAM11elvU.png?width=260&height=462",
       subtitle: "Stop posting raw footage. Start editing.",
@@ -992,35 +992,35 @@ export function Services() {
 const editItems = [
   {
     id: "MB7",
-    video: "https://framerusercontent.com/assets/OvEhiZOEQzLDyQgOeNVhfvDC50.mp4",
+    video: "/src/assets/video/1.mp4",
     poster:
       "https://framerusercontent.com/images/FHS0pgop7yjZHlGI56VGYUZULS0.png?width=260&height=462",
     href: "https://vimeo.com/1143953311/8aab1a81e8?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB11",
-    video: "https://framerusercontent.com/assets/9d7Q1tAYAEPaUo7PQrKcC2G00Qg.mp4",
+    video: "/src/assets/video/2.mp4",
     poster:
       "https://framerusercontent.com/images/4kp2KImAJicjmXIczDErqcpt9FI.png?width=528&height=938",
     href: "https://vimeo.com/1174145986/427225ea49?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB2",
-    video: "https://framerusercontent.com/assets/5rWhVdIvfX2ypMArjXiZ5ZIbyQ.mp4",
+    video: "/src/assets/video/3.mp4",
     poster:
       "https://framerusercontent.com/images/RJn1eKEVAnvuDEpP5MAM11elvU.png?width=260&height=462",
     href: "https://vimeo.com/1143954132/bec4bf157e?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB3",
-    video: "https://framerusercontent.com/assets/6nawiUynXIrwh0Yac0RbYzyXjM.mp4",
+    video: "/src/assets/video/4.mp4",
     poster:
       "https://framerusercontent.com/images/JZOcw2Qtn21puWJbHgarML3XE.png?width=260&height=462",
     href: "https://vimeo.com/1143953917/41ab983854?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB9",
-    video: "https://framerusercontent.com/assets/R8zFZposMFloj5yVm7va2axnx0.mp4",
+    video: "/src/assets/video/5.mp4",
     poster:
       "https://framerusercontent.com/images/5jOtcgkwh7AOIWMWAQXhjcUGSuk.png?width=528&height=938",
     href: "https://vimeo.com/1174146179/0f7296afc1?share=copy&fl=sv&fe=ci",

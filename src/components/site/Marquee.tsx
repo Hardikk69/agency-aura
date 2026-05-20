@@ -1,13 +1,13 @@
 import { cn } from "@/lib/utils";
 
 const logos = [
-  { name: "HireBound", src: "/src/assets/imgs/hirebound.png" },
+  { name: "VRG Bio Pharma", src: "/src/assets/imgs/vrg.png" },
+  { name: "HireBound", src: "/src/assets/imgs/hirebound_logo.png" },
+  { name: "Carillon Parc", src: "/src/assets/imgs/carillon.png" },
+  { name: "AccRuvia", src: "/src/assets/imgs/accruvia.png" },
+  { name: "Plan Retire Travel", src: "/src/assets/imgs/plan.png" },
   { name: "OpenAI", src: "https://cdn.worldvectorlogo.com/logos/openai-2.svg" },
   { name: "Claude", src: "https://cdn.worldvectorlogo.com/logos/claude-ai-icon.svg" },
-  { name: "Supabase", src: "https://cdn.worldvectorlogo.com/logos/supabase.svg" },
-  { name: "Vercel", src: "https://cdn.worldvectorlogo.com/logos/vercel.svg" },
-  { name: "Next.js", src: "https://cdn.worldvectorlogo.com/logos/next-js.svg" },
-  { name: "Tailwind", src: "https://cdn.worldvectorlogo.com/logos/tailwindcss.svg" },
 ];
 
 export function LogoMarquee() {

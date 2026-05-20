@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
-import { Twitter, Linkedin, Instagram, Dribbble } from "lucide-react";
+import { Twitter, Linkedin, Instagram } from "lucide-react";
 
 const footerLinks = [
   { label: "Services", href: "#services" },
@@ -11,10 +11,8 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { icon: Twitter, href: "#", label: "X" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Dribbble, href: "#", label: "Dribbble" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/vertex-media-house/posts/?feedView=all", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/vertexmediahouse/", label: "Instagram" },
 ];
 
 export function Footer() {
