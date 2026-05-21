@@ -1,13 +1,16 @@
 import { cn } from "@/lib/utils";
+import vrgLogo from "@/assets/imgs/vrg.png";
+import hireboundLogo from "@/assets/imgs/hirebound.png";
+import carillonLogo from "@/assets/imgs/carillon.png";
+import accruviaLogo from "@/assets/imgs/accruvia.png";
+import planLogo from "@/assets/imgs/plan.png";
 
 const logos = [
-  { name: "VRG Bio Pharma", src: "/src/assets/imgs/vrg.png" },
-  { name: "HireBound", src: "/src/assets/imgs/hirebound_logo.png" },
-  { name: "Carillon Parc", src: "/src/assets/imgs/carillon.png" },
-  { name: "AccRuvia", src: "/src/assets/imgs/accruvia.png" },
-  { name: "Plan Retire Travel", src: "/src/assets/imgs/plan.png" },
-  { name: "OpenAI", src: "https://cdn.worldvectorlogo.com/logos/openai-2.svg" },
-  { name: "Claude", src: "https://cdn.worldvectorlogo.com/logos/claude-ai-icon.svg" },
+  { name: "VRG Bio Pharma", src: vrgLogo },
+  { name: "HireBound", src: hireboundLogo },
+  { name: "Carillon Parc", src: carillonLogo },
+  { name: "AccRuvia", src: accruviaLogo },
+  { name: "Plan Retire Travel", src: planLogo },
 ];
 
 export function LogoMarquee() {
