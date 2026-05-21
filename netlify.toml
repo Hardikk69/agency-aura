@@ -1,0 +1,7 @@
+# This file is generated automatically by the TanStack Start Netlify adapter.
+# Any changes you make here will be overwritten on next build.
+
+[[redirects]]
+from = "/*"
+to = "/.netlify/functions/index"
+status = 200
