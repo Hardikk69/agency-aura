@@ -23,8 +23,8 @@ const services = [
 
 const navLinks = [
   { label: "Portfolio", href: "#portfolio", icon: FolderHeart },
-  { label: "FAQ", href: "#faq", icon: HelpCircle },
-  { label: "About", href: "#about", icon: Info },
+  { label: "Why Us?", href: "#why-choose-us", icon: Info },
+  { label: "Reviews", href: "#reviews", icon: HelpCircle },
 ];
 
 export function Navbar() {
@@ -124,10 +124,11 @@ export function Navbar() {
             <a href="https://wa.me/+919734437070">Whatsapp</a>
           </Button>
           <Button
-            asChild
             className="rounded-x bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03] ml-2"
+            data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+            data-cal-config='{"layout":"month_view"}'
           >
-            <a href="#contact">Get a Quote</a>
+            Book a Call
           </Button>
         </div>
 
@@ -183,12 +184,12 @@ export function Navbar() {
                   </a>
                 </Button>
                 <Button
-                  asChild
                   className="mt-2 rounded-full bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900"
+                  onClick={() => setMobileOpen(false)}
+                  data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+                  data-cal-config='{"layout":"month_view"}'
                 >
-                  <a href="#contact" onClick={() => setMobileOpen(false)}>
-                    Get a Quote
-                  </a>
+                  Book a Call
                 </Button>
               </div>
             </SheetContent>

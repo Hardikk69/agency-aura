@@ -97,8 +97,8 @@ export function Hero() {
               transition={{ delay: 0.1 }}
               className="mt-6 text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-neutral-950 dark:text-white leading-[0.95]"
             >
-              Design that makes<em className="font-serif italic text-[#ff4d31]"> you,</em>
-              <br /> look like the <em className="font-serif italic">best in room</em>.
+              Design that makes <span className="text-[#ff4d31]">you,</span>
+              <br /> look like the <span>best in room</span>.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -116,17 +116,18 @@ export function Hero() {
               className="mt-8 flex flex-wrap gap-3"
             >
               <Button
-                asChild
-                className="rounded-full px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900"
+                className="rounded-xl px-6 py-3 h-auto bg-[#ff4d31] text-white hover:bg-[#e0432a] dark:bg-[#ff4d31] dark:text-white dark:hover:bg-[#e0432a] border-none"
+                data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+                data-cal-config='{"layout":"month_view"}'
               >
-                <a href="#contact">Start a project</a>
+                Book a Call
               </Button>
               <Button
                 asChild
                 variant="outline"
-                className="rounded-full px-6 py-3 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent"
+                className="rounded-xl px-6 py-3 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent"
               >
-                <a href="#portfolio">See the work</a>
+                <a href="#portfolio">See Portfolio</a>
               </Button>
             </motion.div>
           </div>
@@ -396,22 +397,36 @@ export function Portfolio() {
         <SquiggleDoodle className="h-5 w-28" />
       </div>
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#ff4d31]">
-              — Selected Work
-            </p>
-            <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-950 dark:text-white">
-              Work that
-              <br />
-              <span className="font-serif italic text-neutral-500 dark:text-neutral-400">
-                speaks for itself.
-              </span>
-            </h2>
-          </div>
-          <p className="max-w-md text-neutral-600 dark:text-neutral-400">
+        <div className="flex flex-col items-center text-center mb-12">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-semibold text-neutral-600 dark:text-neutral-300 uppercase tracking-wider"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" />
+            Selected Work
+          </motion.span>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-6 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white"
+          >
+            Work that <span className="text-[#ff4d31]">speaks for itself.</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
+          >
             Real projects across websites, pitch decks, and social content.
-          </p>
+          </motion.p>
         </div>
 
         <MagicGrid className="grid grid-cols-12 gap-2 md:gap-3" spotlightRadius={400}>
@@ -644,18 +659,17 @@ export function PackageCard({ pkg, index }: { pkg: (typeof packages)[0]; index: 
 
           {/* CTA */}
           <Button
-            asChild
             className={cn(
               "w-full rounded-full h-12 text-sm font-semibold transition-all duration-300",
               pkg.highlighted
                 ? "bg-[#ff4d31] text-white hover:bg-[#e8462c] shadow-lg shadow-[#ff4d31]/20 hover:shadow-xl hover:shadow-[#ff4d31]/30"
                 : "bg-white/10 dark:bg-white/[0.06] text-neutral-900 dark:text-white border border-neutral-200/50 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/[0.1]",
             )}
+            data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+            data-cal-config='{"layout":"month_view"}'
           >
-            <a href="#contact" className="flex items-center justify-center gap-2">
-              {pkg.cta}
-              <ArrowRight className="h-4 w-4" />
-            </a>
+            {pkg.cta}
+            <ArrowRight className="h-4 w-4 ml-2" />
           </Button>
         </div>
       </StarBorder>
@@ -720,20 +734,6 @@ export function Packages() {
             <PackageCard key={pkg.name} pkg={pkg} index={index} />
           ))}
         </div>
-
-        {/* Bottom note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-10 text-center text-sm text-neutral-500 dark:text-neutral-500"
-        >
-          Need something custom?{" "}
-          <a href="#contact" className="text-[#ff4d31] font-semibold hover:underline">
-            Let's talk →
-          </a>
-        </motion.p>
       </div>
     </section>
   );

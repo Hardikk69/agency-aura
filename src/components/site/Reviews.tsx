@@ -76,7 +76,7 @@ const ReviewCard = ({ review, name, position, service }: Review) => {
         darkSpotlightColor="rgba(255, 255, 255, 0.18)"
       >
         <div className="relative z-10 flex flex-col h-full">
-          <p className="text-xl font-bold text-neutral-900 dark:text-white leading-tight mb-8 line-clamp-2 whitespace-normal">
+          <p className="text-base leading-relaxed font-medium text-neutral-900 dark:text-white mb-8 whitespace-normal">
             "{review}"
           </p>
 

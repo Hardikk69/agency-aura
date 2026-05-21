@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
   Calendar,
@@ -55,7 +56,58 @@ export function CalendarCTA() {
     // Initialize Cal.com namespace
     if (win.Cal) {
       win.Cal("init", "30min", { origin: "https://app.cal.com" });
-      win.Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+
+      // Detect current theme from <html> class
+      const isDark = document.documentElement.classList.contains("dark");
+
+      win.Cal.ns["30min"]("ui", {
+        theme: isDark ? "dark" : "light",
+        hideEventTypeDetails: false,
+        layout: "month_view",
+        cssVarsPerTheme: {
+          dark: {
+            "cal-bg": "#030303",
+            "cal-bg-emphasis": "#111111",
+            "cal-bg-subtle": "#0a0a0a",
+            "cal-bg-muted": "#171717",
+            "cal-bg-inverted": "#ffffff",
+            "cal-border": "rgba(255,255,255,0.08)",
+            "cal-border-emphasis": "rgba(255,255,255,0.14)",
+            "cal-border-subtle": "rgba(255,255,255,0.05)",
+            "cal-text": "#e5e5e5",
+            "cal-text-emphasis": "#ffffff",
+            "cal-text-subtle": "#a3a3a3",
+            "cal-text-muted": "#737373",
+            "cal-text-inverted": "#030303",
+            "cal-brand": "#ff4d31",
+            "cal-brand-emphasis": "#e8432b",
+            "cal-brand-text": "#ffffff",
+            "cal-brand-subtle": "rgba(255,77,49,0.15)",
+          },
+          light: {
+            "cal-bg": "#f9fafb",
+            "cal-bg-emphasis": "#ffffff",
+            "cal-bg-subtle": "#f3f4f6",
+            "cal-bg-muted": "#e5e7eb",
+            "cal-bg-inverted": "#111111",
+            "cal-border": "rgba(0,0,0,0.08)",
+            "cal-border-emphasis": "rgba(0,0,0,0.14)",
+            "cal-border-subtle": "rgba(0,0,0,0.05)",
+            "cal-text": "#1a1a1a",
+            "cal-text-emphasis": "#000000",
+            "cal-text-subtle": "#6b7280",
+            "cal-text-muted": "#9ca3af",
+            "cal-text-inverted": "#ffffff",
+            "cal-brand": "#ff4d31",
+            "cal-brand-emphasis": "#e8432b",
+            "cal-brand-text": "#ffffff",
+            "cal-brand-subtle": "rgba(255,77,49,0.1)",
+          },
+        },
+        styles: {
+          branding: { brandColor: "#ff4d31" },
+        },
+      });
     }
   }, []);
 
@@ -105,36 +157,58 @@ export function CalendarCTA() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
         {/* Left Side: Call to Action Header */}
         <div className="max-w-xl text-center lg:text-left shrink-0">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#ff4d31] font-semibold">
-            // FREE AUDIT SESSION
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] leading-tight md:leading-[54px] font-black text-neutral-900 dark:text-white mt-3">
-            Your business, <br />
-            our expertise –
-          </h1>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] leading-tight md:leading-[54px] italic font-medium playfair text-[#ff4d31] mt-1">
-            let's talk!
-          </h2>
-          <p className="mt-4 sm:mt-6 font-semibold text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed">
-            Ready to supercharge your systems? Book a strategy slot with our specialists to review
-            your workflows and design files.
-          </p>
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-semibold text-neutral-600 dark:text-neutral-300 uppercase tracking-wider"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" />
+            Free Audit Session
+          </motion.span>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-6 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white"
+          >
+            Your business, our expertise –{" "}
+            <span className="text-[#ff4d31]">let's talk!</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
+          >
+            Book a free 20-minute call with our team. We'll look at your content, design, and workflows — and tell you exactly what we'd fix and how. 
+          </motion.p>
 
           {/* Trust badges */}
-          <div className="mt-8 space-y-3 hidden sm:block">
-            <div className="flex items-center gap-2.5 text-xs text-neutral-600 dark:text-neutral-400">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-8 space-y-3 hidden sm:block"
+          >
+            <div className="flex items-center gap-2.5 text-sm text-neutral-600 dark:text-neutral-400">
               <ShieldCheck className="h-4.5 w-4.5 text-[#ff4d31]" />
-              <span>No commitment, 100% free audit playbook</span>
+              <span>No pitch. No pressure. Just honest feedback on what's working and what isn't</span>
             </div>
-            <div className="flex items-center gap-2.5 text-xs text-neutral-600 dark:text-neutral-400">
+            <div className="flex items-center gap-2.5 text-sm text-neutral-600 dark:text-neutral-400">
               <UserCheck className="h-4.5 w-4.5 text-emerald-500" />
-              <span>Directly speak with a founding engineer</span>
+              <span>Walk away with a clear action plan for your content, brand, or automation.</span>
             </div>
-            <div className="flex items-center gap-2.5 text-xs text-neutral-600 dark:text-neutral-400">
+            <div className="flex items-center gap-2.5 text-sm text-neutral-600 dark:text-neutral-400">
               <Sparkles className="h-4.5 w-4.5 text-blue-500" />
-              <span>Receive custom mockup ideas live on the call</span>
+              <span>Speak directly with the team that will actually do the work — not a sales rep.</span>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Right Side: Re-designed wide Horizontal Calendar widget */}

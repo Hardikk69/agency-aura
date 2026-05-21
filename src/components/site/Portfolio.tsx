@@ -4,10 +4,10 @@ import SpotlightCard from "./SpotlightCard";
 import { Button } from "../ui/button";
 
 const editVideos = [
-  "https://play.gumlet.io/embed/69f733741dfaccdc957ab32f?background=false&autoplay=true&loop=true&disable_player_controls=false",
-  "https://play.gumlet.io/embed/698b8d45873071aec5f38ae9?background=false&autoplay=true&loop=true&disable_player_controls=false",
-  "https://play.gumlet.io/embed/69f733741dfaccdc957ab331?background=false&autoplay=true&loop=true&disable_player_controls=false",
-  "https://play.gumlet.io/embed/69c250aac98b51e9c56f927e?background=false&autoplay=true&loop=true&disable_player_controls=false",
+  "/src/assets/video/1.mp4",
+  "/src/assets/video/2.mp4",
+  "/src/assets/video/3.mp4",
+  "/src/assets/video/4.mp4",
 ];
 
 const designImages = [
@@ -92,10 +92,13 @@ export function Portfolio() {
                       darkSpotlightColor="rgba(255, 255, 255, 0.18)"
                     >
                       <div className="relative aspect-[9/16] w-full overflow-hidden rounded-x bg-neutral-900/50">
-                        <iframe
-                          loading="lazy"
+                        <video
                           src={src}
-                          className="absolute inset-0 h-full w-full border-none"
+                          loop
+                          muted
+                          playsInline
+                          autoPlay
+                          className="absolute inset-0 h-full w-full object-cover"
                         />
                         <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10 rounded-x" />
                       </div>
@@ -186,16 +189,6 @@ export function Portfolio() {
               </div>
             </div>
           )}
-        </div>
-
-        <div className="mt-16 flex justify-center">
-          <Button
-            asChild
-            variant="outline"
-            className="rounded-x px-8 py-4 h-auto border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all hover:scale-[1.03] shadow-sm"
-          >
-            <a href="#portfolio">View Full Portfolio</a>
-          </Button>
         </div>
       </div>
     </section>

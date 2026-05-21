@@ -141,8 +141,7 @@ function Hero() {
               transition={{ delay: 0.1 }}
               className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white leading-[0.95]"
             >
-              Build the <span className="text-[#ff4d31]">system</span>,<br />
-              not the busywork.
+              Stop doing work<span className="text-[#ff4d31]"> a system can do for you.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -150,8 +149,7 @@ function Hero() {
               transition={{ delay: 0.2 }}
               className="mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400"
             >
-              We design AI agents, workflows and pipelines that quietly handle 80% of the work — so
-              your team can ship the other 20%.
+              We build AI workflows, agents, and automation pipelines that handle the repetitive work — so you focus on the 20% that actually needs you.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -160,17 +158,18 @@ function Hero() {
               className="mt-8 flex flex-wrap gap-3"
             >
               <Button
-                asChild
-                className="rounded-full px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-[#ff4d31] dark:text-white dark:hover:bg-[#e8462c]"
+                className="rounded-xl px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-[#ff4d31] dark:text-white dark:hover:bg-[#e8462c]"
+                data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+                data-cal-config='{"layout":"month_view"}'
               >
-                <a href="#contact">Audit my workflow</a>
+                Book a Call
               </Button>
               <Button
                 asChild
                 variant="outline"
-                className="rounded-full px-6 py-3 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent"
+                className="rounded-xl px-6 py-3 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent"
               >
-                <a href="#portfolio">See builds</a>
+                <a href="#portfolio">See Portfolio</a>
               </Button>
             </motion.div>
           </div>
@@ -193,31 +192,35 @@ function Hero() {
 
 /* ---------- Services ---------- */
 const autoServices = [
-  { icon: Bot, title: "AI Agents", desc: "Chat, voice and task agents that act, not just answer." },
+  {
+    icon: Bot,
+    title: "AI Agents",
+    desc: "Chat agents, voice bots, and task agents that don't just answer questions — they take action. From lead qualification to customer support, fully automated.",
+  },
   {
     icon: Workflow,
     title: "Workflow Automation",
-    desc: "n8n, Zapier, Make — wired into your real stack.",
+    desc: "n8n, Zapier, Make — wired into the tools you already use. We map your process, remove the manual steps, and build flows that just run.",
   },
   {
     icon: Mail,
-    title: "Email & Outreach",
-    desc: "Triaged inboxes, personalized sends, follow-ups on auto.",
+    title: "Email & Outreach Automation",
+    desc: "Personalised follow-ups, triaged inboxes, and cold outreach sequences — sent at the right time, to the right person, without you touching a keyboard.",
   },
   {
     icon: Database,
-    title: "CRM & Data Ops",
-    desc: "Lead enrichment, scoring and routing in seconds.",
+    title: "CRM & Lead Management",
+    desc: "Automatic lead capture, enrichment, scoring, and routing. Your CRM stays clean and up to date — without anyone manually entering a thing.",
   },
   {
     icon: Network,
     title: "Multi-Agent Systems",
-    desc: "Agents that talk to each other to finish full pipelines.",
+    desc: "Complex pipelines where multiple AI agents work together to complete full workflows end to end — research, write, approve, publish. No human in the middle.",
   },
   {
     icon: Terminal,
     title: "Content Pipelines",
-    desc: "From idea to published asset, no human in the middle.",
+    desc: "From idea to published post — automated. We build systems that research, draft, format, and schedule your content across every platform on autopilot.",
   },
 ];
 
@@ -376,8 +379,7 @@ function Services() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
           >
-            We design AI agents, workflows and pipelines that quietly handle 80% of the work — so
-            your team can ship the other 20%.
+            Every automation we build is custom to your business — not a template, not a shortcut. Built to run 24/7 without you in the loop.
           </motion.p>
         </div>
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -636,10 +638,10 @@ function Portfolio() {
             id="services-title"
             className="font-display text-2xl font-bold uppercase tracking-[0.1em] text-[#ff4d31] sm:text-3xl md:text-4xl"
           >
-            What we do
+            What We Build
           </h2>
           <p className="mt-3 text-[14px] leading-relaxed text-neutral-500 dark:text-neutral-400 sm:mt-4 sm:text-[15px]">
-            AI & Automation systems tailored to every stage of your business.
+            These are real systems we've built — here's exactly how they work and what they automate.
           </p>
         </div>
 
@@ -734,9 +736,10 @@ function Portfolio() {
                     </p>
 
                     {/* CTA link */}
-                    <a
+                    <button
                       className="group mt-5 inline-flex items-center gap-2 text-xs font-semibold text-neutral-900 dark:text-white transition-colors duration-200 hover:text-[#ff4d31] sm:mt-6"
-                      href="#contact"
+                      data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+                      data-cal-config='{"layout":"month_view"}'
                     >
                       Get started
                       <svg
@@ -754,7 +757,7 @@ function Portfolio() {
                         <path d="M7 7h10v10"></path>
                         <path d="M7 17 17 7"></path>
                       </svg>
-                    </a>
+                    </button>
                   </div>
 
                   {/* Right sub-column: Premium Mock Browser Video Player */}

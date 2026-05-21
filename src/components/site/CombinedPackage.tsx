@@ -175,13 +175,12 @@ export function CombinedPackage() {
                   </p>
 
                   <Button
-                    asChild
                     className="w-full md:w-auto self-start rounded-full h-12 px-6 text-sm font-bold transition-all duration-300 bg-[#ff4d31] text-white hover:bg-[#e8462c] shadow-lg shadow-[#ff4d31]/25 hover:shadow-xl hover:shadow-[#ff4d31]/40 hover:-translate-y-0.5"
+                    data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+                    data-cal-config='{"layout":"month_view"}'
                   >
-                    <a href="#contact" className="flex items-center justify-center gap-2">
-                      Claim {currentPkg.name} Offer
-                      <ArrowRight className="h-4.5 w-4.5" />
-                    </a>
+                    Claim {currentPkg.name} Offer
+                    <ArrowRight className="h-4.5 w-4.5 ml-2" />
                   </Button>
                 </div>
 

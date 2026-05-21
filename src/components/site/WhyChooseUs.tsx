@@ -192,7 +192,7 @@ export function WhyChooseUs() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-6 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white"
           >
-            The difference is in everything.
+            The difference is <span className="text-[#ff4d31] dark:text-[#ff4d31]">in everything.</span>
           </motion.h2>
 
           <motion.p

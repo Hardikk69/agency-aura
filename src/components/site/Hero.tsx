@@ -84,10 +84,11 @@ export function Hero() {
         >
           <div className="relative group">
             <Button
-              asChild
-              className="rounded-x px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03]"
+              className="rounded-xl px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03]"
+              data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+              data-cal-config='{"layout":"month_view"}'
             >
-              <a href="#contact">Book a Call</a>
+              Book a Call
             </Button>
             <div className="absolute -top-[-15px] -left-20 hidden lg:flex flex-col items-center pointer-events-none">
               <svg
@@ -112,9 +113,9 @@ export function Hero() {
           <Button
             asChild
             variant="outline"
-            className="rounded-x px-6 py-3 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            className="rounded-xl px-6 py-3 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800"
           >
-            <a href="#portfolio">Our Services</a>
+            <a href="#services">Our Services</a>
           </Button>
         </div>
 

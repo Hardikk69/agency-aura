@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
-import { Twitter, Linkedin, Instagram } from "lucide-react";
+import { Twitter, Linkedin, Instagram, Info } from "lucide-react";
 
 const footerLinks = [
   { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
-  { label: "Process", href: "#process" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Why Us?", href: "#why-choose-us" },
+  { label: "Reviews", href: "#reviews" },
 ];
 
 const socialLinks = [

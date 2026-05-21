@@ -3,12 +3,14 @@ import { Sparkles, Code2, Bot, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import SpotlightCard from "./SpotlightCard";
 import { Button } from "../ui/button";
+import { Link } from "@tanstack/react-router";
 
 type Service = {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
   tag: string;
+  to: string;
   features: string[];
   images: string;
 };
@@ -20,6 +22,7 @@ const services: Service[] = [
     description:
       "From your website to your social feed - every touchpoint your audience sees, built to impress and convert. ",
     tag: "01",
+    to: "/design",
     features: [
       "Website Design",
       "Pitch Deck Design",
@@ -36,6 +39,7 @@ const services: Service[] = [
     description:
       "Raw footage in, scroll-stopping content out. Whether it's a 30-second reel or a 2-hour podcast - we handle the full edit.",
     tag: "02",
+    to: "/edit",
     features: [
       "Short-Form Editing (Insta, TikTok, Shorts)",
       "Long-Form Editing",
@@ -52,6 +56,7 @@ const services: Service[] = [
     description:
       "We identify the tasks eating your time and replace them with systems that run 24/7 — no extra hires, no extra headaches.",
     tag: "03",
+    to: "/automate",
     features: [
       "Customised workflow automations",
       "Email & Voice agents",
@@ -123,7 +128,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
             variant="outline"
             className="rounded-x px-6 py-3 h-auto w-fit border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-transform hover:scale-[1.03]"
           >
-            <a href="#portfolio">Our Services</a>
+            <Link to={service.to}>Explore our services</Link>
           </Button>
         </div>
       </div>
