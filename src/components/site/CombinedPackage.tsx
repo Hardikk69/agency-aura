@@ -11,7 +11,8 @@ const bundlePackages = [
     name: "Starter",
     tagline: "For creators building consistency · For founders getting started with content",
     title: "Starter Content Engine",
-    description: "Get complete brand alignment and start your social media video engine with our standard professional support.",
+    description:
+      "Get complete brand alignment and start your social media video engine with our standard professional support.",
     features: [
       "10 Reels / Month",
       "Content Planning",
@@ -19,15 +20,16 @@ const bundlePackages = [
       "Professional Video Editing",
       "Thumbnail & Cover Design",
       "3 Revisions Included",
-      "36–48 Hour Delivery"
-    ]
+      "36–48 Hour Delivery",
+    ],
   },
   {
     id: "growth",
     name: "Growth",
     tagline: "For creators scaling their reach · For founders growing their online presence",
     title: "Growth Content Engine",
-    description: "Scale your audience growth with premium edits, hooks, dedicated support and rapid turnaround times.",
+    description:
+      "Scale your audience growth with premium edits, hooks, dedicated support and rapid turnaround times.",
     features: [
       "20 Reels / Month",
       "Content Planning",
@@ -39,15 +41,16 @@ const bundlePackages = [
       "Check-in Calls",
       "Dedicated Support",
       "5 Revisions Included",
-      "24 Hour Delivery"
-    ]
+      "24 Hour Delivery",
+    ],
   },
   {
     id: "premium",
     name: "Premium",
     tagline: "For creators going full-time · For founders who want content working 24/7",
     title: "Premium Content Engine",
-    description: "Our all-inclusive visual engine retainer for dominating every platform with maximum quality and strategy.",
+    description:
+      "Our all-inclusive visual engine retainer for dominating every platform with maximum quality and strategy.",
     features: [
       "30 Reels / Month",
       "Content Planning",
@@ -61,9 +64,9 @@ const bundlePackages = [
       "Monthly Strategy Call",
       "Monthly Performance Report",
       "Unlimited Revisions",
-      "24 Hour Delivery"
-    ]
-  }
+      "24 Hour Delivery",
+    ],
+  },
 ];
 
 export function CombinedPackage() {
@@ -71,7 +74,10 @@ export function CombinedPackage() {
   const currentPkg = bundlePackages.find((p) => p.id === selectedPackage) || bundlePackages[1];
 
   return (
-    <section id="combined-package" className="py-10 md:py-14 relative overflow-hidden bg-neutral-50 dark:bg-[#0a0a0a] transition-colors duration-300">
+    <section
+      id="combined-package"
+      className="py-10 md:py-14 relative overflow-hidden bg-neutral-50 dark:bg-[#0a0a0a] transition-colors duration-300"
+    >
       <SectionGlow />
       {/* Deep ambient glow at the bottom */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[#ff4d31]/5 dark:from-[#ff4d31]/10 via-neutral-50 dark:via-[#0a0a0a] to-neutral-50 dark:to-[#0a0a0a] pointer-events-none"></div>
@@ -107,7 +113,7 @@ export function CombinedPackage() {
                     "px-6 py-2.5 rounded-full text-xs md:text-sm font-bold transition-all duration-300 capitalize cursor-pointer",
                     isActive
                       ? "bg-white dark:bg-white/10 text-[#ff4d31] dark:text-white shadow-lg border border-black/5 dark:border-white/10"
-                      : "text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
+                      : "text-neutral-500 hover:text-neutral-900 dark:hover:text-white",
                   )}
                 >
                   {pkg.name}
@@ -194,7 +200,9 @@ export function CombinedPackage() {
                     {currentPkg.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-4">
                         <CheckCircle2 className="h-5 w-5 text-[#ff4d31] shrink-0" />
-                        <span className="text-neutral-800 dark:text-neutral-300 font-semibold">{feature}</span>
+                        <span className="text-neutral-800 dark:text-neutral-300 font-semibold">
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>

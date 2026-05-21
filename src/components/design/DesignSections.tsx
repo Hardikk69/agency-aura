@@ -1,6 +1,16 @@
 import * as React from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { ArrowUpRight, Palette, Layers, Type, Sparkles, Frame, Brush, Check, ArrowRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Palette,
+  Layers,
+  Type,
+  Sparkles,
+  Frame,
+  Brush,
+  Check,
+  ArrowRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import StarBorder from "@/components/site/StarBorder";
@@ -87,8 +97,8 @@ export function Hero() {
               transition={{ delay: 0.1 }}
               className="mt-6 text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-neutral-950 dark:text-white leading-[0.95]"
             >
-              Design that makes<em className="font-serif italic text-[#ff4d31]"> you,</em><br />{" "}
-              look like the <em className="font-serif italic">best in room</em>.
+              Design that makes<em className="font-serif italic text-[#ff4d31]"> you,</em>
+              <br /> look like the <em className="font-serif italic">best in room</em>.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -96,7 +106,8 @@ export function Hero() {
               transition={{ delay: 0.2 }}
               className="mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400"
             >
-              From your website to your social feed — every touchpoint your audience sees, built to impress, built to convert, and built to be remembered. 
+              From your website to your social feed — every touchpoint your audience sees, built to
+              impress, built to convert, and built to be remembered.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -399,7 +410,7 @@ export function Portfolio() {
             </h2>
           </div>
           <p className="max-w-md text-neutral-600 dark:text-neutral-400">
-            Real projects across websites, pitch decks, and social content. 
+            Real projects across websites, pitch decks, and social content.
           </p>
         </div>
 
@@ -663,8 +674,7 @@ export function Packages() {
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
-          background:
-            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
+          background: "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
         }}
       />
       <div
@@ -701,7 +711,7 @@ export function Packages() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
           >
-            Real projects across websites, pitch decks, and social content 
+            Real projects across websites, pitch decks, and social content
           </motion.p>
         </div>
 

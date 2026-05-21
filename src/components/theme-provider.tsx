@@ -13,7 +13,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = React.useState<Theme>("dark");
 
   React.useEffect(() => {
-    const stored = (typeof window !== "undefined" && localStorage.getItem("vertex_theme_v2")) as Theme | null;
+    const stored = (typeof window !== "undefined" &&
+      localStorage.getItem("vertex_theme_v2")) as Theme | null;
     if (stored === "dark" || stored === "light") {
       setThemeState(stored);
     } else {

@@ -2,7 +2,21 @@ import React, { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useMotionTemplate, useMotionValue, AnimatePresence } from "framer-motion";
 import StarBorder from "@/components/site/StarBorder";
-import { Bot, Workflow, Mail, Database, Network, Zap, ArrowRight, Terminal, Megaphone, ShoppingBag, Home, Cpu, CheckCircle2 } from "lucide-react";
+import {
+  Bot,
+  Workflow,
+  Mail,
+  Database,
+  Network,
+  Zap,
+  ArrowRight,
+  Terminal,
+  Megaphone,
+  ShoppingBag,
+  Home,
+  Cpu,
+  CheckCircle2,
+} from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { LogoMarquee } from "@/components/site/Marquee";
 import SpotlightCard from "@/components/site/SpotlightCard";
@@ -312,9 +326,7 @@ export function AutomateServiceCard({
           <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-3 tracking-tight">
             {title}
           </h3>
-          <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-base">
-            {desc}
-          </p>
+          <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-base">{desc}</p>
 
           <div className="mt-5 pt-4 border-t border-dashed border-neutral-300/60 dark:border-white/10 w-full flex items-center gap-2 text-xs font-mono text-orange-600 dark:text-orange-400">
             <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" /> deployed
@@ -364,7 +376,8 @@ function Services() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
           >
-            We design AI agents, workflows and pipelines that quietly handle 80% of the work — so your team can ship the other 20%.
+            We design AI agents, workflows and pipelines that quietly handle 80% of the work — so
+            your team can ship the other 20%.
           </motion.p>
         </div>
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -394,34 +407,38 @@ const industries = {
         metric: "40 posts / week",
         metricLabel: "Autonomous Output",
         desc: "AI agents that research industry trends, draft high-converting newsletters, and repurpose blog posts into multi-channel campaigns.",
-        longDesc: "This custom multi-agent team handles end-to-end content marketing. A Research Agent parses industry news and RSS feeds, a Copywriter Agent drafts outlines and newsletter copy, and a Repurposing Agent turns the newsletter into 5-part educational LinkedIn carousels and Twitter threads. All steps are staged in Airtable with a 1-click human approval gate before publishing.",
+        longDesc:
+          "This custom multi-agent team handles end-to-end content marketing. A Research Agent parses industry news and RSS feeds, a Copywriter Agent drafts outlines and newsletter copy, and a Repurposing Agent turns the newsletter into 5-part educational LinkedIn carousels and Twitter threads. All steps are staged in Airtable with a 1-click human approval gate before publishing.",
         stack: ["Claude 3.5 Sonnet", "n8n", "Airtable", "Buffer"],
         workflow: [
           "Trend Scraping & Filtering",
           "Automated Research Outlines",
           "Draft Generation (Newsletter & Social Threads)",
           "1-Click Human Approval Portal",
-          "Automatic Scheduling & Publishing"
+          "Automatic Scheduling & Publishing",
         ],
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-cyber-security-system-scanning-digital-code-48567-large.mp4"
+        videoUrl:
+          "https://assets.mixkit.co/videos/preview/mixkit-cyber-security-system-scanning-digital-code-48567-large.mp4",
       },
       {
         title: "Clay Lead Enrichment & Outreach Pipeline",
         metric: "5.2× Reply Rate",
         metricLabel: "Campaign Efficiency",
         desc: "Scrapes inbound accounts, enriches lead data via 50+ data providers on Clay, and drafts ultra-personalized outbound emails using Claude.",
-        longDesc: "A complete outbound pipeline that transforms dry database entries into tailored messages. When a lead enters, Clay enriches it (funding, headcount, tech stack, open jobs). Claude reads this profile, matches it to agency case studies, and drafts a highly specific cold email. Leads are scored and hot opportunities are routed directly into Smartlead campaigns.",
+        longDesc:
+          "A complete outbound pipeline that transforms dry database entries into tailored messages. When a lead enters, Clay enriches it (funding, headcount, tech stack, open jobs). Claude reads this profile, matches it to agency case studies, and drafts a highly specific cold email. Leads are scored and hot opportunities are routed directly into Smartlead campaigns.",
         stack: ["Clay", "Claude 3.5", "Smartlead.ai", "HubSpot", "Slack"],
         workflow: [
           "Lead Ingestion from Forms/Databases",
           "Deep Enrichment via Clay Data Providers",
           "Hyper-Personalized AI Copy Drafting",
           "Lead Scoring & Routing",
-          "Triggering Warm Outbound Sequence"
+          "Triggering Warm Outbound Sequence",
         ],
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-futuristic-technology-interface-showing-data-analysis-48571-large.mp4"
-      }
-    ]
+        videoUrl:
+          "https://assets.mixkit.co/videos/preview/mixkit-futuristic-technology-interface-showing-data-analysis-48571-large.mp4",
+      },
+    ],
   },
   ecommerce: {
     name: "E-Commerce & Retail",
@@ -432,34 +449,38 @@ const industries = {
         metric: "−80% Ticket Volume",
         metricLabel: "Support Deflection",
         desc: "Sophisticated AI agent that resolves order tracking, return queries, product suggestions, and FAQ tickets in real-time.",
-        longDesc: "An AI support agent integrated directly into the helpdesk and ecommerce store. It answers support tickets with human-level accuracy by pulling real-time customer data, order details, and return policies from Shopify. High-complexity tickets are elegantly summarized and escalated to human reps, reducing resolution times from hours to seconds.",
+        longDesc:
+          "An AI support agent integrated directly into the helpdesk and ecommerce store. It answers support tickets with human-level accuracy by pulling real-time customer data, order details, and return policies from Shopify. High-complexity tickets are elegantly summarized and escalated to human reps, reducing resolution times from hours to seconds.",
         stack: ["OpenAI GPT-4", "Shopify API", "Gorgias", "Slack"],
         workflow: [
           "Inbound Ticket Analysis",
           "Shopify Customer & Order Verification",
           "Context-Aware AI Response Draft",
           "Automated Actions (e.g., Return Labels, Tracking Link)",
-          "Human Escalation (if threshold exceeded)"
+          "Human Escalation (if threshold exceeded)",
         ],
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-digital-circuit-board-with-neon-lights-48573-large.mp4"
+        videoUrl:
+          "https://assets.mixkit.co/videos/preview/mixkit-digital-circuit-board-with-neon-lights-48573-large.mp4",
       },
       {
         title: "Real-Time Inventory & Price Sync Pipeline",
         metric: "0 Out-of-Stock Sales",
         metricLabel: "Inventory Sync",
         desc: "Synchronizes supplier catalogs with Shopify backend every 10 minutes, automatically adjusting prices and margins based on currency fluctuations.",
-        longDesc: "A robust background pipeline that ensures retail inventories are always accurate. It continuously scrapes and monitors wholesale catalogs, converts currencies in real-time, calculates dynamic margins, and pushes inventory updates to Shopify. If a product goes out of stock at the supplier, it's instantly hidden to prevent lost margin and customer disappointment.",
+        longDesc:
+          "A robust background pipeline that ensures retail inventories are always accurate. It continuously scrapes and monitors wholesale catalogs, converts currencies in real-time, calculates dynamic margins, and pushes inventory updates to Shopify. If a product goes out of stock at the supplier, it's instantly hidden to prevent lost margin and customer disappointment.",
         stack: ["n8n", "Shopify API", "Airtable", "AWS Lambda", "Slack"],
         workflow: [
           "Catalogs Scraped & Fetched",
           "Currency and Dynamic Margin Calculations",
           "Bulk Inventory Level Synchronization",
           "Automated Product Visibility Safeguard",
-          "Slack Notification of Price Adjustments"
+          "Slack Notification of Price Adjustments",
         ],
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-data-center-server-racks-with-flashing-lights-42284-large.mp4"
-      }
-    ]
+        videoUrl:
+          "https://assets.mixkit.co/videos/preview/mixkit-data-center-server-racks-with-flashing-lights-42284-large.mp4",
+      },
+    ],
   },
   realestate: {
     name: "Real Estate",
@@ -470,34 +491,38 @@ const industries = {
         metric: "3.2× Showings Booked",
         metricLabel: "Conversion Increase",
         desc: "Instantly responds to portal leads (Zillow, Realtor.com) via SMS/Email, answers property questions, and automatically schedules viewing appointments.",
-        longDesc: "An always-on AI assistant designed to capture property inquiries instantly. When a lead comes in, the agent texts or emails them within 90 seconds, answers specific details about the listing (drawn from a vector database of MLS properties), and schedules calendar bookings on Cal.com, sending automated follow-up reminders to minimize no-shows.",
+        longDesc:
+          "An always-on AI assistant designed to capture property inquiries instantly. When a lead comes in, the agent texts or emails them within 90 seconds, answers specific details about the listing (drawn from a vector database of MLS properties), and schedules calendar bookings on Cal.com, sending automated follow-up reminders to minimize no-shows.",
         stack: ["Vapi / Twilio", "OpenAI GPT-4o", "Cal.com", "Follow Up Boss CRM"],
         workflow: [
           "Inbound Portal Lead Ingestion",
           "SMS / Email Instant Response (< 90 seconds)",
           "Listing Details Q&A via Vector Search",
           "Dynamic Calendar Appointment Booking",
-          "Automated SMS & Email Nurturing Sequences"
+          "Automated SMS & Email Nurturing Sequences",
         ],
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-technological-nodes-connecting-with-lines-and-dots-48574-large.mp4"
+        videoUrl:
+          "https://assets.mixkit.co/videos/preview/mixkit-technological-nodes-connecting-with-lines-and-dots-48574-large.mp4",
       },
       {
         title: "Property Listing Content Pipeline",
         metric: "−90% Production Time",
         metricLabel: "Time Saved",
         desc: "Turns raw MLS data and property photos into high-converting descriptions, custom Canva flyer designs, and social media posts.",
-        longDesc: "An asset-generation pipeline for busy real estate agencies. Simply input a property address and photos; the system automatically drafts compelling MLS copy, compiles highlight flyers, and schedules customized announcements across Instagram, Facebook, and LinkedIn. Reduces a 3-hour listing prep task down to a 3-minute review process.",
+        longDesc:
+          "An asset-generation pipeline for busy real estate agencies. Simply input a property address and photos; the system automatically drafts compelling MLS copy, compiles highlight flyers, and schedules customized announcements across Instagram, Facebook, and LinkedIn. Reduces a 3-hour listing prep task down to a 3-minute review process.",
         stack: ["ChatGPT API", "Canva API", "Airtable", "Buffer API", "Make"],
         workflow: [
           "Raw Property Details Input",
           "MLS Description Copy Generation",
           "Automated Flyer Asset Creation via Canva",
           "Social Post Image & Caption Drafting",
-          "Multi-Platform Social Media Queueing"
+          "Multi-Platform Social Media Queueing",
         ],
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-motherboard-of-a-computer-with-glowing-tracks-48566-large.mp4"
-      }
-    ]
+        videoUrl:
+          "https://assets.mixkit.co/videos/preview/mixkit-motherboard-of-a-computer-with-glowing-tracks-48566-large.mp4",
+      },
+    ],
   },
   saas: {
     name: "SaaS & Tech",
@@ -508,35 +533,39 @@ const industries = {
         metric: "+22% Trial Conversion",
         metricLabel: "Trial-to-Paid Lift",
         desc: "Monitors user behavior inside platforms, triggers personalized walkthrough suggestions, and schedules personal onboarding calls for high-value signups.",
-        longDesc: "A data-driven retention engine that monitors product engagement. When an onboarding friction point is detected, the AI sends a highly targeted SMS or email offer. If a high-value account signs up, the AI auto-profiles the company, alerts the customer success team, and drafts a customized onboarding workspace in Notion for them.",
+        longDesc:
+          "A data-driven retention engine that monitors product engagement. When an onboarding friction point is detected, the AI sends a highly targeted SMS or email offer. If a high-value account signs up, the AI auto-profiles the company, alerts the customer success team, and drafts a customized onboarding workspace in Notion for them.",
         stack: ["Mixpanel", "OpenAI", "HubSpot", "Slack", "PostHog"],
         workflow: [
           "User Event Monitoring",
           "Friction / Low Engagement Detection",
           "Personalized Outreach Trigger",
           "High-Value Account Auto-Profiling",
-          "Custom Workspace Generation"
+          "Custom Workspace Generation",
         ],
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-network-nodes-connecting-in-a-loop-48575-large.mp4"
+        videoUrl:
+          "https://assets.mixkit.co/videos/preview/mixkit-network-nodes-connecting-in-a-loop-48575-large.mp4",
       },
       {
         title: "DevOps & Error Resolution Pipeline",
         metric: "−60% Mean Time to Repair",
         metricLabel: "MTTR Reduction",
         desc: "Tracks application crashes, uses AI to analyze codebase context, drafts a bugfix branch on GitHub, and opens a PR for developer review.",
-        longDesc: "An AI-powered first responder for technical teams. The moment an error occurs, the pipeline pulls Sentry details, searches the GitHub repo to identify the problematic lines of code, drafts an exact fix, opens a branch, and creates a pull request. The engineering team simply reviews, approves, and merges — fixing bugs in minutes rather than hours.",
+        longDesc:
+          "An AI-powered first responder for technical teams. The moment an error occurs, the pipeline pulls Sentry details, searches the GitHub repo to identify the problematic lines of code, drafts an exact fix, opens a branch, and creates a pull request. The engineering team simply reviews, approves, and merges — fixing bugs in minutes rather than hours.",
         stack: ["Sentry API", "GitHub API", "OpenAI GPT-4o", "Slack"],
         workflow: [
           "Error Alert Captured in Real-Time",
           "Codebase Context Retrieval & Analysis",
           "AI Draft of Code Resolution",
           "Automated Bugfix Branch & PR Creation",
-          "Slack Notification & Code Review Alert"
+          "Slack Notification & Code Review Alert",
         ],
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-streams-of-digital-data-transferring-on-blue-background-48569-large.mp4"
-      }
-    ]
-  }
+        videoUrl:
+          "https://assets.mixkit.co/videos/preview/mixkit-streams-of-digital-data-transferring-on-blue-background-48569-large.mp4",
+      },
+    ],
+  },
 };
 
 function Portfolio() {
@@ -552,9 +581,12 @@ function Portfolio() {
   const activeItem = activeItems[activeItemIndex] || activeItems[0];
 
   return (
-    <section id="portfolio" className="relative w-full px-4 sm:px-6 md:px-8 py-20 md:py-28 bg-white dark:bg-black/20">
+    <section
+      id="portfolio"
+      className="relative w-full px-4 sm:px-6 md:px-8 py-20 md:py-28 bg-white dark:bg-black/20"
+    >
       <SectionGlow />
-      
+
       {/* Decorative doodles */}
       <div className="absolute bottom-10 left-12 hidden md:block text-[#ff4d31]/30 doodle-float">
         <NodeGraph className="h-16 w-24" />
@@ -574,7 +606,7 @@ function Portfolio() {
                   "group relative flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer overflow-hidden",
                   isActive
                     ? "text-white shadow-lg shadow-[#ff4d31]/20"
-                    : "text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-white bg-neutral-100 dark:bg-white/[0.03] border border-neutral-200/50 dark:border-white/5"
+                    : "text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-white bg-neutral-100 dark:bg-white/[0.03] border border-neutral-200/50 dark:border-white/5",
                 )}
               >
                 {isActive && (
@@ -585,7 +617,12 @@ function Portfolio() {
                   />
                 )}
                 <span className="relative z-10 flex items-center gap-2">
-                  <Icon className={cn("h-4 w-4 transition-transform duration-300 group-hover:scale-110", isActive ? "text-white" : "text-neutral-500 dark:text-neutral-400")} />
+                  <Icon
+                    className={cn(
+                      "h-4 w-4 transition-transform duration-300 group-hover:scale-110",
+                      isActive ? "text-white" : "text-neutral-500 dark:text-neutral-400",
+                    )}
+                  />
                   {ind.name}
                 </span>
               </button>
@@ -595,7 +632,10 @@ function Portfolio() {
 
         {/* Section Header & Subtitle */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 id="services-title" className="font-display text-2xl font-bold uppercase tracking-[0.1em] text-[#ff4d31] sm:text-3xl md:text-4xl">
+          <h2
+            id="services-title"
+            className="font-display text-2xl font-bold uppercase tracking-[0.1em] text-[#ff4d31] sm:text-3xl md:text-4xl"
+          >
             What we do
           </h2>
           <p className="mt-3 text-[14px] leading-relaxed text-neutral-500 dark:text-neutral-400 sm:mt-4 sm:text-[15px]">
@@ -605,7 +645,6 @@ function Portfolio() {
 
         {/* Dynamic Side-Tab Layout Grid */}
         <div className="mt-10 flex flex-col gap-0 sm:mt-14 lg:grid lg:grid-cols-[2.5fr_1px_9.5fr]">
-          
           {/* Column 1: Vertical Button Selector List */}
           <div className="flex flex-col pr-0 lg:pr-6 xl:pr-8">
             {activeItems.map((item, idx) => {
@@ -629,7 +668,7 @@ function Portfolio() {
                     <span
                       className={cn(
                         "block text-[10px] font-bold tabular-nums transition-colors duration-200",
-                        isActive ? "text-[#ff4d31]" : "text-neutral-400/40 dark:text-white/20"
+                        isActive ? "text-[#ff4d31]" : "text-neutral-400/40 dark:text-white/20",
                       )}
                     >
                       {String(idx + 1).padStart(2, "0")}
@@ -637,9 +676,9 @@ function Portfolio() {
                     <span
                       className={cn(
                         "mt-0.5 block font-display text-[13px] sm:text-[14.5px] font-semibold leading-snug transition-colors duration-200",
-                        isActive 
-                          ? "text-neutral-950 dark:text-white font-bold" 
-                          : "text-neutral-500/85 dark:text-neutral-400/60 font-medium group-hover:text-neutral-800 dark:group-hover:text-neutral-200"
+                        isActive
+                          ? "text-neutral-950 dark:text-white font-bold"
+                          : "text-neutral-500/85 dark:text-neutral-400/60 font-medium group-hover:text-neutral-800 dark:group-hover:text-neutral-200",
                       )}
                     >
                       {item.title}
@@ -666,24 +705,28 @@ function Portfolio() {
               >
                 {/* Overlined Category */}
                 <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#ff4d31]">
-                  {industries[activeIndustry].name} / BUILD {String(activeItemIndex + 1).padStart(2, "0")}
+                  {industries[activeIndustry].name} / BUILD{" "}
+                  {String(activeItemIndex + 1).padStart(2, "0")}
                 </p>
 
                 {/* Grid layout splitting Text on Left, Video on Right */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-4 items-center">
-                  
                   {/* Left sub-column: Text Details */}
                   <div className="lg:col-span-5 flex flex-col">
                     <h3 className="font-display text-xl font-extrabold leading-tight tracking-tight text-neutral-900 dark:text-white sm:mt-1 sm:text-2xl lg:text-[1.5rem]">
                       {activeItem.title}
                     </h3>
-                    
+
                     <div className="mt-3.5 h-[2px] w-10 rounded-full bg-[#ff4d31] sm:mt-4"></div>
-                    
+
                     {/* Performance Metric Badge */}
                     <div className="mt-4 self-start inline-flex items-center gap-2 rounded-lg bg-[#ff4d31]/5 border border-[#ff4d31]/10 px-2.5 py-1">
-                      <span className="font-mono text-xs font-bold text-[#ff4d31]">{activeItem.metric}</span>
-                      <span className="text-[9px] uppercase font-semibold text-neutral-400 tracking-wider">({activeItem.metricLabel})</span>
+                      <span className="font-mono text-xs font-bold text-[#ff4d31]">
+                        {activeItem.metric}
+                      </span>
+                      <span className="text-[9px] uppercase font-semibold text-neutral-400 tracking-wider">
+                        ({activeItem.metricLabel})
+                      </span>
                     </div>
 
                     <p className="mt-4 max-w-sm text-xs leading-relaxed text-neutral-650 dark:text-neutral-400 sm:mt-5 sm:text-[13.5px]">
@@ -748,7 +791,6 @@ function Portfolio() {
                       </div>
                     </div>
                   </div>
-
                 </div>
 
                 {/* Big decorative transparent number at the background corner */}
@@ -761,7 +803,6 @@ function Portfolio() {
               </motion.div>
             </AnimatePresence>
           </div>
-
         </div>
       </div>
     </section>

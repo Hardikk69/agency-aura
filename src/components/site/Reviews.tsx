@@ -24,7 +24,8 @@ const reviews: Review[] = [
     service: "Video Editing",
   },
   {
-    review: "Great experience working with Dhrumil—detail-oriented, responsive, and consistently delivered on time.",
+    review:
+      "Great experience working with Dhrumil—detail-oriented, responsive, and consistently delivered on time.",
     name: "Kweku711",
     position: "",
     service: "Website Design",

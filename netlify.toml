@@ -1,5 +1,6 @@
-# Netlify configuration for SPA fallback
+# netlify.toml for TanStack Start
+
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/index"
   status = 200

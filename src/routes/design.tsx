@@ -25,7 +25,13 @@ export const Route = createFileRoute("/design")({
   component: DesignPage,
 });
 
-import { Hero, Services, Portfolio, designReviews, Packages } from "@/components/design/DesignSections";
+import {
+  Hero,
+  Services,
+  Portfolio,
+  designReviews,
+  Packages,
+} from "@/components/design/DesignSections";
 
 function DesignPage() {
   return (

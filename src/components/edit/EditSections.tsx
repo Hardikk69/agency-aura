@@ -66,7 +66,7 @@ export function VideoEditorSimulator() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [activeClip, setActiveClip] = useState(0);
   const [timecode, setTimecode] = useState("00:00:00:00");
-  
+
   // Custom interactive states
   const [isMuted, setIsMuted] = useState(false);
   const [isLocked, setIsLocked] = useState(false);
@@ -214,7 +214,7 @@ export function VideoEditorSimulator() {
   const seekTimeline = (percent: number) => {
     progressRef.current = percent;
     setProgress(percent);
-    
+
     // Instantly set active clip based on percentage
     let clipIdx = 0;
     if (percent < 35) {
@@ -298,9 +298,14 @@ export function VideoEditorSimulator() {
             <div className="space-y-1.5 text-neutral-500 dark:text-neutral-500 text-left">
               <div className="flex items-center gap-1">
                 <span className="text-[#a78bfa]">📁</span>
-                <span className="text-neutral-800 dark:text-neutral-300 font-bold">Compositions</span>
+                <span className="text-neutral-800 dark:text-neutral-300 font-bold">
+                  Compositions
+                </span>
               </div>
-              <div className="flex items-center gap-1 pl-3 text-[#ff4d31] hover:underline cursor-pointer" onClick={() => seekTimeline(0)}>
+              <div
+                className="flex items-center gap-1 pl-3 text-[#ff4d31] hover:underline cursor-pointer"
+                onClick={() => seekTimeline(0)}
+              >
                 <span>└─ 📺</span>
                 <span className="underline">Main_Render_01</span>
               </div>
@@ -308,18 +313,32 @@ export function VideoEditorSimulator() {
                 <span className="text-[#facc15]">📁</span>
                 <span className="text-neutral-800 dark:text-neutral-300">Footage Assets</span>
               </div>
-              <div className="flex items-center gap-1 pl-3 truncate hover:text-[#ff4d31] cursor-pointer transition-colors" onClick={() => seekTimeline(0)} title="Click to seek clip 1">
+              <div
+                className="flex items-center gap-1 pl-3 truncate hover:text-[#ff4d31] cursor-pointer transition-colors"
+                onClick={() => seekTimeline(0)}
+                title="Click to seek clip 1"
+              >
                 <span>└─ 📹 Hook_Reel.mp4</span>
               </div>
-              <div className="flex items-center gap-1 pl-3 truncate hover:text-[#ff4d31] cursor-pointer transition-colors" onClick={() => seekTimeline(35)} title="Click to seek clip 2">
+              <div
+                className="flex items-center gap-1 pl-3 truncate hover:text-[#ff4d31] cursor-pointer transition-colors"
+                onClick={() => seekTimeline(35)}
+                title="Click to seek clip 2"
+              >
                 <span>└─ 📹 Cinematic_Broll.mp4</span>
               </div>
-              <div className="flex items-center gap-1 pl-3 truncate hover:text-[#ff4d31] cursor-pointer transition-colors" onClick={() => seekTimeline(75)} title="Click to seek clip 3">
+              <div
+                className="flex items-center gap-1 pl-3 truncate hover:text-[#ff4d31] cursor-pointer transition-colors"
+                onClick={() => seekTimeline(75)}
+                title="Click to seek clip 3"
+              >
                 <span>└─ 📹 CTA_Outro.mp4</span>
               </div>
               <div className="flex items-center gap-1" onClick={() => setIsMuted(!isMuted)}>
                 <span className="text-[#4ade80]">🎵</span>
-                <span className="text-neutral-800 dark:text-neutral-300 font-bold hover:underline cursor-pointer">Audio Track.wav</span>
+                <span className="text-neutral-800 dark:text-neutral-300 font-bold hover:underline cursor-pointer">
+                  Audio Track.wav
+                </span>
               </div>
             </div>
           </div>
@@ -414,19 +433,43 @@ export function VideoEditorSimulator() {
 
             {/* Preset folder stack */}
             <div className="space-y-1.5 text-neutral-500 text-left">
-              <div className={cn("flex items-center justify-between bg-black/5 dark:bg-white/[0.02] border border-black/5 dark:border-white/5 rounded px-1.5 py-0.5 text-neutral-700 dark:text-neutral-400 cursor-pointer hover:bg-neutral-100 dark:hover:bg-white/5", activePreset === "Fast Blur" && "border-[#ff4d31] text-[#ff4d31]")} onClick={() => setActivePreset("Fast Blur")}>
+              <div
+                className={cn(
+                  "flex items-center justify-between bg-black/5 dark:bg-white/[0.02] border border-black/5 dark:border-white/5 rounded px-1.5 py-0.5 text-neutral-700 dark:text-neutral-400 cursor-pointer hover:bg-neutral-100 dark:hover:bg-white/5",
+                  activePreset === "Fast Blur" && "border-[#ff4d31] text-[#ff4d31]",
+                )}
+                onClick={() => setActivePreset("Fast Blur")}
+              >
                 <span>✨ Fast Blur</span>
               </div>
               <div className="flex items-center gap-1 font-bold text-neutral-700 dark:text-neutral-400">
                 <span>📁 *Vertex VFX Pack*</span>
               </div>
-              <div className={cn("flex items-center gap-1 pl-3 text-[#ff4d31] truncate cursor-pointer hover:underline", activePreset === "High_Hook" && "underline font-bold")} onClick={() => setActivePreset("High_Hook")}>
+              <div
+                className={cn(
+                  "flex items-center gap-1 pl-3 text-[#ff4d31] truncate cursor-pointer hover:underline",
+                  activePreset === "High_Hook" && "underline font-bold",
+                )}
+                onClick={() => setActivePreset("High_Hook")}
+              >
                 <span>└─ ✨ High_Hook</span>
               </div>
-              <div className={cn("flex items-center gap-1 pl-3 text-[#ff4d31] truncate cursor-pointer hover:underline", activePreset === "Cinematic_LUT" && "underline font-bold")} onClick={() => setActivePreset("Cinematic_LUT")}>
+              <div
+                className={cn(
+                  "flex items-center gap-1 pl-3 text-[#ff4d31] truncate cursor-pointer hover:underline",
+                  activePreset === "Cinematic_LUT" && "underline font-bold",
+                )}
+                onClick={() => setActivePreset("Cinematic_LUT")}
+              >
                 <span>└─ ✨ Cinematic_LUT</span>
               </div>
-              <div className={cn("flex items-center gap-1 pl-3 text-[#ff4d31] truncate cursor-pointer hover:underline", activePreset === "Subtitle_Engine" && "underline font-bold")} onClick={() => setActivePreset("Subtitle_Engine")}>
+              <div
+                className={cn(
+                  "flex items-center gap-1 pl-3 text-[#ff4d31] truncate cursor-pointer hover:underline",
+                  activePreset === "Subtitle_Engine" && "underline font-bold",
+                )}
+                onClick={() => setActivePreset("Subtitle_Engine")}
+              >
                 <span>└─ ✨ Subtitle_Engine</span>
               </div>
               <div className="flex items-center gap-1">
@@ -453,7 +496,9 @@ export function VideoEditorSimulator() {
             <span className="bg-white dark:bg-[#1b1b1e] text-[#ff4d31] px-2 py-0.5 rounded-t border-t border-x border-black/10 dark:border-white/10 font-bold">
               Comp 1
             </span>
-            <span className="text-neutral-500 px-2 py-0.5 font-medium cursor-pointer hover:text-neutral-800 dark:hover:text-white">Comp 2</span>
+            <span className="text-neutral-500 px-2 py-0.5 font-medium cursor-pointer hover:text-neutral-800 dark:hover:text-white">
+              Comp 2
+            </span>
           </div>
 
           {/* Toggle control trigger */}
@@ -495,7 +540,10 @@ export function VideoEditorSimulator() {
                 <span className="w-24 truncate text-neutral-800 dark:text-neutral-300 flex items-center gap-1">
                   <span className="h-2 w-2 bg-yellow-400 rounded-sm" /> T Subtitles_Hook
                 </span>
-                <span className="w-12 text-center text-red-400 font-bold font-mono cursor-pointer hover:bg-neutral-200/50 dark:hover:bg-white/5 rounded" onClick={() => setIsMuted(!isMuted)}>
+                <span
+                  className="w-12 text-center text-red-400 font-bold font-mono cursor-pointer hover:bg-neutral-200/50 dark:hover:bg-white/5 rounded"
+                  onClick={() => setIsMuted(!isMuted)}
+                >
                   {isMuted ? "🔕" : "🔊"} 🔴 🔓
                 </span>
                 <span className="flex-grow text-right text-[#ff4d31]">Screen</span>
@@ -507,10 +555,15 @@ export function VideoEditorSimulator() {
                 <span className="w-24 truncate text-neutral-800 dark:text-neutral-300 flex items-center gap-1">
                   <span className="h-2 w-2 bg-blue-500 rounded-sm" /> 📹 Video_Cinematic
                 </span>
-                <span className="w-12 text-center text-neutral-500 font-bold font-mono cursor-pointer hover:bg-neutral-200/50 dark:hover:bg-white/5 rounded" onClick={() => setIsLocked(!isLocked)}>
+                <span
+                  className="w-12 text-center text-neutral-500 font-bold font-mono cursor-pointer hover:bg-neutral-200/50 dark:hover:bg-white/5 rounded"
+                  onClick={() => setIsLocked(!isLocked)}
+                >
                   🔊 🔴 {isLocked ? "🔒" : "🔓"}
                 </span>
-                <span className="flex-grow text-right text-neutral-600 dark:text-neutral-450">Normal</span>
+                <span className="flex-grow text-right text-neutral-600 dark:text-neutral-450">
+                  Normal
+                </span>
               </div>
 
               {/* Layer 3: Audio track */}
@@ -519,10 +572,15 @@ export function VideoEditorSimulator() {
                 <span className="w-24 truncate text-neutral-800 dark:text-neutral-300 flex items-center gap-1">
                   <span className="h-2 w-2 bg-green-500 rounded-sm" /> 🎵 Soundscape_FX
                 </span>
-                <span className="w-12 text-center text-green-400 font-bold font-mono cursor-pointer hover:bg-neutral-200/50 dark:hover:bg-white/5 rounded" onClick={() => setIsMuted(!isMuted)}>
+                <span
+                  className="w-12 text-center text-green-400 font-bold font-mono cursor-pointer hover:bg-neutral-200/50 dark:hover:bg-white/5 rounded"
+                  onClick={() => setIsMuted(!isMuted)}
+                >
                   {isMuted ? "🔕" : "🔊"} 🔲 🔒
                 </span>
-                <span className="flex-grow text-right text-neutral-600 dark:text-neutral-450">Normal</span>
+                <span className="flex-grow text-right text-neutral-600 dark:text-neutral-450">
+                  Normal
+                </span>
               </div>
             </div>
 
@@ -542,11 +600,33 @@ export function VideoEditorSimulator() {
           >
             {/* Timeline Ruler numbers */}
             <div className="relative h-4 border-b border-black/5 dark:border-white/5 text-[7px] text-neutral-500 dark:text-neutral-600 flex justify-between px-1 mb-1.5 font-bold">
-              <span className="cursor-pointer hover:text-[#ff4d31]" onClick={() => seekTimeline(0)}>00f</span>
-              <span className="cursor-pointer hover:text-[#ff4d31]" onClick={() => seekTimeline(25)}>15f</span>
-              <span className="cursor-pointer hover:text-[#ff4d31]" onClick={() => seekTimeline(50)}>30f</span>
-              <span className="cursor-pointer hover:text-[#ff4d31]" onClick={() => seekTimeline(75)}>45f</span>
-              <span className="cursor-pointer hover:text-[#ff4d31]" onClick={() => seekTimeline(100)}>60f</span>
+              <span className="cursor-pointer hover:text-[#ff4d31]" onClick={() => seekTimeline(0)}>
+                00f
+              </span>
+              <span
+                className="cursor-pointer hover:text-[#ff4d31]"
+                onClick={() => seekTimeline(25)}
+              >
+                15f
+              </span>
+              <span
+                className="cursor-pointer hover:text-[#ff4d31]"
+                onClick={() => seekTimeline(50)}
+              >
+                30f
+              </span>
+              <span
+                className="cursor-pointer hover:text-[#ff4d31]"
+                onClick={() => seekTimeline(75)}
+              >
+                45f
+              </span>
+              <span
+                className="cursor-pointer hover:text-[#ff4d31]"
+                onClick={() => seekTimeline(100)}
+              >
+                60f
+              </span>
             </div>
 
             {/* Vertically sliding playhead cursor bar */}
@@ -660,12 +740,16 @@ export function VideoEditorSimulator() {
               </div>
 
               {/* Layer 3 Keyframes (Audio waveforms track) */}
-              <div className="h-6 w-full bg-white dark:bg-[#111113] rounded border border-black/5 dark:border-white/5 flex items-center relative overflow-hidden cursor-pointer" onClick={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                const clickX = e.clientX - rect.left;
-                const clickPercent = (clickX / rect.width) * 100;
-                seekTimeline(clickPercent);
-              }} title="Click timeline track to seek playhead">
+              <div
+                className="h-6 w-full bg-white dark:bg-[#111113] rounded border border-black/5 dark:border-white/5 flex items-center relative overflow-hidden cursor-pointer"
+                onClick={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const clickX = e.clientX - rect.left;
+                  const clickPercent = (clickX / rect.width) * 100;
+                  seekTimeline(clickPercent);
+                }}
+                title="Click timeline track to seek playhead"
+              >
                 <div className="absolute inset-y-0.5 left-2 right-2 flex items-center justify-between opacity-40">
                   {Array.from({ length: 28 }).map((_, i) => {
                     const heightPercent = 20 + Math.sin(i / 2 + progress * 0.05) * 60;
@@ -674,7 +758,9 @@ export function VideoEditorSimulator() {
                         key={i}
                         className={cn(
                           "w-[2px] rounded-sm transition-all duration-100",
-                          (isPlaying && !isMuted) ? "bg-green-500" : "bg-neutral-350 dark:bg-neutral-700",
+                          isPlaying && !isMuted
+                            ? "bg-green-500"
+                            : "bg-neutral-350 dark:bg-neutral-700",
                         )}
                         style={{ height: isMuted ? "10%" : `${heightPercent}%` }}
                       />
@@ -737,7 +823,8 @@ export function Hero() {
               transition={{ delay: 0.2 }}
               className="mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400"
             >
-              Reels, Shorts, TikToks, YouTube, podcasts — every edit is built for retention, paced for the platform
+              Reels, Shorts, TikToks, YouTube, podcasts — every edit is built for retention, paced
+              for the platform
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -789,7 +876,7 @@ const editServices = [
     icon: Wand2,
     title: "Motion Graphics & Text",
     description:
-    "Animated subtitles, lower thirds, transitions, and text overlays that make your content look like it cost ten times more to make.",
+      "Animated subtitles, lower thirds, transitions, and text overlays that make your content look like it cost ten times more to make.",
   },
   {
     icon: Clapperboard,
@@ -1437,8 +1524,7 @@ export function Packages() {
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
-          background:
-            "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
+          background: "radial-gradient(60% 50% at 50% 0%, rgba(59,130,246,0.08), transparent 70%)",
         }}
       />
       <div

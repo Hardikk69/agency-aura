@@ -11,7 +11,11 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://www.linkedin.com/company/vertex-media-house/posts/?feedView=all", label: "LinkedIn" },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/vertex-media-house/posts/?feedView=all",
+    label: "LinkedIn",
+  },
   { icon: Instagram, href: "https://www.instagram.com/vertexmediahouse/", label: "Instagram" },
 ];
 

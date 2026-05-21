@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Calendar, Clock, ArrowRight, CheckCircle2, ShieldCheck, Sparkles, UserCheck } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  ArrowRight,
+  CheckCircle2,
+  ShieldCheck,
+  Sparkles,
+  UserCheck,
+} from "lucide-react";
 import { GlareHover } from "./GlareHover";
 
 export function CalendarCTA() {
@@ -12,36 +20,42 @@ export function CalendarCTA() {
   useEffect(() => {
     const win = window as any;
     (function (C: any, A: string, L: string) {
-      let p = function (a: any, ar: any) { a.q.push(ar); };
-      let d = C.document;
-      win.Cal = win.Cal || function () {
-        let cal = win.Cal as any;
-        let ar = arguments as any;
-        if (!cal.loaded) {
-          cal.ns = {};
-          cal.q = cal.q || [];
-          d.head.appendChild(d.createElement("script")).src = A;
-          cal.loaded = true;
-        }
-        if (ar[0] === L) {
-          const api: any = function () { p(api, arguments); };
-          const namespace = ar[1];
-          api.q = api.q || [];
-          if (typeof namespace === "string") {
-            cal.ns[namespace] = cal.ns[namespace] || api;
-            p(cal.ns[namespace], ar);
-            p(cal, ["initNamespace", namespace]);
-          } else p(cal, ar);
-          return;
-        }
-        p(cal, ar);
+      const p = function (a: any, ar: any) {
+        a.q.push(ar);
       };
+      const d = C.document;
+      win.Cal =
+        win.Cal ||
+        function () {
+          const cal = win.Cal as any;
+          const ar = arguments as any;
+          if (!cal.loaded) {
+            cal.ns = {};
+            cal.q = cal.q || [];
+            d.head.appendChild(d.createElement("script")).src = A;
+            cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            const api: any = function () {
+              p(api, arguments);
+            };
+            const namespace = ar[1];
+            api.q = api.q || [];
+            if (typeof namespace === "string") {
+              cal.ns[namespace] = cal.ns[namespace] || api;
+              p(cal.ns[namespace], ar);
+              p(cal, ["initNamespace", namespace]);
+            } else p(cal, ar);
+            return;
+          }
+          p(cal, ar);
+        };
     })(window, "https://app.cal.com/embed/embed.js", "init");
 
     // Initialize Cal.com namespace
     if (win.Cal) {
       win.Cal("init", "30min", { origin: "https://app.cal.com" });
-      win.Cal.ns["30min"]("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
+      win.Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
     }
   }, []);
 
@@ -89,7 +103,6 @@ export function CalendarCTA() {
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-80 h-80 rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
-        
         {/* Left Side: Call to Action Header */}
         <div className="max-w-xl text-center lg:text-left shrink-0">
           <span className="font-mono text-xs uppercase tracking-widest text-[#ff4d31] font-semibold">
@@ -103,9 +116,10 @@ export function CalendarCTA() {
             let's talk!
           </h2>
           <p className="mt-4 sm:mt-6 font-semibold text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed">
-            Ready to supercharge your systems? Book a strategy slot with our specialists to review your workflows and design files.
+            Ready to supercharge your systems? Book a strategy slot with our specialists to review
+            your workflows and design files.
           </p>
-          
+
           {/* Trust badges */}
           <div className="mt-8 space-y-3 hidden sm:block">
             <div className="flex items-center gap-2.5 text-xs text-neutral-600 dark:text-neutral-400">
@@ -125,7 +139,6 @@ export function CalendarCTA() {
 
         {/* Right Side: Re-designed wide Horizontal Calendar widget */}
         <div className="w-full lg:max-w-[740px] relative">
-          
           <GlareHover
             glareColor="#ffffff"
             glareOpacity={0.18}
@@ -135,10 +148,11 @@ export function CalendarCTA() {
             playOnce={false}
             borderRadius="16px"
           >
-            <div className={cn(
-              "group relative liquid-glass bg-white/50 dark:bg-white/[0.02] rounded-2xl shadow-2xl p-6 md:p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] border border-black/10 dark:border-white/[0.12] overflow-hidden w-full h-full"
-            )}>
-              
+            <div
+              className={cn(
+                "group relative liquid-glass bg-white/50 dark:bg-white/[0.02] rounded-2xl shadow-2xl p-6 md:p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] border border-black/10 dark:border-white/[0.12] overflow-hidden w-full h-full",
+              )}
+            >
               {/* Ambient visual badge */}
               <div className="flex items-center justify-between mb-6 border-b border-black/5 dark:border-white/5 pb-4">
                 <div className="flex items-center gap-2">
@@ -154,13 +168,18 @@ export function CalendarCTA() {
 
               {/* Horizontal Grid Layout for Calendar Grid vs Selector Details */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                
                 {/* LEFT COLUMN: Calendar Month & Days */}
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-neutral-800 dark:text-neutral-200">
-                    <span className="cursor-pointer text-base hover:text-[#ff4d31] transition-colors p-1 select-none">&lt;</span>
-                    <span className="font-bold text-xs sm:text-sm tracking-wider uppercase">{currentMonth}</span>
-                    <span className="cursor-pointer text-base hover:text-[#ff4d31] transition-colors p-1 select-none">&gt;</span>
+                    <span className="cursor-pointer text-base hover:text-[#ff4d31] transition-colors p-1 select-none">
+                      &lt;
+                    </span>
+                    <span className="font-bold text-xs sm:text-sm tracking-wider uppercase">
+                      {currentMonth}
+                    </span>
+                    <span className="cursor-pointer text-base hover:text-[#ff4d31] transition-colors p-1 select-none">
+                      &gt;
+                    </span>
                   </div>
 
                   {/* Days label row */}
@@ -188,11 +207,11 @@ export function CalendarCTA() {
                           }}
                           className={cn(
                             "h-8 w-8 rounded-lg flex items-center justify-center font-bold transition-all duration-300 relative select-none cursor-pointer",
-                            item.active 
+                            item.active
                               ? isSelected
                                 ? "bg-[#ff4d31] text-white shadow-lg shadow-[#ff4d31]/30 hover:bg-[#ff4d31]"
                                 : "bg-white/30 dark:bg-white/[0.01] border border-black/5 dark:border-white/[0.04] text-neutral-900 dark:text-neutral-200 hover:border-[#ff4d31]/50 hover:bg-[#ff4d31]/5"
-                              : "text-neutral-350 dark:text-neutral-700 cursor-not-allowed opacity-20"
+                              : "text-neutral-350 dark:text-neutral-700 cursor-not-allowed opacity-20",
                           )}
                           // Embed Cal.com triggering directly onto day selections
                           data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
@@ -211,7 +230,6 @@ export function CalendarCTA() {
 
                 {/* RIGHT COLUMN: Interactive details and slots selection */}
                 <div className="h-full flex flex-col justify-center border-t md:border-t-0 md:border-l border-black/5 dark:border-white/5 pt-6 md:pt-0 md:pl-8 min-h-[190px]">
-                  
                   {selectedDate === null ? (
                     <div className="text-center md:text-left py-4 space-y-3">
                       <div className="h-10 w-10 rounded-full bg-[#ff4d31]/10 flex items-center justify-center mx-auto md:mx-0">
@@ -222,7 +240,8 @@ export function CalendarCTA() {
                           Available slots
                         </h4>
                         <p className="text-[11px] text-neutral-500 dark:text-neutral-450 mt-1">
-                          Select a date on the calendar to view and trigger our scheduling options instantly.
+                          Select a date on the calendar to view and trigger our scheduling options
+                          instantly.
                         </p>
                       </div>
                     </div>
@@ -232,7 +251,7 @@ export function CalendarCTA() {
                         <Clock className="h-3 w-3 text-[#ff4d31]" />
                         Times for January {selectedDate}
                       </span>
-                      
+
                       <div className="grid grid-cols-2 gap-2">
                         {timeSlots.map((slot) => {
                           const isTimeSelected = selectedTime === slot;
@@ -244,7 +263,7 @@ export function CalendarCTA() {
                                 "py-2 rounded-lg text-[10px] font-bold border transition-all duration-300 cursor-pointer",
                                 isTimeSelected
                                   ? "bg-[#ff4d31] text-white border-[#ff4d31] shadow-lg shadow-[#ff4d31]/20"
-                                  : "border-black/10 dark:border-white/[0.08] bg-white/30 dark:bg-white/[0.01] hover:border-[#ff4d31]/50 text-neutral-850 dark:text-neutral-300"
+                                  : "border-black/10 dark:border-white/[0.08] bg-white/30 dark:bg-white/[0.01] hover:border-[#ff4d31]/50 text-neutral-850 dark:text-neutral-300",
                               )}
                               data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
                               data-cal-namespace="30min"
@@ -255,17 +274,14 @@ export function CalendarCTA() {
                           );
                         })}
                       </div>
-                      
+
                       <div className="text-[9.5px] text-neutral-500 dark:text-neutral-450 leading-normal text-center md:text-left">
                         Clicking any time slot triggers our verified Cal.com live overlay window.
                       </div>
                     </div>
                   )}
-
                 </div>
-
               </div>
-
             </div>
           </GlareHover>
 
@@ -286,9 +302,7 @@ export function CalendarCTA() {
               </span>
             </button>
           </div>
-
         </div>
-
       </div>
     </section>
   );

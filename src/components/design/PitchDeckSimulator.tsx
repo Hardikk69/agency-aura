@@ -80,7 +80,8 @@ export function PitchDeckSimulator() {
           <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
           <span className="text-[10px] tracking-wide text-neutral-700 dark:text-neutral-300 font-medium ml-2 border-l border-black/10 dark:border-white/10 pl-3">
-            Deck_Editor — <em className="text-[#ff4d31] not-italic font-semibold">Series_A_Pitch.key</em>
+            Deck_Editor —{" "}
+            <em className="text-[#ff4d31] not-italic font-semibold">Series_A_Pitch.key</em>
           </span>
         </div>
 
@@ -92,7 +93,7 @@ export function PitchDeckSimulator() {
               "px-2 py-0.5 rounded text-[8px] font-bold uppercase tracking-wider border transition-colors cursor-pointer",
               isPlayMode
                 ? "bg-[#ff4d31]/20 border-[#ff4d31] text-[#ff4d31]"
-                : "border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 text-neutral-700 dark:text-neutral-300 bg-black/5 dark:bg-white/5"
+                : "border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 text-neutral-700 dark:text-neutral-300 bg-black/5 dark:bg-white/5",
             )}
           >
             {isPlayMode ? "⏹ Close Present" : "▶ Present"}
@@ -103,7 +104,7 @@ export function PitchDeckSimulator() {
               "px-1.5 py-0.5 rounded text-[8px] font-bold uppercase transition-colors cursor-pointer",
               isAutoplay
                 ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                : "bg-neutral-200 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400"
+                : "bg-neutral-200 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400",
             )}
           >
             {isAutoplay ? "Autoplay On" : "Autoplay Off"}
@@ -113,14 +114,13 @@ export function PitchDeckSimulator() {
 
       {/* ─── Presentation Canvas + Panels ─── */}
       <div className="flex flex-grow overflow-hidden min-h-0">
-        
         {/* LEFT PANEL: Slides List (PowerPoint Style) */}
         {!isPlayMode && (
           <div className="hidden md:flex w-[110px] bg-white/30 dark:bg-black/30 border-r border-black/5 dark:border-white/5 flex-col shrink-0 overflow-y-auto p-1.5 gap-2 select-none">
             <div className="text-[7.5px] font-semibold uppercase tracking-wider text-neutral-500 px-1 py-0.5">
               SLIDES
             </div>
-            
+
             {SLIDES.map((slide, idx) => (
               <div
                 key={slide.id}
@@ -129,7 +129,7 @@ export function PitchDeckSimulator() {
                   "relative rounded border p-1 cursor-pointer transition-all duration-300 flex flex-col gap-1",
                   activeSlideIdx === idx
                     ? "border-[#ff4d31] bg-[#ff4d31]/10 dark:bg-[#ff4d31]/5 text-[#ff4d31]"
-                    : "border-black/5 dark:border-white/[0.04] bg-white/40 dark:bg-white/[0.01] hover:bg-white/60 dark:hover:bg-white/[0.03] text-neutral-500 dark:text-neutral-400"
+                    : "border-black/5 dark:border-white/[0.04] bg-white/40 dark:bg-white/[0.01] hover:bg-white/60 dark:hover:bg-white/[0.03] text-neutral-500 dark:text-neutral-400",
                 )}
               >
                 {/* Visual miniature of the slide type */}
@@ -137,7 +137,9 @@ export function PitchDeckSimulator() {
                   {slide.type === "cover" && (
                     <div className="flex flex-col items-center justify-center scale-50">
                       <span className="h-1 w-4 rounded-full bg-[#ff4d31]" />
-                      <span className="text-[6px] text-neutral-700 dark:text-white font-bold mt-1">TITLE</span>
+                      <span className="text-[6px] text-neutral-700 dark:text-white font-bold mt-1">
+                        TITLE
+                      </span>
                     </div>
                   )}
                   {slide.type === "chart" && (
@@ -165,9 +167,8 @@ export function PitchDeckSimulator() {
 
         {/* CENTER PANEL: Interactive Slide Presenter */}
         <div className="flex-grow bg-black/5 dark:bg-[#151518] relative overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4">
-          
           {/* Main Presentation Slide Viewport */}
-          <div 
+          <div
             onClick={() => setActiveSlideIdx((prev) => (prev + 1) % SLIDES.length)}
             className="relative w-full aspect-[16/9] bg-white dark:bg-[#0c0c0e] rounded-xl border border-black/10 dark:border-white/5 flex flex-col justify-between p-4 sm:p-6 shadow-xl dark:shadow-2xl overflow-hidden text-neutral-900 dark:text-white cursor-pointer select-none"
           >
@@ -184,7 +185,9 @@ export function PitchDeckSimulator() {
               <span className="text-[6.5px] sm:text-[7.5px] tracking-[0.25em] uppercase text-[#ff4d31] font-bold">
                 {activeSlide.tagline}
               </span>
-              <span className="text-[6.5px] sm:text-[7.5px] text-neutral-400 dark:text-neutral-600 font-bold">VERTEX SERIES A</span>
+              <span className="text-[6.5px] sm:text-[7.5px] text-neutral-400 dark:text-neutral-600 font-bold">
+                VERTEX SERIES A
+              </span>
             </div>
 
             {/* Slide Body Content */}
@@ -198,10 +201,9 @@ export function PitchDeckSimulator() {
               >
                 {activeSlide.headline}
               </h2>
-              
+
               {/* Dynamic Slide Visual components */}
               <div className="h-16 sm:h-24 flex items-center mt-1">
-                
                 {/* COVER SLIDE VISUAL */}
                 {activeSlide.type === "cover" && (
                   <div className="w-full flex items-center justify-between bg-black/5 dark:bg-white/[0.02] border border-black/5 dark:border-white/5 rounded-lg p-2 sm:p-3">
@@ -226,17 +228,34 @@ export function PitchDeckSimulator() {
                     {/* Interactive Animated growing bar chart */}
                     <div className="flex-grow flex items-end justify-between h-14 sm:h-20 bg-black/[0.02] dark:bg-white/[0.01] border-b border-black/10 dark:border-white/10 px-2 sm:px-4">
                       {[
-                        { label: "SAM ($1.2B)", height: "30%", colorClass: "bg-neutral-300 dark:bg-neutral-700" },
+                        {
+                          label: "SAM ($1.2B)",
+                          height: "30%",
+                          colorClass: "bg-neutral-300 dark:bg-neutral-700",
+                        },
                         { label: "TAM ($4.8B)", height: "85%", colorClass: "bg-[#ff4d31]" },
-                        { label: "SOM ($0.4B)", height: "15%", colorClass: "bg-neutral-400 dark:bg-neutral-600" },
+                        {
+                          label: "SOM ($0.4B)",
+                          height: "15%",
+                          colorClass: "bg-neutral-400 dark:bg-neutral-600",
+                        },
                       ].map((bar, i) => (
-                        <div key={i} className="flex flex-col items-center gap-1 flex-1 max-w-[40px] sm:max-w-[50px] group/bar relative">
+                        <div
+                          key={i}
+                          className="flex flex-col items-center gap-1 flex-1 max-w-[40px] sm:max-w-[50px] group/bar relative"
+                        >
                           {/* Grow height of chart using scale/transition */}
                           <div
-                            className={cn("w-2.5 sm:w-4 rounded-t-sm transition-all duration-[1200ms] cubic-bezier(0.16, 1, 0.3, 1)", bar.colorClass)}
+                            className={cn(
+                              "w-2.5 sm:w-4 rounded-t-sm transition-all duration-[1200ms] cubic-bezier(0.16, 1, 0.3, 1)",
+                              bar.colorClass,
+                            )}
                             style={{
                               height: chartValue > 0 ? bar.height : "0%",
-                              boxShadow: bar.colorClass === "bg-[#ff4d31]" ? "0 0 12px rgba(255, 77, 49, 0.4)" : "none",
+                              boxShadow:
+                                bar.colorClass === "bg-[#ff4d31]"
+                                  ? "0 0 12px rgba(255, 77, 49, 0.4)"
+                                  : "none",
                             }}
                           />
                           <span className="text-[5px] sm:text-[6.5px] text-neutral-500 truncate text-center w-full">
@@ -248,7 +267,9 @@ export function PitchDeckSimulator() {
 
                     {/* Chart legends */}
                     <div className="w-[70px] sm:w-[100px] flex flex-col gap-0.5 sm:gap-1 shrink-0">
-                      <div className="text-[6.5px] sm:text-[7.5px] font-bold text-neutral-800 dark:text-neutral-300">Market Insights</div>
+                      <div className="text-[6.5px] sm:text-[7.5px] font-bold text-neutral-800 dark:text-neutral-300">
+                        Market Insights
+                      </div>
                       <p className="text-[5.5px] sm:text-[6.5px] text-neutral-600 dark:text-neutral-500 leading-normal">
                         TAM grows at +24% YoY, positioning the studio at the apex.
                       </p>
@@ -269,20 +290,27 @@ export function PitchDeckSimulator() {
                         className="bg-black/5 dark:bg-white/[0.02] border border-black/5 dark:border-white/[0.04] rounded-lg p-1.5 sm:p-2.5 flex flex-col gap-0.5 sm:gap-1 text-center transition-all duration-500 hover:border-[#ff4d31]/20 hover:bg-[#ff4d31]/10 dark:hover:bg-[#ff4d31]/5"
                       >
                         <span className="text-[9px] sm:text-[12px]">{feature.icon}</span>
-                        <span className="text-[6.5px] sm:text-[7.5px] font-bold text-neutral-850 dark:text-neutral-300">{feature.title}</span>
-                        <span className="text-[5.5px] sm:text-[6.5px] text-neutral-600 dark:text-neutral-500 truncate">{feature.value}</span>
+                        <span className="text-[6.5px] sm:text-[7.5px] font-bold text-neutral-850 dark:text-neutral-300">
+                          {feature.title}
+                        </span>
+                        <span className="text-[5.5px] sm:text-[6.5px] text-neutral-600 dark:text-neutral-500 truncate">
+                          {feature.value}
+                        </span>
                       </div>
                     ))}
                   </div>
                 )}
-
               </div>
             </div>
 
             {/* Slide Footer */}
             <div className="flex items-center justify-between z-10 border-t border-black/5 dark:border-white/5 pt-1.5 sm:pt-2">
-              <span className="text-[5.5px] sm:text-[6.5px] text-neutral-500 dark:text-neutral-600">CONFIDENTIAL PRESENTATION</span>
-              <span className="text-[5.5px] sm:text-[6.5px] text-neutral-500 dark:text-neutral-600">Slide {activeSlideIdx + 1} of {SLIDES.length}</span>
+              <span className="text-[5.5px] sm:text-[6.5px] text-neutral-500 dark:text-neutral-600">
+                CONFIDENTIAL PRESENTATION
+              </span>
+              <span className="text-[5.5px] sm:text-[6.5px] text-neutral-500 dark:text-neutral-600">
+                Slide {activeSlideIdx + 1} of {SLIDES.length}
+              </span>
             </div>
           </div>
 
@@ -298,9 +326,9 @@ export function PitchDeckSimulator() {
                   }}
                   className={cn(
                     "h-1.5 w-1.5 rounded-full transition-all duration-300",
-                    activeSlideIdx === idx 
-                      ? "bg-[#ff4d31] w-3" 
-                      : "bg-neutral-300 dark:bg-neutral-700"
+                    activeSlideIdx === idx
+                      ? "bg-[#ff4d31] w-3"
+                      : "bg-neutral-300 dark:bg-neutral-700",
                   )}
                   title={`Go to slide ${idx + 1}`}
                 />
@@ -310,13 +338,11 @@ export function PitchDeckSimulator() {
               👉 Tap slide to advance
             </span>
           </div>
-
         </div>
 
         {/* RIGHT PANEL: Slide Editor Inspector */}
         {!isPlayMode && (
           <div className="hidden md:flex w-[130px] bg-white/30 dark:bg-black/30 border-l border-black/5 dark:border-white/5 flex-col shrink-0 overflow-y-auto p-2.5 gap-3.5 select-none">
-            
             {/* Slide Transitions */}
             <div className="space-y-1.5">
               <span className="text-[7.5px] font-semibold text-neutral-500 uppercase tracking-widest">
@@ -366,7 +392,9 @@ export function PitchDeckSimulator() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-neutral-600 dark:text-neutral-500">Export PDF</span>
-                  <span className="text-neutral-800 dark:text-neutral-400 underline cursor-pointer hover:text-neutral-900 dark:hover:text-white">Ready</span>
+                  <span className="text-neutral-800 dark:text-neutral-400 underline cursor-pointer hover:text-neutral-900 dark:hover:text-white">
+                    Ready
+                  </span>
                 </div>
               </div>
             </div>
@@ -377,9 +405,18 @@ export function PitchDeckSimulator() {
                 BRAND COLORS
               </span>
               <div className="flex items-center gap-1">
-                <span className="h-4 w-4 rounded bg-[#ff4d31] border border-black/10 dark:border-white/10" title="Primary Accent" />
-                <span className="h-4 w-4 rounded bg-[#ffffff] border border-black/10 dark:border-white/10" title="Primary Text" />
-                <span className="h-4 w-4 rounded bg-[#0c0c0e] border border-black/10 dark:border-white/10" title="Canvas Background" />
+                <span
+                  className="h-4 w-4 rounded bg-[#ff4d31] border border-black/10 dark:border-white/10"
+                  title="Primary Accent"
+                />
+                <span
+                  className="h-4 w-4 rounded bg-[#ffffff] border border-black/10 dark:border-white/10"
+                  title="Primary Text"
+                />
+                <span
+                  className="h-4 w-4 rounded bg-[#0c0c0e] border border-black/10 dark:border-white/10"
+                  title="Canvas Background"
+                />
               </div>
             </div>
 
