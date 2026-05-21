@@ -1,7 +1,5 @@
-# This file is generated automatically by the TanStack Start Netlify adapter.
-# Any changes you make here will be overwritten on next build.
-
+# Netlify configuration for SPA fallback
 [[redirects]]
-from = "/*"
-to = "/.netlify/functions/index"
-status = 200
+  from = "/*"
+  to = "/index.html"
+  status = 200
