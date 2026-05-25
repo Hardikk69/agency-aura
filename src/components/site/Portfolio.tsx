@@ -17,9 +17,17 @@ const designImages = [
   "https://images.unsplash.com/photo-1581291518151-0e07553bb465?q=80&w=2328&auto=format&fit=crop",
 ];
 
-const automateVideos = [
-  "https://play.gumlet.io/embed/69f733741dfaccdc957ab32f?background=false&autoplay=true&loop=true&disable_player_controls=false", // Placeholder
-  "https://play.gumlet.io/embed/698b8d45873071aec5f38ae9?background=false&autoplay=true&loop=true&disable_player_controls=false", // Placeholder
+const automateItems = [
+  {
+    title: "Construction Automation Pipeline",
+    description: "Automates project tracking, reporting, and resource allocation across sites.",
+    media: "/assets/imgs/Construction_Automation.png",
+  },
+  {
+    title: "Bulk Email Automation Engine",
+    description: "Handles segmented outreach, personalization, and delivery optimization.",
+    media: "/assets/imgs/BulkEmail_Automation.png",
+  },
 ];
 
 type Tab = "design" | "edit" | "automate";
@@ -151,35 +159,23 @@ export function Portfolio() {
           {activeTab === "automate" && (
             <div className="marquee-mask overflow-hidden w-full animate-in fade-in duration-700">
               <div className="flex w-max gap-8 md:gap-10 animate-marquee hover:[animation-play-state:paused] py-4">
-                {[...automateVideos, ...automateVideos, ...automateVideos].map((src, index) => (
-                  <div
-                    key={index}
-                    className={cn(
-                      "flex-shrink-0",
-                      "w-[85vw] sm:w-[70vw] md:w-[55vw] lg:w-[48vw]",
-                      "h-[300px] sm:h-[340px] md:h-[400px] lg:h-[440px]",
-                    )}
-                  >
-                    <SpotlightCard
-                      className="group h-full p-6 rounded-x liquid-glass dark:!bg-white/[0.04] border-white/40 dark:border-white/10 backdrop-blur-xl"
-                      spotlightColor="rgba(139, 92, 246, 0.15)"
-                      darkSpotlightColor="rgba(139, 92, 246, 0.2)"
-                    >
+                {[...automateItems, ...automateItems, ...automateItems].map((item, index) => (
+                  <div key={index} className="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[55vw] lg:w-[48vw] h-[440px]">
+                    <SpotlightCard className="group h-full p-6 rounded-x liquid-glass">
+
                       <div className="flex flex-col h-full">
                         <div className="relative aspect-video w-full overflow-hidden rounded-x bg-neutral-900/50 mb-6">
-                          <iframe
-                            loading="lazy"
-                            src={src}
-                            className="absolute inset-0 h-full w-full border-none"
+                          <img
+                            src={item.media}
+                            className="absolute inset-0 h-full w-full object-cover"
                           />
                         </div>
                         <div className="mt-auto">
-                          <h4 className="text-2xl font-semibold text-neutral-900 dark:text-white">
-                            AI Automation System {index + 1}
+                          <h4 className="text-2xl font-semibold text-white">
+                            {item.title}
                           </h4>
-                          <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                            Advanced RAG-powered agentic workflows integrated with enterprise
-                            ecosystems.
+                          <p className="mt-2 text-neutral-400">
+                            {item.description}
                           </p>
                         </div>
                       </div>
