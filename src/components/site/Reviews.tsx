@@ -89,10 +89,6 @@ const ReviewCard = ({ review, name, position, service }: Review) => {
                 <span className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
                   {position}
                 </span>
-                <span className="h-1 w-1 rounded-full bg-neutral-300 dark:bg-neutral-700" />
-                <span className="text-sm font-semibold text-[#ff4d31] dark:text-[#ff4d31]">
-                  {service}
-                </span>
               </div>
             </div>
           </div>
@@ -132,7 +128,6 @@ export function Reviews({ rows = 2, items = reviews }: { rows?: 1 | 2; items?: R
           viewport={{ once: true }}
           className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] backdrop-blur-md px-3 py-1 text-xs font-semibold text-neutral-600 dark:text-neutral-300 uppercase tracking-wider"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" />
           Testimonials
         </motion.span>
 
@@ -143,8 +138,7 @@ export function Reviews({ rows = 2, items = reviews }: { rows?: 1 | 2; items?: R
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mt-6 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white"
         >
-          Real clients. Real results.{" "}
-          <span className="text-[#ff4d31] dark:text-[#ff4d31]">No fluff.</span>
+          Real clients. Real results.
         </motion.h2>
 
         <motion.p

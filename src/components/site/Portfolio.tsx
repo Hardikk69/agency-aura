@@ -11,10 +11,11 @@ const editVideos = [
 ];
 
 const designImages = [
-  "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2328&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1613909209432-7b4a422374dc?q=80&w=2328&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1581291518151-0e07553bb465?q=80&w=2328&auto=format&fit=crop",
+  "/assets/imgs/design_1.png",
+  "/assets/imgs/design_2.png",
+  "/assets/imgs/design_3.png",
+  "/assets/imgs/design_4.png",
+  "/assets/imgs/design_5.png",
 ];
 
 const automateItems = [

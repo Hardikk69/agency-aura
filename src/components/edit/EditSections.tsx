@@ -1118,12 +1118,6 @@ const editItems = [
     poster:
       "https://framerusercontent.com/images/JZOcw2Qtn21puWJbHgarML3XE.png?width=260&height=462",
   },
-  {
-    id: "MB8",
-    video: "/assets/video/8.mp4",
-    poster:
-      "https://framerusercontent.com/images/5jOtcgkwh7AOIWMWAQXhjcUGSuk.png?width=528&height=938",
-  }
 ];
 
 export const shortFormItems = [
@@ -1134,7 +1128,6 @@ export const shortFormItems = [
   editItems[4],
   editItems[5],
   editItems[6],
-  editItems[7],
 ];
 
 export const cinematicItems = [
@@ -1153,8 +1146,7 @@ interface PortfolioProps {
 }
 
 export function Portfolio({ items, title, subtitle, direction = "left" }: PortfolioProps) {
-  // Repeat items 5 times to ensure seamless infinite looping for smaller lists
-  const repeatedItems = [...items, ...items, ...items, ...items, ...items, ...items, ...items, ...items,];
+  const repeatedItems = [...items, ...items, ...items, ...items, ...items, ...items, ...items,];
 
   return (
     <section id="portfolio" className="relative w-full px-4 sm:px-6 md:px-8 py-12 md:py-16 overflow-hidden">

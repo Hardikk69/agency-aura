@@ -361,27 +361,27 @@ export function Services() {
 /* ---------- Portfolio (asymmetric editorial grid) ---------- */
 export const designWork = [
   {
-    img: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1400",
+    img: "/assets/imgs/design_1.png",
     title: "Lumen — Brand Identity",
     tag: "Identity",
   },
   {
-    img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1400",
+    img: "/assets/imgs/design_2.png",
     title: "Northwind Studio",
     tag: "Web Design",
   },
   {
-    img: "https://images.unsplash.com/photo-1581291518151-0e07553bb465?q=80&w=1400",
+    img: "/assets/imgs/design_3.png",
     title: "Atlas Pitch Deck",
     tag: "Deck",
   },
   {
-    img: "https://images.unsplash.com/photo-1613909209432-7b4a422374dc?q=80&w=1400",
+    img: "/assets/imgs/design_4.png",
     title: "Mira Editorial",
     tag: "Print",
   },
   {
-    img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1400",
+    img: "/assets/imgs/design_5.png",
     title: "Soft Goods Co.",
     tag: "Packaging",
   },
