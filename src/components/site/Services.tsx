@@ -1,3 +1,6 @@
+import { DesignAnimation } from "../animation/DesignAnimation";
+import { EditAnimation } from "../animation/EditAnimation";
+import { AutomationAnimation } from "../animation/AutomationAnimation";
 import * as React from "react";
 import { Sparkles, Code2, Bot, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -12,7 +15,7 @@ type Service = {
   tag: string;
   to: string;
   features: string[];
-  images: string;
+  animation: React.ComponentType;
 };
 
 const services: Service[] = [
@@ -20,9 +23,10 @@ const services: Service[] = [
     icon: Sparkles,
     title: "Design",
     description:
-      "From your website to your social feed - every touchpoint your audience sees, built to impress and convert. ",
+      "From your website to your social feed - every touchpoint your audience sees, built to impress and convert.",
     tag: "01",
     to: "/design",
+    animation: DesignAnimation,
     features: [
       "Website Design",
       "Pitch Deck Design",
@@ -30,8 +34,6 @@ const services: Service[] = [
       "Social Media Creatives",
       "Thumbnail Design",
     ],
-    images:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2340&auto=format&fit=crop",
   },
   {
     icon: Code2,
@@ -40,6 +42,7 @@ const services: Service[] = [
       "Raw footage in, scroll-stopping content out. Whether it's a 30-second reel or a 2-hour podcast - we handle the full edit.",
     tag: "02",
     to: "/edit",
+    animation: EditAnimation,
     features: [
       "Short-Form Editing (Insta, TikTok, Shorts)",
       "Long-Form Editing",
@@ -47,8 +50,6 @@ const services: Service[] = [
       "Retention-Focused Storytelling",
       "Platform-Optimized Deliverables",
     ],
-    images:
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
   },
   {
     icon: Bot,
@@ -57,23 +58,24 @@ const services: Service[] = [
       "We identify the tasks eating your time and replace them with systems that run 24/7 — no extra hires, no extra headaches.",
     tag: "03",
     to: "/automate",
+    animation: AutomationAnimation,
     features: [
       "Customised workflow automations",
       "Email & Voice agents",
       "Content Automation Pipelines",
       "Lead & CRM Automation",
-      "Multi- agents System",
+      "Multi-agents System",
     ],
-    images:
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2328&auto=format&fit=crop",
   },
 ];
 
 function ServiceCard({ service, index }: { service: Service; index: number }) {
+  const Animation = service.animation;
+
   return (
     <SpotlightCard
       className={cn(
-        "group h-full p-5 md:p-6 rounded-x",
+        "group h-full p-5 md:p-6 rounded-2xl",
         "liquid-glass dark:!bg-white/[0.04] dark:!shadow-none",
         "border-white/40 dark:border-white/10",
         "backdrop-blur-xl backdrop-saturate-150",
@@ -82,15 +84,15 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       darkSpotlightColor="rgba(255, 255, 255, 0.18)"
     >
       <div style={{ animationDelay: `${index * 60}ms` }} className="relative flex flex-col h-full">
-        {/* Image Grid Container */}
-        <div className="relative aspect-[1.4/1] w-full overflow-hidden rounded-x bg-black/40 mb-6">
-          <div className="relative h-full w-full overflow-hidden rounded-x bg-neutral-900/50">
-            <img
-              src={service.images}
-              alt=""
-              className="h-full w-full object-cover opacity-80 rounded-[0.75rem]"
-            />
-          </div>
+        {/* Animation container */}
+        <div className="relative aspect-[1.4/1] w-full overflow-hidden rounded-xl bg-gradient-to-br from-white/10 to-white/[0.02] border border-white/20 backdrop-blur-xl backdrop-saturate-150 mb-6">
+          <Animation />
+
+          {/* glass sheen */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/20" />
+
+          {/* top glow */}
+          <div className="pointer-events-none absolute -inset-x-4 -top-4 h-12 bg-white/20 blur-2xl opacity-50" />
         </div>
 
         <div className="flex items-center justify-between">
@@ -126,7 +128,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           <Button
             asChild
             variant="outline"
-            className="rounded-x px-6 py-3 h-auto w-fit border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-transform hover:scale-[1.03]"
+            className="rounded-xl px-6 py-3 h-auto w-fit border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-transform hover:scale-[1.03]"
           >
             <Link to={service.to}>Explore our services</Link>
           </Button>
