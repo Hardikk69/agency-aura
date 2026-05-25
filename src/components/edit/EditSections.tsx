@@ -236,19 +236,19 @@ export function VideoEditorSimulator() {
 
   const clips = [
     {
-      video: "/src/assets/video/1.mp4",
+      video: "/assets/video/1.mp4",
       poster:
         "https://framerusercontent.com/images/FHS0pgop7yjZHlGI56VGYUZULS0.png?width=260&height=462",
       subtitle: "Wait... how did I get 10M views?",
     },
     {
-      video: "/src/assets/video/2.mp4",
+      video: "/assets/video/2.mp4",
       poster:
         "https://framerusercontent.com/images/4kp2KImAJicjmXIczDErqcpt9FI.png?width=528&height=938",
       subtitle: "It all starts in the first 0.8 seconds.",
     },
     {
-      video: "/src/assets/video/3.mp4",
+      video: "/assets/video/3.mp4",
       poster:
         "https://framerusercontent.com/images/RJn1eKEVAnvuDEpP5MAM11elvU.png?width=260&height=462",
       subtitle: "Stop posting raw footage. Start editing.",
@@ -1078,73 +1078,63 @@ export function Services() {
 const editItems = [
   {
     id: "MB7",
-    video: "/src/assets/video/1.mp4",
+    video: "/assets/video/1.mp4",
     poster:
       "https://framerusercontent.com/images/FHS0pgop7yjZHlGI56VGYUZULS0.png?width=260&height=462",
-    href: "https://vimeo.com/1143953311/8aab1a81e8?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB11",
-    video: "/src/assets/video/2.mp4",
+    video: "/assets/video/2.mp4",
     poster:
       "https://framerusercontent.com/images/4kp2KImAJicjmXIczDErqcpt9FI.png?width=528&height=938",
-    href: "https://vimeo.com/1174145986/427225ea49?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB2",
-    video: "/src/assets/video/3.mp4",
+    video: "/assets/video/3.mp4",
     poster:
       "https://framerusercontent.com/images/RJn1eKEVAnvuDEpP5MAM11elvU.png?width=260&height=462",
-    href: "https://vimeo.com/1143954132/bec4bf157e?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB3",
-    video: "/src/assets/video/4.mp4",
+    video: "/assets/video/4.mp4",
     poster:
       "https://framerusercontent.com/images/JZOcw2Qtn21puWJbHgarML3XE.png?width=260&height=462",
-    href: "https://vimeo.com/1143953917/41ab983854?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB9",
-    video: "/src/assets/video/5.mp4",
+    video: "/assets/video/5.mp4",
     poster:
       "https://framerusercontent.com/images/5jOtcgkwh7AOIWMWAQXhjcUGSuk.png?width=528&height=938",
-    href: "https://vimeo.com/1174146179/0f7296afc1?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB4",
     video: "https://framerusercontent.com/assets/c70NvOV7x7cK8CCz0kQRT9DJltU.mp4",
     poster:
       "https://framerusercontent.com/images/GQAeNbLUrqex9RGI2FfI439LBk.png?width=260&height=462",
-    href: "https://vimeo.com/1143954375/0a03fb4ec3?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB12",
     video: "https://framerusercontent.com/assets/BgPlLUiH1jFRHkeCvF2QGKhaUQA.mp4",
     poster:
       "https://framerusercontent.com/images/wwd7Oo6fI1uymPjy9wsEth6V7o.png?width=528&height=938",
-    href: "https://vimeo.com/1174146059/ad16312f5c?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB8",
     video: "https://framerusercontent.com/assets/1G4pPgqcaGPnj3ThDhFwyzD9juQ.mp4",
     poster:
       "https://framerusercontent.com/images/NtF9fOocoLKR8ft90SP7R6ESM.png?width=260&height=462",
-    href: "https://vimeo.com/1143953734/af4106fe21?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB6",
     video: "https://framerusercontent.com/assets/SMpnsxQquq79MZxfVeLjCdSGGjk.mp4",
     poster:
       "https://framerusercontent.com/images/v0GaV0fEBKAk5YB6pTctysPxo.png?width=260&height=462",
-    href: "https://vimeo.com/1143954014/e70a41db6b?share=copy&fl=sv&fe=ci",
   },
   {
     id: "MB10",
     video: "https://framerusercontent.com/assets/E9QNaYVhbnAn1ieUe9lvdpc8Z8.mp4",
     poster:
       "https://framerusercontent.com/images/BnuLIU2FE0lmg7cx1EyRcombots.png?width=528&height=938",
-    href: "https://vimeo.com/1174146107/908cbc0828?share=copy&fl=sv&fe=ci",
   },
 ];
 
@@ -1230,7 +1220,6 @@ export function Portfolio({ items, title, subtitle, direction = "left" }: Portfo
                 className="w-[234px] md:w-[288px] h-[416px] md:h-[512px] flex-shrink-0 relative overflow-hidden group transition-all duration-300 border border-white/20 dark:border-white/10 shadow-lg hover:shadow-2xl hover:scale-[1.02]"
               >
                 <a
-                  href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full h-full"
@@ -1238,13 +1227,16 @@ export function Portfolio({ items, title, subtitle, direction = "left" }: Portfo
                   {/* Video File */}
                   <div className="w-full h-full transition-opacity duration-500">
                     <video
-                      src={item.video}
-                      loop
-                      muted
-                      playsInline
-                      autoPlay
                       className="w-full h-full object-cover"
-                    />
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      webkit-playsinline="true"
+                    >
+                      <source src={item.video} type="video/mp4" />
+                    </video>
                   </div>
 
                   {/* Decorative Play Overlay */}
@@ -1571,3 +1563,30 @@ export function Packages() {
     </section>
   );
 }
+
+export const editReviews = [
+  {
+    review: "The editing was incredibly crisp. Pacing was perfect for retention.",
+    name: "Alex Vance",
+    position: "Creator",
+    service: "Short-form Reels",
+  },
+  {
+    review: "They turned our raw footage into a cinematic masterpiece. Highly recommend.",
+    name: "Samantha Lee",
+    position: "Director",
+    service: "Cinematic Edits",
+  },
+  {
+    review: "Fast turnaround and high quality output. Captured our vision exactly.",
+    name: "Marcus Cole",
+    position: "Marketing Manager",
+    service: "YouTube Long-form",
+  },
+  {
+    review: "Every cut felt intentional. It significantly boosted our engagement.",
+    name: "Elena Rodriguez",
+    position: "Brand Lead",
+    service: "Commercial Video",
+  },
+];

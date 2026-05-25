@@ -23,7 +23,7 @@ const services = [
 
 const navLinks = [
   { label: "Portfolio", href: "#portfolio", icon: FolderHeart },
-  { label: "Why Us?", href: "#why-choose-us", icon: Info },
+  { label: "Why Us", href: "#why-choose-us", icon: Info },
   { label: "Reviews", href: "#reviews", icon: HelpCircle },
 ];
 

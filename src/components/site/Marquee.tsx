@@ -1,16 +1,11 @@
 import { cn } from "@/lib/utils";
-import vrgLogo from "@/assets/imgs/vrg.png";
-import hireboundLogo from "@/assets/imgs/hirebound.png";
-import carillonLogo from "@/assets/imgs/carillon.png";
-import accruviaLogo from "@/assets/imgs/accruvia.png";
-import planLogo from "@/assets/imgs/plan.png";
 
 const logos = [
-  { name: "VRG Bio Pharma", src: vrgLogo },
-  { name: "HireBound", src: hireboundLogo },
-  { name: "Carillon Parc", src: carillonLogo },
-  { name: "AccRuvia", src: accruviaLogo },
-  { name: "Plan Retire Travel", src: planLogo },
+  { name: "VRG Bio Pharma", src: "/assets/imgs/vrg.png" },
+  { name: "HireBound", src: "/assets/imgs/hirebound.png" },
+  { name: "Carillon Parc", src: "/assets/imgs/carillon.png" },
+  { name: "AccRuvia", src: "/assets/imgs/accruvia.png" },
+  { name: "Plan Retire Travel", src: "/assets/imgs/plan.png" },
 ];
 
 export function LogoMarquee() {

@@ -30,6 +30,7 @@ import {
   Packages,
   shortFormItems,
   cinematicItems,
+  editReviews,
 } from "@/components/edit/EditSections";
 
 function EditPage() {
@@ -52,7 +53,7 @@ function EditPage() {
         subtitle="Premium corporate messaging, rich sound design, and color grading tuned for conversion."
         direction="right"
       /> */}
-      <Reviews rows={1} />
+      <Reviews rows={1} items={editReviews} />
       <Packages />
       <CombinedPackage />
     </PageShell>

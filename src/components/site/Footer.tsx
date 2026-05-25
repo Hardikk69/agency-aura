@@ -6,7 +6,7 @@ import { Twitter, Linkedin, Instagram, Info } from "lucide-react";
 const footerLinks = [
   { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
-  { label: "Why Us?", href: "#why-choose-us" },
+  { label: "Why Us", href: "#why-choose-us" },
   { label: "Reviews", href: "#reviews" },
 ];
 
