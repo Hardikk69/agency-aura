@@ -7,7 +7,7 @@ const editVideos = [
   "/assets/video/1.mp4",
   "/assets/video/2.mp4",
   "/assets/video/3.mp4",
-  "/assets/video/4.mp4",
+  "/assets/video/6.mp4",
 ];
 
 const designImages = [
