@@ -391,7 +391,40 @@ function Services() {
 }
 
 /* ---------- Portfolio (gorgeous scroll-stack and industry filtering) ---------- */
+
 const industries = {
+  realestate: {
+    name: "Real Estate",
+    icon: Home,
+    items: [
+      {
+        title: "AI Lead Booking & Nurture Agent", problemPoints: [
+          "Content production requires multiple specialized roles",
+          "Research and drafting consume excessive internal bandwidth",
+          "Maintaining publishing consistency becomes difficult at scale",
+        ],
+        solutionPoints: [
+          "Multi-agent workflow automates research and drafting",
+          "Repurposes content into newsletters and social campaigns",
+          "Maintains consistent output with minimal human oversight",
+        ], videoUrl:
+          "/assets/imgs/Construction_Automation.png",
+        },
+        {
+        title: "Property Listing Content Pipeline", problemPoints: [
+          "Content production requires multiple specialized roles",
+          "Research and drafting consume excessive internal bandwidth",
+          "Maintaining publishing consistency becomes difficult at scale",
+        ],
+        solutionPoints: [
+          "Multi-agent workflow automates research and drafting",
+          "Repurposes content into newsletters and social campaigns",
+          "Maintains consistent output with minimal human oversight",
+        ], videoUrl:
+        "/assets/imgs/BulkEmail_Automation.png",
+      },
+    ],
+  },
   marketing: {
     name: "Marketing & Agencies",
     icon: Megaphone,
@@ -459,38 +492,6 @@ const industries = {
       },
     ],
   },
-  realestate: {
-    name: "Real Estate",
-    icon: Home,
-    items: [
-      {
-        title: "AI Lead Booking & Nurture Agent", problemPoints: [
-          "Content production requires multiple specialized roles",
-          "Research and drafting consume excessive internal bandwidth",
-          "Maintaining publishing consistency becomes difficult at scale",
-        ],
-        solutionPoints: [
-          "Multi-agent workflow automates research and drafting",
-          "Repurposes content into newsletters and social campaigns",
-          "Maintains consistent output with minimal human oversight",
-        ], videoUrl:
-          "https://assets.mixkit.co/videos/preview/mixkit-technological-nodes-connecting-with-lines-and-dots-48574-large.mp4",
-      },
-      {
-        title: "Property Listing Content Pipeline", problemPoints: [
-          "Content production requires multiple specialized roles",
-          "Research and drafting consume excessive internal bandwidth",
-          "Maintaining publishing consistency becomes difficult at scale",
-        ],
-        solutionPoints: [
-          "Multi-agent workflow automates research and drafting",
-          "Repurposes content into newsletters and social campaigns",
-          "Maintains consistent output with minimal human oversight",
-        ], videoUrl:
-          "https://assets.mixkit.co/videos/preview/mixkit-motherboard-of-a-computer-with-glowing-tracks-48566-large.mp4",
-      },
-    ],
-  },
   saas: {
     name: "SaaS & Tech",
     icon: Cpu,
@@ -528,15 +529,14 @@ const industries = {
 function Portfolio() {
   const [activeIndustry, setActiveIndustry] = useState<keyof typeof industries>("marketing");
   const [activeItemIndex, setActiveItemIndex] = useState<number>(0);
-
+  
   // Reset active item index when changing industry
   React.useEffect(() => {
     setActiveItemIndex(0);
-  }, [activeIndustry]);
-
+  }, [activeIndustry]); 
   const activeItems = industries[activeIndustry].items;
   const activeItem = activeItems[activeItemIndex] || activeItems[0];
-
+console.log(activeItemIndex);
   return (
     <section
       id="portfolio"
@@ -762,13 +762,9 @@ function Portfolio() {
 
                       {/* Video wrapper */}
                       <div className="w-full h-[calc(100%-28px)] relative bg-black">
-                        <video
+                        <img
                           src={activeItem.videoUrl}
-                          loop
-                          muted
-                          playsInline
-                          autoPlay
-                          className="w-full h-full object-cover opacity-85 group-hover/video:opacity-100 transition-opacity duration-300"
+                          className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-300"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                         <div className="absolute top-2.5 right-2.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-500 dark:text-emerald-400 text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full flex items-center gap-1 backdrop-blur-md">
