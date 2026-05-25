@@ -1077,65 +1077,53 @@ export function Services() {
 /* ---------- Portfolio (skewed continuous video marquee) ---------- */
 const editItems = [
   {
-    id: "MB7",
+    id: "MB1",
     video: "/assets/video/1.mp4",
     poster:
       "https://framerusercontent.com/images/FHS0pgop7yjZHlGI56VGYUZULS0.png?width=260&height=462",
   },
   {
-    id: "MB11",
+    id: "MB2",
     video: "/assets/video/2.mp4",
     poster:
       "https://framerusercontent.com/images/4kp2KImAJicjmXIczDErqcpt9FI.png?width=528&height=938",
   },
   {
-    id: "MB2",
+    id: "MB3",
     video: "/assets/video/3.mp4",
     poster:
       "https://framerusercontent.com/images/RJn1eKEVAnvuDEpP5MAM11elvU.png?width=260&height=462",
   },
   {
-    id: "MB3",
+    id: "MB4",
     video: "/assets/video/4.mp4",
     poster:
       "https://framerusercontent.com/images/JZOcw2Qtn21puWJbHgarML3XE.png?width=260&height=462",
   },
   {
-    id: "MB9",
+    id: "MB5",
     video: "/assets/video/5.mp4",
     poster:
       "https://framerusercontent.com/images/5jOtcgkwh7AOIWMWAQXhjcUGSuk.png?width=528&height=938",
   },
   {
-    id: "MB4",
-    video: "https://framerusercontent.com/assets/c70NvOV7x7cK8CCz0kQRT9DJltU.mp4",
+    id: "MB6",
+    video: "/assets/video/6.mp4",
     poster:
-      "https://framerusercontent.com/images/GQAeNbLUrqex9RGI2FfI439LBk.png?width=260&height=462",
+      "https://framerusercontent.com/images/RJn1eKEVAnvuDEpP5MAM11elvU.png?width=260&height=462",
   },
   {
-    id: "MB12",
-    video: "https://framerusercontent.com/assets/BgPlLUiH1jFRHkeCvF2QGKhaUQA.mp4",
+    id: "MB7",
+    video: "/assets/video/7.mp4",
     poster:
-      "https://framerusercontent.com/images/wwd7Oo6fI1uymPjy9wsEth6V7o.png?width=528&height=938",
+      "https://framerusercontent.com/images/JZOcw2Qtn21puWJbHgarML3XE.png?width=260&height=462",
   },
   {
     id: "MB8",
-    video: "https://framerusercontent.com/assets/1G4pPgqcaGPnj3ThDhFwyzD9juQ.mp4",
+    video: "/assets/video/8.mp4",
     poster:
-      "https://framerusercontent.com/images/NtF9fOocoLKR8ft90SP7R6ESM.png?width=260&height=462",
-  },
-  {
-    id: "MB6",
-    video: "https://framerusercontent.com/assets/SMpnsxQquq79MZxfVeLjCdSGGjk.mp4",
-    poster:
-      "https://framerusercontent.com/images/v0GaV0fEBKAk5YB6pTctysPxo.png?width=260&height=462",
-  },
-  {
-    id: "MB10",
-    video: "https://framerusercontent.com/assets/E9QNaYVhbnAn1ieUe9lvdpc8Z8.mp4",
-    poster:
-      "https://framerusercontent.com/images/BnuLIU2FE0lmg7cx1EyRcombots.png?width=528&height=938",
-  },
+      "https://framerusercontent.com/images/5jOtcgkwh7AOIWMWAQXhjcUGSuk.png?width=528&height=938",
+  }
 ];
 
 export const shortFormItems = [
@@ -1144,14 +1132,17 @@ export const shortFormItems = [
   editItems[2],
   editItems[3],
   editItems[4],
-];
-
-export const cinematicItems = [
   editItems[5],
   editItems[6],
   editItems[7],
-  editItems[8],
-  editItems[9],
+];
+
+export const cinematicItems = [
+  editItems[0],
+  editItems[1],
+  editItems[7],
+  editItems[2],
+  editItems[3],
 ];
 
 interface PortfolioProps {
@@ -1163,7 +1154,7 @@ interface PortfolioProps {
 
 export function Portfolio({ items, title, subtitle, direction = "left" }: PortfolioProps) {
   // Repeat items 5 times to ensure seamless infinite looping for smaller lists
-  const repeatedItems = [...items, ...items, ...items, ...items, ...items];
+  const repeatedItems = [...items, ...items, ...items, ...items, ...items, ...items, ...items, ...items,];
 
   return (
     <section id="portfolio" className="relative w-full px-4 sm:px-6 md:px-8 py-12 md:py-16 overflow-hidden">
@@ -1209,8 +1200,7 @@ export function Portfolio({ items, title, subtitle, direction = "left" }: Portfo
           }}
         >
           <div
-            className="flex w-max gap-4 animate-marquee py-2 hover:[animation-play-state:paused]"
-            style={{
+            className="flex w-max gap-4 animate-marquee [animation-duration:60s] py-2 hover:[animation-play-state:paused]" style={{
               animationDirection: direction === "right" ? "reverse" : "normal",
             }}
           >
