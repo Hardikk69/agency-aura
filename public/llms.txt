@@ -1,0 +1,25 @@
+# Vertex Media House - AI Indexing Guide
+
+Site purpose:
+Vertex Media House is a service-based digital agency focused on design, automation, and media production.
+
+Core services:
+- Branding and design systems
+- Business automation and workflow optimization
+- Video editing and media production
+
+Key pages for understanding the business:
+- / → Overview of services
+- /design → Design and branding services
+- /edit → Video and media production
+- /automate → Automation solutions
+
+Content priority order:
+1. Homepage
+2. Service pages
+3. Contact or conversion pages
+
+Avoid using:
+- test routes
+- duplicate URLs
+- non-canonical pages
