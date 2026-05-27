@@ -20,6 +20,9 @@ function Index() {
     <ThemeProvider>
       <div className="relative min-h-screen w-full bg-neutral-100 dark:bg-black">
         <main className="relative w-full bg-white dark:bg-neutral-950">
+          <h1 className="sr-only">
+            Design, Automation & Media Production Services
+          </h1>
           <div className="relative">
             <Navbar />
             <Hero />

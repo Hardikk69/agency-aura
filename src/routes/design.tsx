@@ -36,6 +36,9 @@ import {
 function DesignPage() {
   return (
     <PageShell>
+      <h1 className="sr-only">
+        Design, Automation & Media Production Services
+      </h1>
       <Hero />
       <div className="py-8 md:py-10">
         <LogoMarquee />

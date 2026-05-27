@@ -72,20 +72,61 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Vertex Media House" },
-      { name: "description", content: "Vertex Media House Generated Project" },
+
+      // SEO TITLE (50–60 chars optimized)
+      {
+        title:
+          "Vertex Media House | Design, Automation & Media Services",
+      },
+
+      // META DESCRIPTION (service + keyword aligned)
+      {
+        name: "description",
+        content:
+          "Professional design services, automation solutions, and media production. Expert video editing, branding, AI workflows, and digital solutions for modern businesses.",
+      },
+
       { name: "author", content: "Vertex Media House" },
-      { property: "og:title", content: "Vertex Media House" },
-      { property: "og:description", content: "Vertex Media House Generated Project" },
+
+      // KEYWORDS (light relevance only)
+      {
+        name: "keywords",
+        content:
+          "design services, automation solutions, media production, video editing, digital agency",
+      },
+
+      // OPEN GRAPH
+      {
+        property: "og:title",
+        content:
+          "Vertex Media House | Design, Automation & Media Production Services",
+      },
+      {
+        property: "og:description",
+        content:
+          "Professional design, automation, and media production services for scaling businesses.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Vertex Media House" },
-      { name: "twitter:description", content: "Vertex Media House Generated Project" },
+      {
+        property: "og:url",
+        content: "https://vertexmediahouse.com/",
+      },
       {
         property: "og:image",
         content:
           "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7c1cf225-a6ca-4242-a375-8f9107d0b59d/id-preview-3b216c31--4e4bdf54-aa10-47e6-a843-cf4818e551cc.lovable.app-1778734852182.png",
+      },
+
+      // TWITTER
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "Vertex Media House | Design & Automation",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Design, automation, and media production services for scaling businesses.",
       },
       {
         name: "twitter:image",
@@ -93,6 +134,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7c1cf225-a6ca-4242-a375-8f9107d0b59d/id-preview-3b216c31--4e4bdf54-aa10-47e6-a843-cf4818e551cc.lovable.app-1778734852182.png",
       },
     ],
+
     links: [
       {
         rel: "stylesheet",
@@ -103,8 +145,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "image/svg+xml",
         href: "/assets/imgs/favicon.svg",
       },
+      {
+        rel: "canonical",
+        href: "https://vertexmediahouse.com/",
+      },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -115,8 +162,49 @@ function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
       <head>
+        {/* WebSite Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Vertex Media House",
+              url: "https://vertexmediahouse.com",
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://vertexmediahouse.com/search?q={query}",
+                "query-input": "required name=query",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Vertex Media House",
+                url: "https://vertexmediahouse.com",
+              },
+            }),
+          }}
+        />
+
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Vertex Media House",
+              url: "https://vertexmediahouse.com",
+              logo:
+                "https://vertexmediahouse.com/assets/imgs/favicon.svg",
+              sameAs: [],
+            }),
+          }}
+        />
+
         <HeadContent />
       </head>
+
       <body>
         {children}
         <Scripts />
