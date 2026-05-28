@@ -140,16 +140,34 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
+
       {
         rel: "icon",
-        type: "image/svg+xml",
-        href: "/assets/imgs/favicon.svg",
+        href: "/favicon.ico",
+      },
+
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "/favicon-32.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        href: "/favicon-16.png",
+      },
+
+      {
+        rel: "apple-touch-icon",
+        href: "/apple-touch-icon.png",
       },
       {
         rel: "canonical",
         href: "https://vertexmediahouse.com/",
       },
-    ],
+    ]
   }),
 
   shellComponent: RootShell,
