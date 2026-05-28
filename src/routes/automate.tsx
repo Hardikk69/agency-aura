@@ -155,7 +155,7 @@ function Hero() {
             >
               <Button
                 className="rounded-xl px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-[#ff4d31] dark:text-white dark:hover:bg-[#e8462c]"
-                data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+                data-cal-link="dhrumil-sanghvi/15min"
                 data-cal-config='{"layout":"month_view"}'
               >
                 Book a Call
@@ -729,7 +729,7 @@ console.log(activeItemIndex);
                       className="w-1/2 rounded-xl px-6 py-3 mt-6 h-auto border-neutral-300 dark:border-neutral-700 bg-transparent"
                     >
                       <a
-                        data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+                        data-cal-link="dhrumil-sanghvi/15min"
                         data-cal-config='{"layout":"month_view"}'
                       >
                         Book a Live Demo

@@ -833,7 +833,7 @@ export function Hero() {
             >
               <Button
                 className="rounded-xl px-6 py-3 h-auto bg-[#ff4d31] text-white hover:bg-[#e8462c]"
-                data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+                data-cal-link="dhrumil-sanghvi/15min"
                 data-cal-config='{"layout":"month_view"}'
               >
                 Book a Call
@@ -1471,7 +1471,7 @@ export function PackageCard({ pkg, index }: { pkg: (typeof packages)[0]; index: 
                 ? "bg-[#ff4d31] text-white hover:bg-[#e8462c] shadow-lg shadow-[#ff4d31]/20 hover:shadow-xl hover:shadow-[#ff4d31]/30"
                 : "bg-white/10 dark:bg-white/[0.06] text-neutral-900 dark:text-white border border-neutral-200/50 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/[0.1]",
             )}
-            data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+            data-cal-link="dhrumil-sanghvi/15min"
             data-cal-config='{"layout":"month_view"}'
           >
             {pkg.cta}

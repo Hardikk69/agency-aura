@@ -85,7 +85,7 @@ export function Hero() {
           <div className="relative group">
             <Button
               className="rounded-xl px-6 py-3 h-auto bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03]"
-              data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+              data-cal-link="dhrumil-sanghvi/15min"
               data-cal-config='{"layout":"month_view"}'
             >
               Book a Call

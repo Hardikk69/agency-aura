@@ -125,7 +125,7 @@ export function Navbar() {
           </Button>
           <Button
             className="rounded-x bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 transition-transform hover:scale-[1.03] ml-2"
-            data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+            data-cal-link="dhrumil-sanghvi/15min"
             data-cal-config='{"layout":"month_view"}'
           >
             Book a Call
@@ -186,7 +186,7 @@ export function Navbar() {
                 <Button
                   className="mt-2 rounded-full bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900"
                   onClick={() => setMobileOpen(false)}
-                  data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
+                  data-cal-link="dhrumil-sanghvi/15min"
                   data-cal-config='{"layout":"month_view"}'
                 >
                   Book a Call

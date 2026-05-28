@@ -55,12 +55,12 @@ export function CalendarCTA() {
 
     // Initialize Cal.com namespace
     if (win.Cal) {
-      win.Cal("init", "30min", { origin: "https://app.cal.com" });
+      win.Cal("init", "15min", { origin: "https://app.cal.com" });
 
       // Detect current theme from <html> class
       const isDark = document.documentElement.classList.contains("dark");
 
-      win.Cal.ns["30min"]("ui", {
+      win.Cal.ns["15min"]("ui", {
         theme: isDark ? "dark" : "light",
         hideEventTypeDetails: false,
         layout: "month_view",
@@ -185,7 +185,7 @@ export function CalendarCTA() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 max-w-2xl text-lg md:text-xl text-neutral-600 dark:text-neutral-400 font-medium"
           >
-            Book a free 20-minute call with our team. We'll look at your content, design, and workflows — and tell you exactly what we'd fix and how. 
+            Book a free 20-minute call with our team. We'll look at your content, design, and workflows — and tell you exactly what we'd fix and how.
           </motion.p>
 
           {/* Trust badges */}
@@ -288,8 +288,8 @@ export function CalendarCTA() {
                               : "text-neutral-350 dark:text-neutral-700 cursor-not-allowed opacity-20",
                           )}
                           // Embed Cal.com triggering directly onto day selections
-                          data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
-                          data-cal-namespace="30min"
+                          data-cal-link="dhrumil-sanghvi/15min"
+                          data-cal-namespace="15min"
                           data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                         >
                           {item.day}
@@ -339,8 +339,8 @@ export function CalendarCTA() {
                                   ? "bg-[#ff4d31] text-white border-[#ff4d31] shadow-lg shadow-[#ff4d31]/20"
                                   : "border-black/10 dark:border-white/[0.08] bg-white/30 dark:bg-white/[0.01] hover:border-[#ff4d31]/50 text-neutral-850 dark:text-neutral-300",
                               )}
-                              data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
-                              data-cal-namespace="30min"
+                              data-cal-link="dhrumil-sanghvi/15min"
+                              data-cal-namespace="15min"
                               data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                             >
                               {slot}
@@ -364,8 +364,8 @@ export function CalendarCTA() {
             <button
               className="group w-full max-w-[360px] md:w-auto liquid-glass bg-white/50 dark:bg-white/[0.02] border border-black/10 dark:border-white/[0.12] text-neutral-850 dark:text-neutral-200 rounded-[5px] flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-black/[0.05] dark:hover:shadow-black/20 hover:border-[#ff4d31]/50 cursor-pointer"
               // Cal.com click action integration
-              data-cal-link="dhrumil-sanghvi-4kxjvq/30min"
-              data-cal-namespace="30min"
+              data-cal-link="dhrumil-sanghvi/15min"
+              data-cal-namespace="15min"
               data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
             >
               <span className="px-6 md:px-12 py-3.5 font-bold text-xs uppercase tracking-widest whitespace-nowrap">
