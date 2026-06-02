@@ -76,14 +76,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       // SEO TITLE (50–60 chars optimized)
       {
         title:
-          "Vertex Media House | Design, Automation & Media Services",
+          "Vertex Media House | Design, Edit & AI Automation",
       },
 
       // META DESCRIPTION (service + keyword aligned)
       {
         name: "description",
         content:
-          "Professional design services, automation solutions, and media production. Expert video editing, branding, AI workflows, and digital solutions for modern businesses.",
+          "Professional design services, automation solutions, and media production. Expert video editing, AI workflows, and digital solutions for modern businesses.",
       },
 
       { name: "author", content: "Vertex Media House" },
