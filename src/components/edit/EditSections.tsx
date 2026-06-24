@@ -1133,7 +1133,7 @@ export const shortFormItems = [
 export const cinematicItems = [
   editItems[0],
   editItems[1],
-  editItems[7],
+  editItems[4],
   editItems[2],
   editItems[3],
 ];
@@ -1145,11 +1145,109 @@ interface PortfolioProps {
   direction?: "left" | "right";
 }
 
-export function Portfolio({ items, title, subtitle, direction = "left" }: PortfolioProps) {
-  const repeatedItems = [...items, ...items, ...items, ...items, ...items, ...items, ...items,];
+export function Portfolio({
+  items,
+  title,
+  subtitle,
+  direction = "left",
+}: PortfolioProps) {
+  const repeatedItems = [...items, ...items];
+
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [playStates, setPlayStates] = useState<boolean[]>([]);
+  const [muteStates, setMuteStates] = useState<boolean[]>([]);
+
+  useEffect(() => {
+    const len = repeatedItems.length;
+    setPlayStates(new Array(len).fill(true));
+    setMuteStates(new Array(len).fill(true));
+  }, [repeatedItems.length]);
+
+  const togglePlay = (idx: number, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const v = videoRefs.current[idx];
+    if (!v) return;
+    if (v.paused) {
+      v.play();
+      setPlayStates((prev) => { const next = [...prev]; next[idx] = true; return next; });
+    } else {
+      v.pause();
+      setPlayStates((prev) => { const next = [...prev]; next[idx] = false; return next; });
+    }
+  };
+
+  const toggleMute = (idx: number, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const v = videoRefs.current[idx];
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuteStates((prev) => { const next = [...prev]; next[idx] = v.muted; return next; });
+  };
+
+  const openFullscreen = (idx: number, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const v = videoRefs.current[idx];
+    if (!v) return;
+
+    // Apply contain so vertical video never stretches on a horizontal screen
+    const applyContain = () => {
+      v.style.position = "fixed";
+      v.style.inset = "0";
+      v.style.width = "100vw";
+      v.style.height = "100vh";
+      v.style.objectFit = "contain";
+      v.style.background = "#000";
+      v.style.zIndex = "9999";
+    };
+
+    const revertContain = () => {
+      v.style.position = "";
+      v.style.inset = "";
+      v.style.width = "";
+      v.style.height = "";
+      v.style.objectFit = "";
+      v.style.background = "";
+      v.style.zIndex = "";
+    };
+
+    // Native fullscreen — objectFit contain is applied via CSS in fullscreen pseudo-class
+    // We inject a one-time <style> tag if not already present
+    if (!document.getElementById("_vx-fs-style")) {
+      const style = document.createElement("style");
+      style.id = "_vx-fs-style";
+      style.textContent = `
+        video:fullscreen { object-fit: contain; background: #000; }
+        video:-webkit-full-screen { object-fit: contain; background: #000; }
+        video:-moz-full-screen { object-fit: contain; background: #000; }
+      `;
+      document.head.appendChild(style);
+    }
+
+    if (v.requestFullscreen) {
+      v.requestFullscreen();
+    } else if ((v as any).webkitEnterFullscreen) {
+      // iOS Safari — no native fullscreen API, use fixed overlay fallback
+      applyContain();
+      const exit = (ev: KeyboardEvent | TouchEvent) => {
+        if ("key" in ev && ev.key !== "Escape") return;
+        revertContain();
+        document.removeEventListener("keydown", exit as EventListener);
+        v.removeEventListener("touchend", exit as EventListener);
+      };
+      document.addEventListener("keydown", exit as EventListener);
+      v.addEventListener("touchend", exit as EventListener);
+      (v as any).webkitEnterFullscreen();
+    }
+  };
 
   return (
-    <section id="portfolio" className="relative w-full px-4 sm:px-6 md:px-8 py-12 md:py-16 overflow-hidden">
+    <section
+      id="portfolio"
+      className="relative w-full px-4 sm:px-6 md:px-8 py-12 md:py-16 overflow-hidden"
+    >
       <SectionGlow />
       <div className="absolute bottom-10 left-10 hidden md:block text-[#ff4d31]/40 doodle-float">
         <PlayDoodle className="h-14 w-14" />
@@ -1167,6 +1265,7 @@ export function Portfolio({ items, title, subtitle, direction = "left" }: Portfo
               <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d31] animate-pulse" />
               Portfolio
             </motion.span>
+
             <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-950 dark:text-white">
               {title}
             </h2>
@@ -1179,9 +1278,9 @@ export function Portfolio({ items, title, subtitle, direction = "left" }: Portfo
         className="relative w-full overflow-hidden flex items-center py-6 select-none"
         style={{
           maskImage:
-            "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 15%, rgb(0, 0, 0) 85%, rgba(0, 0, 0, 0) 100%)",
+            "linear-gradient(to right, rgba(0,0,0,0) 0%, black 15%, black 85%, rgba(0,0,0,0) 100%)",
           WebkitMaskImage:
-            "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 15%, rgb(0, 0, 0) 85%, rgba(0, 0, 0, 0) 100%)",
+            "linear-gradient(to right, rgba(0,0,0,0) 0%, black 15%, black 85%, rgba(0,0,0,0) 100%)",
         }}
       >
         <div
@@ -1192,42 +1291,96 @@ export function Portfolio({ items, title, subtitle, direction = "left" }: Portfo
           }}
         >
           <div
-            className="flex w-max gap-4 animate-marquee [animation-duration:60s] py-2 hover:[animation-play-state:paused]" style={{
-              animationDirection: direction === "right" ? "reverse" : "normal",
-            }}
+            className="flex w-max gap-4 animate-marquee [animation-duration:120s] py-2 hover:[animation-play-state:paused]"
+            style={{ animationDirection: direction === "right" ? "reverse" : "normal" }}
           >
             {repeatedItems.map((item, idx) => (
               <div
-                key={`${item.id}-${idx}`}
-                className="w-[234px] md:w-[288px] h-[416px] md:h-[512px] flex-shrink-0 relative overflow-hidden group transition-all duration-300 border border-white/20 dark:border-white/10 shadow-lg hover:shadow-2xl hover:scale-[1.02]"
-              >
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full h-full"
+                key={`portfolio-${idx}`}
+                className={`
+  group
+  ${idx === 1 && direction === "right" ? "w-[468px] md:w-[576px]" : "w-[234px] md:w-[288px]"}
+  h-[416px] md:h-[512px]
+  flex-shrink-0
+  relative
+  overflow-hidden
+  rounded-xl
+  border border-white/20 dark:border-white/10
+  shadow-lg hover:shadow-2xl hover:scale-[1.02]
+  transition-all duration-300
+`}>
+                {/* Video */}
+                <video
+                  ref={(el) => { videoRefs.current[idx] = el; }}
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
                 >
-                  {/* Video File */}
-                  <div className="w-full h-full transition-opacity duration-500">
-                    <video
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      webkit-playsinline="true"
-                    >
-                      <source src={item.video} type="video/mp4" />
-                    </video>
-                  </div>
+                  <source src={item.video} type="video/mp4" />
+                </video>
 
-                  {/* Decorative Play Overlay */}
-                  <div className="absolute inset-0 bg-black/25 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                    <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
-                      <Play className="w-4 h-4 text-white fill-white translate-x-[1px]" />
-                    </div>
-                  </div>
-                </a>
+                {/* Gradient scrim */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                {/* ── TOP RIGHT: Mute / Unmute ── */}
+                <button
+                  type="button"
+                  onClick={(e) => toggleMute(idx, e)}
+                  aria-label={muteStates[idx] ? "Unmute" : "Mute"}
+                  className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-md border border-white/20 text-white opacity-0 group-hover:opacity-100 translate-y-[-4px] group-hover:translate-y-0 transition-all duration-300 ease-out hover:bg-black/60 active:scale-95 cursor-pointer z-20"
+                >
+                  {muteStates[idx] ? (
+                    /* Muted */
+                    <svg viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5">
+                      <path d="M7.5 2L4 5H1.5A.5.5 0 001 5.5v5a.5.5 0 00.5.5H4l3.5 3V2z" />
+                      <line x1="10.5" y1="5" x2="14.5" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                      <line x1="14.5" y1="5" x2="10.5" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
+                  ) : (
+                    /* Unmuted */
+                    <svg viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5">
+                      <path d="M7.5 2L4 5H1.5A.5.5 0 001 5.5v5a.5.5 0 00.5.5H4l3.5 3V2z" />
+                      <path d="M10 5.5a3.5 3.5 0 010 5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                      <path d="M12 3.5a6 6 0 010 9" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    </svg>
+                  )}
+                </button>
+
+                {/* ── CENTER: Play / Pause ── */}
+                <button
+                  type="button"
+                  onClick={(e) => togglePlay(idx, e)}
+                  aria-label={playStates[idx] ? "Pause" : "Play"}
+                  className="absolute inset-0 m-auto w-12 h-12 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-md border border-white/25 text-white opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-300 ease-out hover:bg-black/60 active:scale-95 cursor-pointer z-20"
+                >
+                  {playStates[idx] ? (
+                    /* Pause */
+                    <svg viewBox="0 0 16 16" fill="currentColor" className="w-5 h-5">
+                      <rect x="3" y="2" width="3.5" height="12" rx="1" />
+                      <rect x="9.5" y="2" width="3.5" height="12" rx="1" />
+                    </svg>
+                  ) : (
+                    /* Play */
+                    <svg viewBox="0 0 16 16" fill="currentColor" className="w-5 h-5 translate-x-[1px]">
+                      <path d="M4 2.5l9 5.5-9 5.5V2.5z" />
+                    </svg>
+                  )}
+                </button>
+
+                {/* ── BOTTOM RIGHT: Fullscreen ── */}
+                <button
+                  type="button"
+                  onClick={(e) => openFullscreen(idx, e)}
+                  aria-label="Fullscreen"
+                  className="absolute bottom-3 right-3 w-8 h-8 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-md border border-white/20 text-white opacity-0 group-hover:opacity-100 translate-y-[4px] group-hover:translate-y-0 transition-all duration-300 ease-out hover:bg-black/60 active:scale-95 cursor-pointer z-20"
+                >
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-3.5 h-3.5">
+                    <path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" />
+                  </svg>
+                </button>
               </div>
             ))}
           </div>
